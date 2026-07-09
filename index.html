@@ -14,7 +14,6 @@
     <style>
         body {
             font-family: 'Noto Sans TC', 'Courier New', monospace;
-            /* Replace page body background with user's cute pixel art image */
             background-image: url('https://i.pinimg.com/736x/b0/f6/2a/b0f62a827f64bada93ee3a3376325ca7.jpg');
             background-size: cover;
             background-position: center;
@@ -23,12 +22,10 @@
             image-rendering: pixelated;
         }
         
-        /* 8-Bit Retro Typography */
         .font-pixel {
             font-family: 'Press Start 2P', 'Noto Sans TC', monospace;
         }
 
-        /* Responsive custom scrollbars */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -37,18 +34,16 @@
             scrollbar-width: none;
         }
 
-        /* Pixelated crisp image rendering */
         .pixelated {
             image-rendering: pixelated;
             image-rendering: crisp-edges;
         }
 
-        /* NES Classic thick solid block borders and 3D offset shadows */
         .pixel-card {
             background-color: #ffffff;
             border: 4px solid #000000;
             box-shadow: 4px 4px 0px 0px #000000;
-            border-radius: 0px; /* Pure retro sharp corners */
+            border-radius: 0px;
         }
 
         .pixel-card-hover:hover {
@@ -56,7 +51,6 @@
             box-shadow: 6px 6px 0px 0px #000000;
         }
 
-        /* Pushable 3D interactive buttons */
         .pixel-btn {
             background-color: #ffffff;
             border: 4px solid #000000;
@@ -72,14 +66,12 @@
             box-shadow: 1px 1px 0px 0px #000000;
         }
 
-        /* 8-bit pressed/active state for navigation tabs */
         .pixel-tab-active {
-            background-color: #ffde59 !important; /* Retro Game Gold */
+            background-color: #ffde59 !important;
             transform: translate(2px, 2px);
             box-shadow: 1px 1px 0px 0px #000000 !important;
         }
 
-        /* Custom style for Navigation tabs without thick borders or shadows */
         .nav-tab-custom {
             border: none !important;
             box-shadow: none !important;
@@ -98,7 +90,6 @@
             box-shadow: none !important;
         }
 
-        /* Retro dashed timeline connector */
         .pixel-connector {
             width: 8px;
             height: 35px;
@@ -108,7 +99,6 @@
             margin: 0 auto;
         }
 
-        /* Pulsing green connection dot */
         @keyframes pixel-blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
@@ -124,7 +114,6 @@
     <header class="sticky top-0 z-40 bg-white border-b-4 border-black shadow-[0_4px_0_0_rgba(0,0,0,1)]">
         <div class="max-w-4xl mx-auto px-4 py-2 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <!-- New 8-bit custom logo -->
                 <img src="https://i.postimg.cc/w3QZj6V8/tu-ceng7.png" onerror="this.onerror=null; this.src='https://placehold.co/64x64/ffde59/000000?text=👾';" alt="kiduwe" class="w-16 h-16 pixelated object-contain rounded-none">
                 <div>
                     <h1 class="font-bold text-slate-950 text-xl md:text-2xl tracking-tight flex items-center gap-2">
@@ -134,7 +123,6 @@
             </div>
             
             <div class="flex items-center space-x-2">
-                <!-- Sync status designed as RPG connection slot -->
                 <button onclick="openShareModal()" id="header-sync-badge" class="pixel-btn bg-slate-100 text-slate-800 text-[10px] font-bold py-1.5 px-3 flex items-center gap-1.5">
                     <span id="sync-badge-dot" class="w-2.5 h-2.5 bg-slate-400 border-2 border-black inline-block"></span>
                     <span id="sync-badge-text" class="font-pixel text-[8px]">OFFLINE</span>
@@ -180,37 +168,29 @@
         <!-- ==================== TAB 1: ITINERARY TIMELINE ==================== -->
         <section id="content-itinerary" class="space-y-6">
             
-            <!-- Customizable RPG style Cover Banner -->
             <div id="trip-cover-banner" class="relative border-4 border-black shadow-[4px_4px_0_0_#000] overflow-hidden h-56 md:h-64 bg-slate-900 text-white flex flex-col justify-end p-6">
-                <!-- Cover Image Background with pixel styling -->
                 <img id="trip-cover-img" src="https://i.pinimg.com/736x/b0/f6/2a/b0f62a827f64bada93ee3a3376325ca7.jpg" alt="Trip Cover" class="absolute inset-0 w-full h-full object-cover opacity-60 pixelated">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
                 
-                <!-- Edit Cover trigger -->
                 <button onclick="openTripEditModal()" class="absolute top-4 right-4 pixel-btn bg-black/60 text-white text-xs py-1.5 px-3 flex items-center gap-1.5 z-10">
                     <i data-lucide="image" class="w-4 h-4 text-sky-300"></i>
                     <span>設定封面與旅程</span>
                 </button>
 
-                <!-- Bottom Row -->
                 <div class="relative z-10 space-y-2">
                     <h2 id="trip-title-display" class="text-xl md:text-2xl font-black tracking-tight border-b-2 border-dashed border-white/30 pb-2">小琉球極簡旅程</h2>
                     <div class="flex flex-wrap items-center gap-2 text-xs text-white/90">
                         <span id="trip-status-display" class="font-pixel text-[8px] bg-red-600 border-2 border-black px-2 py-0.5">#ADVENTURING</span>
                         <span id="trip-dates-display" class="font-pixel text-[8px] bg-slate-800 border border-slate-600 px-2 py-0.5">DATES</span>
                     </div>
-                    
-                    <!-- Quick action tags -->
                     <div id="trip-tags-container" class="flex flex-wrap gap-1.5 pt-1"></div>
                 </div>
             </div>
 
-            <!-- Day Selection Slider -->
+            <!-- Day Selection Slider styled as per instructions -->
             <div class="pixel-card p-4 space-y-4">
-                <!-- Day switching labels (Day 1, Day 2, Day 3) -->
                 <div class="flex items-center space-x-2 overflow-x-auto no-scrollbar py-1" id="day-tabs-slider"></div>
                 
-                <!-- Prominent Actions for adding/deleting days -->
                 <div class="flex flex-wrap items-center gap-3 pt-3 border-t-2 border-dashed border-slate-200">
                     <button onclick="addNewDay()" class="pixel-btn bg-emerald-400 text-xs py-2.5 px-4 flex items-center justify-center gap-2 flex-grow font-bold">
                         <i data-lucide="plus-circle" class="w-4 h-4 text-black"></i>
@@ -262,14 +242,11 @@
                 </button>
             </div>
 
-            <!-- Timeline Cards Container -->
             <div class="space-y-0" id="timeline-container"></div>
         </section>
 
-
-        <!-- ==================== TAB 2: EXPENSES & SPLITTING ==================== -->
+        <!-- ==================== TAB 2: EXPENSES ==================== -->
         <section id="content-expenses" class="hidden space-y-6">
-            <!-- Summary stats card -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="pixel-card bg-emerald-400 p-5 shadow-[4px_4px_0_0_#000]">
                     <span class="font-pixel text-[8px] text-emerald-900 block">總支出金額</span>
@@ -292,7 +269,6 @@
                 </div>
             </div>
 
-            <!-- Debt Simplification Settlement Layout -->
             <div class="pixel-card p-5 shadow-[4px_4px_0_0_#000]">
                 <div class="flex items-center justify-between mb-4 pb-2 border-b-2 border-dashed border-slate-200">
                     <h3 class="font-pixel text-[10px] text-slate-950 flex items-center gap-2">
@@ -301,13 +277,10 @@
                     </h3>
                     <span class="font-pixel text-[8px] bg-indigo-100 border-2 border-black px-1.5 py-0.5">AUTO DEBT CUT</span>
                 </div>
-                
                 <div id="debt-settlement-list" class="space-y-2"></div>
             </div>
 
-            <!-- Expense List & Log Form -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <!-- Add New Expense Form (5 cols on lg) -->
                 <div class="lg:col-span-5 pixel-card p-5 shadow-[4px_4px_0_0_#000] h-fit">
                     <h3 class="font-bold text-slate-950 mb-4 pb-2 border-b-2 border-dashed border-slate-200 flex items-center gap-1.5">
                         <i data-lucide="plus-circle" class="w-5 h-5 text-emerald-500"></i>
@@ -316,9 +289,8 @@
                     <form id="expense-form" onsubmit="handleNewExpenseSubmit(event)" class="space-y-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">支出品項 / 說明</label>
-                            <input type="text" id="exp-description" required placeholder="如：泰富航運船票、浮潛套裝" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                            <input type="text" id="exp-description" required placeholder="如：泰富航運船票" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                         </div>
-                        
                         <div class="grid grid-cols-3 gap-2">
                             <div class="col-span-2">
                                 <label class="block text-xs font-bold text-slate-600 mb-1">金額</label>
@@ -335,18 +307,14 @@
                                 </select>
                             </div>
                         </div>
-
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">由誰付款？</label>
-                            <select id="exp-payer" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-bold">
-                            </select>
+                            <select id="exp-payer" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-bold"></select>
                         </div>
-
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1">分攤隊員（可複選）</label>
-                            <div class="border-4 border-black p-3 max-h-36 overflow-y-auto space-y-2 bg-slate-50 animate-none" id="exp-sharers-container"></div>
+                            <div class="border-4 border-black p-3 max-h-36 overflow-y-auto space-y-2 bg-slate-50" id="exp-sharers-container"></div>
                         </div>
-
                         <button type="submit" class="w-full pixel-btn bg-emerald-400 text-sm py-3 flex items-center justify-center gap-1">
                             <i data-lucide="check" class="w-5 h-5 text-black"></i>
                             <span>記錄這筆支出</span>
@@ -354,7 +322,6 @@
                     </form>
                 </div>
 
-                <!-- Expense Records (7 cols on lg) -->
                 <div class="lg:col-span-7 pixel-card p-5 shadow-[4px_4px_0_0_#000]">
                     <h3 class="font-bold text-slate-950 mb-4 pb-2 border-b-2 border-dashed border-slate-200 flex items-center justify-between">
                         <span class="flex items-center gap-1.5">
@@ -366,43 +333,34 @@
                             <span>全部清空</span>
                         </button>
                     </h3>
-
                     <div class="space-y-3 max-h-[480px] overflow-y-auto pr-1" id="expense-list-container"></div>
                 </div>
             </div>
         </section>
 
-
-        <!-- ==================== TAB 3: COMPANIONS & SETTINGS ==================== -->
+        <!-- ==================== TAB 3: COMPANIONS ==================== -->
         <section id="content-companions" class="hidden space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Companion list management -->
                 <div class="pixel-card p-5 shadow-[4px_4px_0_0_#000]">
                     <h3 class="font-bold text-slate-950 mb-1 flex items-center gap-1.5">
                         <i data-lucide="users" class="w-5 h-5 text-blue-500"></i>
                         <span>冒險隊伍成員</span>
                     </h3>
                     <p class="text-xs text-slate-500 mb-4 pb-2 border-b-2 border-dashed border-slate-200">設定出遊夥伴的暱稱，可以正確統計並平均分帳。</p>
-
                     <div class="flex gap-2 mb-4">
                         <input type="text" id="new-companion-name" placeholder="輸入旅伴暱稱..." class="flex-grow text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
-                        <button onclick="addCompanion()" class="pixel-btn bg-sky-300 font-bold text-xs px-4">
-                            新增隊員
-                        </button>
+                        <button onclick="addCompanion()" class="pixel-btn bg-sky-300 font-bold text-xs px-4">新增隊員</button>
                     </div>
-
                     <div class="space-y-2.5 max-h-72 overflow-y-auto pr-1" id="companions-list-container"></div>
                 </div>
 
-                <!-- Settings & Base Currency selection -->
                 <div class="pixel-card p-5 shadow-[4px_4px_0_0_#000] space-y-5">
                     <div>
                         <h3 class="font-bold text-slate-950 mb-1 flex items-center gap-1.5">
                             <i data-lucide="globe" class="w-5 h-5 text-blue-500"></i>
                             <span>旅行結算本位幣</span>
                         </h3>
-                        <p class="text-xs text-slate-500 mb-3 pb-2 border-b-2 border-dashed border-slate-200">分帳及統計時，系統會以此幣別作為最後顯示與結算依據。</p>
-                        
+                        <p class="text-xs text-slate-500 mb-3 pb-2 border-b-2 border-dashed border-slate-200">分帳及統計時，系統會以此幣別作為結算依據。</p>
                         <select id="base-currency-select" onchange="changeBaseCurrency(this.value)" class="w-full text-xs border-4 border-black p-3 outline-none focus:bg-amber-50 font-pixel">
                             <option value="TWD">新台幣 (TWD)</option>
                             <option value="JPY">日圓 (JPY)</option>
@@ -411,16 +369,13 @@
                             <option value="KRW">韓元 (KRW)</option>
                         </select>
                     </div>
-
                     <hr class="border-t-2 border-dashed border-slate-200">
-
                     <div>
                         <h3 class="font-bold text-slate-950 mb-1 flex items-center gap-1.5">
                             <i data-lucide="refresh-cw" class="w-5 h-5 text-blue-500"></i>
                             <span>系統手冊重置</span>
                         </h3>
-                        <p class="text-xs text-slate-500 mb-4 pb-2 border-b-2 border-dashed border-slate-200">您可以清除當前瀏覽器的快取，重置本手冊以規劃全新的行程。</p>
-                        
+                        <p class="text-xs text-slate-500 mb-4 pb-2 border-b-2 border-dashed border-slate-200">清空瀏覽器快取，重新開始全新規劃。</p>
                         <button onclick="confirmResetAllDataWithConfirm()" class="w-full pixel-btn bg-red-100 text-red-700 text-xs py-3 px-4 flex items-center justify-center gap-1">
                             <i data-lucide="alert-triangle" class="w-4 h-4"></i>
                             <span>清空全部數據並重置 kiduwe</span>
@@ -429,7 +384,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- ==================== TAB 4: CHECKLIST ==================== -->
         <section id="content-checklist" class="hidden space-y-6">
@@ -440,7 +394,7 @@
                             <i data-lucide="check-square" class="w-5 h-5 text-blue-600"></i>
                             <span>行前準備裝備欄</span>
                         </h3>
-                        <p class="text-xs text-slate-500 mt-1">出發小琉球前做好萬全檢核，不怕漏掉駕照！</p>
+                        <p class="text-xs text-slate-500 mt-1">出發小琉球前做好檢核，不怕漏掉物品！</p>
                     </div>
                     <button onclick="openChecklistAddModal()" class="pixel-btn bg-sky-300 text-xs py-2 px-3.5 flex items-center gap-1">
                         <i data-lucide="plus" class="w-4 h-4 text-black"></i>
@@ -448,7 +402,6 @@
                     </button>
                 </div>
 
-                <!-- RPG styled Overall Packing HP Bar -->
                 <div class="mb-6 bg-slate-100 border-4 border-black p-3.5 shadow-[2px_2px_0_0_#000]">
                     <div class="flex justify-between items-center text-xs font-pixel mb-1.5">
                         <span class="text-slate-700 text-[8px]">PACKING PROGRESS [HP]</span>
@@ -459,7 +412,6 @@
                     </div>
                 </div>
 
-                <!-- Split Checklists by Group -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="checklist-grid-container"></div>
             </div>
         </section>
@@ -474,10 +426,7 @@
         </div>
     </footer>
 
-
-    <!-- ==================== DIALOG MODALS ==================== -->
-    
-    <!-- Modal 1: Add/Edit Itinerary -->
+    <!-- ==================== MODALS ==================== -->
     <div id="itinerary-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 border-b-4 border-black px-5 py-4 text-white flex justify-between items-center">
@@ -485,14 +434,10 @@
                     <i data-lucide="map-pin" class="w-4 h-4 text-rose-500"></i>
                     <span>ADD QUEST</span>
                 </h3>
-                <button onclick="closeItineraryModal()" class="text-white hover:text-amber-400 transition">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
+                <button onclick="closeItineraryModal()" class="text-white hover:text-amber-400 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
-            
             <form id="itinerary-form" onsubmit="handleItinerarySubmit(event)" class="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
                 <input type="hidden" id="itinerary-edit-id">
-                
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-bold text-slate-600 mb-1">開始時間 <span class="text-rose-500">*</span></label>
@@ -510,12 +455,10 @@
                         </select>
                     </div>
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">景點 / 活動名稱 <span class="text-rose-500">*</span></label>
                     <input type="text" id="itinerary-title" required placeholder="如：花瓶岩浮潛" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
-
                 <div class="grid grid-cols-2 gap-3 bg-slate-50 p-3 border-4 border-black shadow-[2px_2px_0_0_#000]">
                     <div>
                         <label class="block text-[10px] font-bold text-slate-600 mb-1">🚌 交通工具/方式</label>
@@ -532,53 +475,38 @@
                         <input type="text" id="itinerary-transit-time" placeholder="如：25分鐘" class="w-full text-sm border-4 border-black px-3 py-1.5 outline-none bg-white font-mono">
                     </div>
                 </div>
-
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">詳細地址 (據此自動搜尋並生成地圖封面！)</label>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">詳細地址 (據此自動分析並生成地圖圖示！)</label>
                     <input type="text" id="itinerary-address" placeholder="如：屏東縣琉球鄉花瓶岩" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">Google Maps 導航連結 (非必填)</label>
                     <input type="url" id="itinerary-map-url" placeholder="https://maps.google.com/..." class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">備忘與細節秘笈</label>
                     <textarea id="itinerary-note" rows="3" placeholder="裝備攜帶、推薦玩法..." class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 resize-none"></textarea>
                 </div>
-
                 <div class="flex space-x-2 pt-2">
-                    <button type="button" onclick="closeItineraryModal()" class="w-1/2 pixel-btn bg-slate-100 py-3">
-                        取消
-                    </button>
-                    <button type="submit" class="w-1/2 pixel-btn bg-emerald-400 py-3">
-                        儲存卡片
-                    </button>
+                    <button type="button" onclick="closeItineraryModal()" class="w-1/2 pixel-btn bg-slate-100 py-3">取消</button>
+                    <button type="submit" class="w-1/2 pixel-btn bg-emerald-400 py-3">儲存卡片</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal 2: Edit Trip Meta-Info (With direct file upload for phone photos) -->
+    <!-- Modal 2: Edit Trip Meta-Info -->
     <div id="trip-edit-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
-                <h3 class="font-pixel text-[10px] flex items-center gap-1.5">
-                    <i data-lucide="image" class="w-4 h-4 text-sky-400"></i>
-                    <span>MAP META SETTINGS</span>
-                </h3>
-                <button onclick="closeTripEditModal()" class="text-white hover:text-amber-400 transition">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
+                <h3 class="font-pixel text-[10px] flex items-center gap-1.5"><i data-lucide="image" class="w-4 h-4 text-sky-400"></i><span>MAP META SETTINGS</span></h3>
+                <button onclick="closeTripEditModal()" class="text-white hover:text-amber-400 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
-            
             <form id="trip-edit-form" onsubmit="handleTripEditSubmit(event)" class="p-5 space-y-4">
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">旅程名稱</label>
                     <input type="text" id="trip-name-input" required class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
-
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-xs font-bold text-slate-600 mb-1">狀態標籤 (如 #規劃中)</label>
@@ -589,177 +517,119 @@
                         <input type="text" id="trip-dates-input" placeholder="2026/10/10 - 2026/10/12" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-mono">
                     </div>
                 </div>
-
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">自訂封面相片 (手機相冊直傳)</label>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">自訂封面相片 (手機裝置直傳)</label>
                     <div class="flex items-center gap-2 mt-1.5">
-                        <button type="button" onclick="document.getElementById('trip-cover-file').click()" class="pixel-btn bg-sky-50 text-xs py-2 px-3.5 flex items-center gap-1">
-                            <i data-lucide="upload" class="w-4 h-4 text-black"></i>上傳照片
-                        </button>
+                        <button type="button" onclick="document.getElementById('trip-cover-file').click()" class="pixel-btn bg-sky-50 text-xs py-2 px-3.5 flex items-center gap-1"><i data-lucide="upload" class="w-4 h-4 text-black"></i>上傳照片</button>
                         <span id="trip-cover-file-name" class="text-xs text-slate-500 truncate max-w-[200px] font-mono">未選擇檔案</span>
                         <input type="file" id="trip-cover-file" accept="image/*" class="hidden" onchange="handleCoverFileSelected(event)">
                     </div>
                     <input type="hidden" id="trip-cover-base64">
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">封面特色標籤 (用逗號隔開)</label>
                     <input type="text" id="trip-tags-input" placeholder="浮潛、機車、海龜" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
-
                 <div class="flex space-x-2 pt-2">
-                    <button type="button" onclick="closeTripEditModal()" class="w-1/2 pixel-btn bg-slate-100 py-3">
-                        取消
-                    </button>
-                    <button type="submit" class="w-1/2 pixel-btn bg-emerald-400 py-3">
-                        儲存變更
-                    </button>
+                    <button type="button" onclick="closeTripEditModal()" class="w-1/2 pixel-btn bg-slate-100 py-3">取消</button>
+                    <button type="submit" class="w-1/2 pixel-btn bg-emerald-400 py-3">儲存變更</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal 3: Edit Accommodation Block -->
+    <!-- Modal 3: Accommodation Block -->
     <div id="hotel-edit-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
-                <h3 class="font-pixel text-[10px] flex items-center gap-1.5">
-                    <i data-lucide="hotel" class="w-4 h-4 text-sky-400"></i>
-                    <span>LODGING INN</span>
-                </h3>
-                <button onclick="closeHotelModal()" class="text-white hover:text-amber-400 transition">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
+                <h3 class="font-pixel text-[10px] flex items-center gap-1.5"><i data-lucide="hotel" class="w-4 h-4 text-sky-400"></i><span>LODGING INN</span></h3>
+                <button onclick="closeHotelModal()" class="text-white hover:text-amber-400 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
-            
             <form id="hotel-form" onsubmit="handleHotelSubmit(event)" class="p-5 space-y-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">今日下榻飯店 / 民宿名稱</label>
+                    <label class="block text-xs font-bold text-slate-600 mb-1">今日下榻民宿名稱</label>
                     <input type="text" id="hotel-name-input" required placeholder="如：海景美宿" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">民宿詳細地址</label>
-                    <input type="text" id="hotel-address-input" placeholder="如：屏東縣琉球鄉中福村三民路38號" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <input type="text" id="hotel-address-input" placeholder="如：屏東縣琉球鄉三民路" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">Google Maps 網址</label>
                     <input type="url" id="hotel-map-input" placeholder="https://maps.google.com/..." class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">入住備忘事項</label>
-                    <textarea id="hotel-note-input" rows="2" placeholder="如：下午 3 點後可辦理入住，有附早餐。" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 resize-none"></textarea>
+                    <textarea id="hotel-note-input" rows="2" placeholder="如：下午 3 點後辦理入住" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 resize-none"></textarea>
                 </div>
-
                 <div class="flex space-x-2 pt-2">
-                    <button type="button" onclick="closeHotelModal()" class="w-1/2 pixel-btn bg-slate-100 py-3">
-                        取消
-                    </button>
-                    <button type="submit" class="w-1/2 pixel-btn bg-emerald-400 py-3">
-                        儲存住宿
-                    </button>
+                    <button type="button" onclick="closeHotelModal()" class="w-1/2 pixel-btn bg-slate-100 py-3">取消</button>
+                    <button type="submit" class="w-1/2 pixel-btn bg-emerald-400 py-3">儲存住宿</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal 4: Real-time Cloud Sync & Sharing -->
+    <!-- Modal 4: Cloud Sync Room -->
     <div id="share-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
-                <h3 class="font-pixel text-[10px] flex items-center gap-1.5">
-                    <i data-lucide="share-2" class="w-4 h-4 text-sky-400"></i>
-                    <span>REAL-TIME MULTIPLAYER</span>
-                </h3>
-                <button onclick="closeShareModal()" class="text-white hover:text-amber-400 transition">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
+                <h3 class="font-pixel text-[10px] flex items-center gap-1.5"><i data-lucide="share-2" class="w-4 h-4 text-sky-400"></i><span>REAL-TIME MULTIPLAYER</span></h3>
+                <button onclick="closeShareModal()" class="text-white hover:text-amber-400 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
-            
             <div class="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
-                <!-- PANEL 1: REAL-TIME CLOUD ROOM -->
                 <div class="bg-sky-50 border-4 border-black p-4 space-y-3 shadow-[2px_2px_0_0_#000]">
                     <div class="flex items-center justify-between">
                         <span class="font-pixel text-[8px] text-sky-900">📡 CLOUD ENGINE</span>
                         <span id="modal-sync-indicator" class="font-pixel text-[8px] bg-slate-300 border border-black px-1.5 py-0.5">STANDBY</span>
                     </div>
-                    <p class="text-xs text-slate-700 leading-relaxed font-medium">
-                        啟動「即時協作房」後，所有隊員將同步共享手冊。任何卡片編輯、流水帳、行李勾選皆以「毫秒級」同步傳輸，告別重整輪詢！
-                    </p>
-
-                    <!-- If NOT synced -->
+                    <p class="text-xs text-slate-700 leading-relaxed font-medium">啟用「即時協作房」後，所有隊員將同步共享手冊。任何資料編輯皆以「毫秒級」即時同步傳輸！</p>
+                    
                     <div id="sync-setup-panel" class="space-y-3 pt-2">
                         <button onclick="createCloudSyncRoom()" class="w-full pixel-btn bg-emerald-400 text-xs py-2.5 flex items-center justify-center gap-1.5">
-                            <i data-lucide="plus-circle" class="w-4 h-4 text-black"></i>
-                            <span>一鍵建立「全新雲端協作房」</span>
+                            <i data-lucide="plus-circle" class="w-4 h-4 text-black"></i><span>一鍵建立「全新雲端協作房」</span>
                         </button>
-                        
                         <div class="relative flex py-1 items-center">
                             <div class="flex-grow border-t-2 border-slate-300"></div>
                             <span class="flex-shrink mx-3 text-slate-400 font-pixel text-[8px]">OR</span>
                             <div class="flex-grow border-t-2 border-slate-300"></div>
                         </div>
-
                         <div class="flex gap-2">
-                            <input type="text" id="sync-join-id-input" placeholder="輸入 6~8 碼房間代碼" class="flex-grow text-xs border-4 border-black px-3 py-2 outline-none focus:bg-white font-mono">
-                            <button onclick="joinCloudSyncRoom()" class="pixel-btn bg-slate-950 text-white text-xs px-4 font-bold">
-                                載入加入
-                            </button>
+                            <input type="text" id="sync-join-id-input" placeholder="輸入房間代碼" class="flex-grow text-xs border-4 border-black px-3 py-2 outline-none focus:bg-white font-mono">
+                            <button onclick="joinCloudSyncRoom()" class="pixel-btn bg-slate-950 text-white text-xs px-4 font-bold">載入加入</button>
                         </div>
                     </div>
 
-                    <!-- If SYNCED -->
                     <div id="sync-active-panel" class="hidden space-y-3 pt-2">
                         <div class="bg-white border-4 border-black p-3 text-center shadow-[2px_2px_0_0_#000]">
                             <span class="block font-pixel text-[8px] text-slate-400">YOUR ROOM CODE</span>
                             <span id="sync-room-code-display" class="block text-base md:text-lg font-pixel font-black text-blue-600 tracking-widest my-1 select-all">------</span>
                             <span class="text-[9px] font-bold text-slate-400">（複製此代碼，發給 LINE 群組內的旅伴加入）</span>
                         </div>
-                        
                         <div class="flex gap-2">
-                            <button onclick="copySyncRoomCode()" class="w-1/2 pixel-btn bg-sky-200 text-xs py-2.5 flex items-center justify-center gap-1">
-                                <i data-lucide="copy" class="w-4 h-4 text-black"></i>
-                                <span>複製房號</span>
-                            </button>
-                            <button onclick="disconnectCloudSync()" class="w-1/2 pixel-btn bg-red-100 text-red-600 text-xs py-2.5 flex items-center justify-center gap-1">
-                                <i data-lucide="power" class="w-4 h-4 text-red-600"></i>
-                                <span>斷開同步</span>
-                            </button>
+                            <button onclick="copySyncRoomCode()" class="w-1/2 pixel-btn bg-sky-200 text-xs py-2.5 flex items-center justify-center gap-1"><i data-lucide="copy" class="w-4 h-4 text-black"></i><span>複製房號</span></button>
+                            <button onclick="disconnectCloudSync()" class="w-1/2 pixel-btn bg-red-100 text-red-600 text-xs py-2.5 flex items-center justify-center gap-1"><i data-lucide="power" class="w-4 h-4 text-red-600"></i><span>斷開同步</span></button>
                         </div>
                     </div>
                 </div>
 
                 <hr class="border-t-2 border-dashed border-slate-200">
-
-                <!-- PANEL 2: MANUAL JSON BACKUP -->
                 <div class="space-y-2">
-                    <span class="font-pixel text-[8px] text-slate-500 block">📦 MANUAL MANUAL BACKUP</span>
-                    <p class="text-[11px] text-slate-500 leading-relaxed">如果不使用雲端即時房，您依然可以複製這串 JSON 做為手動備份：</p>
+                    <span class="font-pixel text-[8px] text-slate-500 block">📦 MANUAL BACKUP</span>
                     <textarea id="export-json-text" readonly rows="2" class="w-full text-[10px] bg-slate-50 border-4 border-black p-2 font-mono text-slate-600 resize-none outline-none"></textarea>
-                    <button onclick="copyExportCode()" class="w-full pixel-btn bg-slate-100 text-xs py-2 flex items-center justify-center gap-1">
-                        <i data-lucide="copy" class="w-4 h-4 text-black"></i>
-                        <span>複製傳統備份代碼</span>
-                    </button>
+                    <button onclick="copyExportCode()" class="w-full pixel-btn bg-slate-100 text-xs py-2 flex items-center justify-center gap-1"><i data-lucide="copy" class="w-4 h-4 text-black"></i><span>複製傳統備份代碼</span></button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal 5: Add Checklist Item Dialog with Dropdown categories -->
+    <!-- Modal 5: Add Checklist Item -->
     <div id="checklist-add-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-sm border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
-                <h3 class="font-pixel text-[10px] flex items-center gap-1.5">
-                    <i data-lucide="check-square" class="w-4 h-4 text-sky-400"></i>
-                    <span>ADD INVENTORY</span>
-                </h3>
-                <button onclick="closeChecklistAddModal()" class="text-white hover:text-amber-400 transition">
-                    <i data-lucide="x" class="w-4 h-4"></i>
-                </button>
+                <h3 class="font-pixel text-[10px] flex items-center gap-1.5"><i data-lucide="check-square" class="w-4 h-4 text-sky-400"></i><span>ADD INVENTORY</span></h3>
+                <button onclick="closeChecklistAddModal()" class="text-white hover:text-amber-400 transition"><i data-lucide="x" class="w-4 h-4"></i></button>
             </div>
-            
             <form id="checklist-add-form" onsubmit="handleChecklistSubmit(event)" class="p-5 space-y-4">
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">選擇準備類別</label>
@@ -772,62 +642,56 @@
                         <option value="CUSTOM">➕ 自訂新分類...</option>
                     </select>
                 </div>
-
                 <div id="checklist-custom-category-group" class="hidden">
                     <label class="block text-xs font-bold text-slate-600 mb-1">輸入自訂的新類別名稱</label>
                     <input type="text" id="checklist-custom-category-input" placeholder="例如：水上相機" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
-
                 <div>
                     <label class="block text-xs font-bold text-slate-600 mb-1">準備物品名稱</label>
-                    <input type="text" id="checklist-text-input" required placeholder="如：健保卡、防曬乳、機車駕照" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <input type="text" id="checklist-text-input" required placeholder="如：防曬乳、機車駕照" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
-
                 <div class="flex space-x-2 pt-1">
-                    <button type="button" onclick="closeChecklistAddModal()" class="w-1/2 pixel-btn bg-slate-100 py-2.5">
-                        取消
-                    </button>
-                    <button type="submit" class="w-1/2 pixel-btn bg-sky-300 py-2.5">
-                        確認加入
-                    </button>
+                    <button type="button" onclick="closeChecklistAddModal()" class="w-1/2 pixel-btn bg-slate-100 py-2.5">取消</button>
+                    <button type="submit" class="w-1/2 pixel-btn bg-sky-300 py-2.5">確認加入</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Retro Custom 8-Bit Alert/Confirm Dialog (Replaces uniframe confirm) -->
+    <!-- Alert/Confirm Replacement -->
     <div id="custom-confirm-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-[99] flex items-center justify-center p-4 hidden">
         <div class="bg-white border-4 border-black p-6 max-w-sm w-full shadow-[8px_8px_0px_0px_#000] text-center space-y-4">
-            <div class="bg-red-500 text-white font-pixel text-[8px] p-2 border-2 border-black inline-block shadow-[2px_2px_0_0_#000]">
-                WARNING!
-            </div>
+            <div class="bg-red-500 text-white font-pixel text-[8px] p-2 border-2 border-black inline-block shadow-[2px_2px_0_0_#000]">WARNING!</div>
             <p id="confirm-modal-text" class="text-sm font-black text-slate-900 leading-relaxed"></p>
             <div class="flex gap-3 justify-center pt-2">
-                <button id="confirm-modal-cancel" class="pixel-btn bg-slate-100 text-slate-800 text-xs px-4 py-2">
-                    取消 (B)
-                </button>
-                <button id="confirm-modal-ok" class="pixel-btn bg-red-400 text-black text-xs px-4 py-2">
-                    確認 (A)
-                </button>
+                <button id="confirm-modal-cancel" class="pixel-btn bg-slate-100 text-slate-800 text-xs px-4 py-2">取消 (B)</button>
+                <button id="confirm-modal-ok" class="pixel-btn bg-red-400 text-black text-xs px-4 py-2">確認 (A)</button>
             </div>
         </div>
     </div>
 
-
-    <!-- ==================== JAVASCRIPT APP LOGIC ==================== -->
+    <!-- ==================== JAVASCRIPT ENGINE ==================== -->
     <script type="module">
-        // Firebase Modular CDN imports
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, onSnapshot, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Global state initial state
+        // 用戶提供的真實金鑰配置
+        const MY_FIREBASE_CONFIG = {
+            apiKey: "AIzaSyAhj1D7y1KRNmGh5NqXUAGoU4yjUvqV9FU",
+            authDomain: "kiduwe.firebaseapp.com",
+            projectId: "kiduwe",
+            storageBucket: "kiduwe.firebasestorage.app",
+            messagingSenderId: "396064439885",
+            appId: "1:396064439885:web:76168f9442fd7e2704a604",
+            measurementId: "G-CVTRMRZ7R3"
+        }; 
+
         let state = {
             tripName: '小琉球放空三日遊',
             tripStatus: '#探索中',
             startDate: '2026/10/10',
             endDate: '2026/10/12',
-            /* Default trip cover photo updated to matching retro pixel ocean image */
             coverUrl: 'https://i.pinimg.com/736x/b0/f6/2a/b0f62a827f64bada93ee3a3376325ca7.jpg',
             tripTags: ['東港搭船', '租電動機車', '浮潛看海龜', '夜間生態導覽'],
             baseCurrency: 'TWD',
@@ -870,153 +734,63 @@
                             imageUrl: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=300&q=80',
                             transitType: 'none',
                             transitTime: ''
-                        },
-                        {
-                            id: 'it-init-3',
-                            time: '14:00',
-                            category: 'attraction',
-                            title: '花瓶岩浮潛（看海龜之旅）',
-                            address: '屏東縣琉球鄉花瓶岩',
-                            mapUrl: 'https://maps.app.goo.gl/7R6K3h7C8X9Y1Z2',
-                            note: '已預約下午兩點的浮潛教練，記得帶換洗衣物。',
-                            imageUrl: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=300&q=80',
-                            transitType: 'scooter',
-                            transitTime: '10分鐘'
                         }
                     ]
                 }
             ],
-            expenses: [
-                {
-                    id: 'exp-init-1',
-                    description: '泰富航運來回船票（四人套票）',
-                    amount: 1800,
-                    currency: 'TWD',
-                    payer: '阿華',
-                    splitWith: ['小明', '阿華', '小美', '我']
-                },
-                {
-                    id: 'exp-init-2',
-                    description: '環島電動機車裝備租用',
-                    amount: 1600,
-                    currency: 'TWD',
-                    payer: '小明',
-                    splitWith: ['小明', '阿華', '小美', '我']
-                }
-            ],
+            expenses: [],
             checklist: [
                 { id: 'chk-1', category: '證件 & 重要物品', text: '身分證 / 健保卡（登船及租車核對必備）', done: true },
-                { id: 'chk-2', category: '證件 & 重要物品', text: '機車駕照（租用機車核對必備）', done: true },
-                { id: 'chk-3', category: '生活用品', text: '海洋友善防曬乳、泳衣褲、個人遮陽帽/墨鏡', done: false },
-                { id: 'chk-4', category: '電器充電', text: '手機防水袋、運動相機/備用電池與充電器', done: false }
+                { id: 'chk-2', category: '證件 & 重要物品', text: '機車駕照（租用機車核對必備）', done: true }
             ]
         };
 
-        const exchangeRates = {
-            TWD: 1.0,
-            JPY: 0.21,
-            USD: 32.5,
-            EUR: 35.0,
-            KRW: 0.024
-        };
+        const exchangeRates = { TWD: 1.0, JPY: 0.21, USD: 32.5, EUR: 35.0, KRW: 0.024 };
+        let db = null, auth = null, currentUser = null;
+        const appId = 'kiduwe-travel-app';
 
-        // Firebase Service Instances
-        let db = null;
-        let auth = null;
-        let currentUser = null;
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'kiduwe-travel-app';
-
-        // 8-Bit Safe Modal Prompt Confirm Replacement (Strict Iframe Compliance)
         function customConfirm(message, onOk) {
             const modal = document.getElementById('custom-confirm-modal');
-            const text = document.getElementById('confirm-modal-text');
+            document.getElementById('confirm-modal-text').innerText = message;
+            modal.classList.remove('hidden');
             const okBtn = document.getElementById('confirm-modal-ok');
             const cancelBtn = document.getElementById('confirm-modal-cancel');
-            
-            text.innerText = message;
-            modal.classList.remove('hidden');
-            
-            // Wipe out old listeners using clone replacement
-            const newOkBtn = okBtn.cloneNode(true);
-            const newCancelBtn = cancelBtn.cloneNode(true);
-            okBtn.parentNode.replaceChild(newOkBtn, okBtn);
-            cancelBtn.parentNode.replaceChild(newCancelBtn, cancelBtn);
-            
-            newOkBtn.addEventListener('click', () => {
-                modal.classList.add('hidden');
-                if (onOk) onOk();
-            });
-            newCancelBtn.addEventListener('click', () => {
-                modal.classList.add('hidden');
-            });
+            const newOk = okBtn.cloneNode(true);
+            const newCancel = cancelBtn.cloneNode(true);
+            okBtn.parentNode.replaceChild(newOk, okBtn);
+            cancelBtn.parentNode.replaceChild(newCancel, cancelBtn);
+            newOk.addEventListener('click', () => { modal.classList.add('hidden'); if(onOk) onOk(); });
+            newCancel.addEventListener('click', () => { modal.classList.add('hidden'); });
         }
 
-        // Initialize Firebase Authentication & Database Services
         async function initFirebase() {
-            if (typeof __firebase_config === 'undefined') {
-                console.log("No Firebase config detected. Running on local and cloud poll modes.");
-                return;
-            }
+            if (!MY_FIREBASE_CONFIG) return;
             try {
-                const firebaseConfig = JSON.parse(__firebase_config);
-                const app = initializeApp(firebaseConfig);
+                const app = initializeApp(MY_FIREBASE_CONFIG);
                 auth = getAuth(app);
                 db = getFirestore(app);
-                
-                // Rule 3: Auth first prior to any queries
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-                
+                await signInAnonymously(auth);
                 onAuthStateChanged(auth, (user) => {
                     currentUser = user;
-                    console.log("Firebase Authenticated! ID:", user?.uid);
-                    if (user && state.syncRoomId && state.isSyncEnabled) {
-                        startFirestoreSync(state.syncRoomId);
-                    }
+                    if (user && state.syncRoomId && state.isSyncEnabled) startFirestoreSync(state.syncRoomId);
                 });
-            } catch (e) {
-                console.error("Firebase init failed, switching back to poll engine", e);
-            }
+            } catch (e) { console.error("Firebase init failed", e); }
         }
 
         function convertToBase(amount, fromCurrency, toBaseCurrency) {
-            if (!amount) return 0;
-            const inTwd = amount * exchangeRates[fromCurrency];
-            return inTwd / exchangeRates[toBaseCurrency];
+            return !amount ? 0 : (amount * exchangeRates[fromCurrency]) / exchangeRates[toBaseCurrency];
         }
-
-        function formatMoney(amount, currency) {
-            return `${Math.round(amount).toLocaleString()} ${currency}`;
-        }
+        function formatMoney(amount, currency) { return `${Math.round(amount).toLocaleString()} ${currency}`; }
 
         function saveToLocalStorage() {
             state.lastUpdated = Date.now();
             localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
-            
-            if (state.syncRoomId && state.isSyncEnabled) {
-                pushStateToCloud();
-            }
+            if (state.syncRoomId && state.isSyncEnabled) pushStateToCloud();
         }
 
         function loadFromLocalStorage() {
-            let saved = localStorage.getItem('kiduwe_travel_data_v2');
-            if (!saved) {
-                // Backward compatibility lookup for Kitowei v2 data key
-                saved = localStorage.getItem('kitowei_travel_data_v2');
-            }
-            if (saved) {
-                try {
-                    const parsed = JSON.parse(saved);
-                    if (parsed && parsed.days) {
-                        state = parsed;
-                    }
-                } catch (e) {
-                    console.error("Error loading local storage, using initial state", e);
-                }
-            }
+            let saved = localStorage.getItem('kiduwe_travel_data_v2') || localStorage.getItem('kitowei_travel_data_v2');
+            if (saved) { try { const parsed = JSON.parse(saved); if (parsed && parsed.days) state = parsed; } catch(e){} }
         }
 
         function showToast(message) {
@@ -1024,10 +798,7 @@
             document.getElementById('toast-message').innerText = message;
             toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
             toast.classList.add('opacity-100', 'translate-y-0');
-            setTimeout(() => {
-                toast.classList.remove('opacity-100', 'translate-y-0');
-                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
-            }, 2500);
+            setTimeout(() => { toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2'); }, 2500);
         }
 
         function switchTab(tabId) {
@@ -1035,1383 +806,385 @@
                 document.getElementById(`content-${t}`).classList.add('hidden');
                 document.getElementById(`tab-${t}`).classList.remove('pixel-tab-active');
             });
-
             document.getElementById(`content-${tabId}`).classList.remove('hidden');
             document.getElementById(`tab-${tabId}`).classList.add('pixel-tab-active');
-
-            if (tabId === 'expenses') {
-                renderExpensesTab();
-            } else if (tabId === 'companions') {
-                renderCompanionsTab();
-            } else if (tabId === 'checklist') {
-                renderChecklistTab();
-            } else if (tabId === 'itinerary') {
-                renderTimeline();
-                renderTripMeta();
-            }
+            if (tabId === 'expenses') renderExpensesTab();
+            if (tabId === 'companions') renderCompanionsTab();
+            if (tabId === 'checklist') renderChecklistTab();
+            if (tabId === 'itinerary') { renderTimeline(); renderTripMeta(); }
         }
 
         function renderTripMeta() {
             document.getElementById('trip-title-display').innerText = state.tripName || '我的極簡旅程';
-            document.getElementById('trip-status-display').innerText = state.tripStatus || '#規劃中';
+            document.getElementById('trip-status-display').innerText = state.tripStatus || '#探索中';
             document.getElementById('trip-dates-display').innerText = `${state.startDate || ''} - ${state.endDate || ''}`;
-            
-            const banner = document.getElementById('trip-cover-img');
-            banner.src = state.coverUrl || 'https://i.pinimg.com/736x/b0/f6/2a/b0f62a827f64bada93ee3a3376325ca7.jpg';
-
-            const tagContainer = document.getElementById('trip-tags-container');
-            tagContainer.innerHTML = '';
-            if (state.tripTags && state.tripTags.length > 0) {
+            document.getElementById('trip-cover-img').src = state.coverUrl || '';
+            const container = document.getElementById('trip-tags-container');
+            container.innerHTML = '';
+            if (state.tripTags) {
                 state.tripTags.forEach(tag => {
-                    tagContainer.innerHTML += `
-                        <span class="bg-black/50 border border-black text-white px-3 py-1 font-bold text-[10px] transition shadow-[1px_1px_0px_0px_rgba(255,255,255,0.2)]">
-                            ${tag}
-                        </span>
-                    `;
+                    container.innerHTML += `<span class="bg-black/50 border border-black text-white px-3 py-1 font-bold text-[10px] shadow-[1px_1px_0_0_rgba(255,255,255,0.2)]">${tag}</span>`;
                 });
             }
-        }
-
-        function openTripEditModal() {
-            document.getElementById('trip-name-input').value = state.tripName || '';
-            document.getElementById('trip-status-input').value = state.tripStatus || '';
-            document.getElementById('trip-dates-input').value = `${state.startDate || ''} - ${state.endDate || ''}`;
-            document.getElementById('trip-cover-file-name').innerText = "未更改檔案";
-            document.getElementById('trip-cover-base64').value = state.coverUrl || '';
-            document.getElementById('trip-tags-input').value = state.tripTags ? state.tripTags.join(', ') : '';
-            document.getElementById('trip-edit-modal').classList.remove('hidden');
-        }
-
-        function closeTripEditModal() {
-            document.getElementById('trip-edit-modal').classList.add('hidden');
-        }
-
-        function handleCoverFileSelected(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            document.getElementById('trip-cover-file-name').innerText = file.name;
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const img = new Image();
-                img.onload = function() {
-                    const canvas = document.createElement('canvas');
-                    let width = img.width;
-                    let height = img.height;
-                    
-                    const MAX_WIDTH = 800;
-                    const MAX_HEIGHT = 600;
-                    if (width > height) {
-                        if (width > MAX_WIDTH) {
-                            height *= MAX_WIDTH / width;
-                            width = MAX_WIDTH;
-                        }
-                    } else {
-                        if (height > MAX_HEIGHT) {
-                            width *= MAX_HEIGHT / height;
-                            height = MAX_HEIGHT;
-                        }
-                    }
-                    canvas.width = width;
-                    canvas.height = height;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(img, 0, 0, width, height);
-                    
-                    const dataUrl = canvas.toDataURL('image/jpeg', 0.65);
-                    document.getElementById('trip-cover-base64').value = dataUrl;
-                    showToast("📸 8-Bit 封面照片解析成功！");
-                };
-                img.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-
-        function handleTripEditSubmit(e) {
-            e.preventDefault();
-            state.tripName = document.getElementById('trip-name-input').value.trim();
-            state.tripStatus = document.getElementById('trip-status-input').value.trim() || '#規劃中';
-            state.coverUrl = document.getElementById('trip-cover-base64').value;
-            
-            const rawDates = document.getElementById('trip-dates-input').value.trim();
-            if (rawDates.includes('-')) {
-                const parts = rawDates.split('-');
-                state.startDate = parts[0].trim();
-                state.endDate = parts[1].trim();
-            } else {
-                state.startDate = rawDates;
-                state.endDate = rawDates;
-            }
-
-            const rawTags = document.getElementById('trip-tags-input').value.trim();
-            state.tripTags = rawTags ? rawTags.split(',').map(t => t.trim()).filter(t => t) : [];
-
-            saveToLocalStorage();
-            renderTripMeta();
-            closeTripEditModal();
-            showToast("旅程資料與封面圖片更新完成！");
         }
 
         function renderDayTabs() {
             const container = document.getElementById('day-tabs-slider');
             container.innerHTML = '';
-            
             state.days.forEach((day, index) => {
                 const isActive = index === state.currentDayIndex;
-                const activeClass = isActive 
-                    ? 'pixel-tab-active bg-[#ffde59] text-black font-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]' 
-                    : 'bg-white text-slate-700';
-                
-                container.innerHTML += `
-                    <button onclick="selectDay(${index})" class="pixel-btn shrink-0 transition px-6 py-2.5 text-xs font-pixel ${activeClass}">
-                        Day ${day.dayNum}
-                    </button>
-                `;
+                const activeClass = isActive ? 'pixel-tab-active bg-[#ffde59] text-black font-black shadow-[2px_2px_0_0_rgba(0,0,0,1)]' : 'bg-white text-slate-700';
+                container.innerHTML += `<button onclick="selectDay(${index})" class="pixel-btn shrink-0 px-6 py-2.5 text-xs font-pixel ${activeClass}">Day ${day.dayNum}</button>`;
             });
         }
 
-        // Switch active day
-        function selectDay(index) {
-            state.currentDayIndex = index;
-            renderDayTabs();
-            renderTimeline();
-        }
+        function selectDay(index) { state.currentDayIndex = index; renderDayTabs(); renderTimeline(); }
 
         function addNewDay() {
-            const newDayNum = state.days.length + 1;
-            state.days.push({
-                dayNum: newDayNum,
-                dateLabel: `第 ${newDayNum} 天`,
-                accommodation: {
-                    name: '尚未設定今日住宿',
-                    address: '',
-                    mapUrl: '',
-                    note: ''
-                },
-                itinerary: []
-            });
+            const num = state.days.length + 1;
+            state.days.push({ dayNum: num, dateLabel: `第 ${num} 天`, accommodation: { name: '尚未設定今日住宿', address: '', mapUrl: '', note: '' }, itinerary: [] });
             state.currentDayIndex = state.days.length - 1;
-            saveToLocalStorage();
-            renderDayTabs();
-            renderTimeline();
-            showToast(`已新增 DAY ${newDayNum} 行程卡片！`);
+            saveToLocalStorage(); renderDayTabs(); renderTimeline(); showToast(`已新增 Day ${num}！`);
         }
 
         function deleteCurrentDayWithConfirm() {
-            if (state.days.length <= 1) {
-                showToast("至少需要保留一天的行程喔！");
-                return;
-            }
-            customConfirm("確定要刪除這整天的所有行程與住宿設定嗎？此操作不可逆。", () => {
+            if (state.days.length <= 1) { showToast("至少需要保留一天行程！"); return; }
+            customConfirm("確定要刪除本日完整行程嗎？此動作無法復原。", () => {
                 state.days.splice(state.currentDayIndex, 1);
-                state.days.forEach((day, i) => {
-                    day.dayNum = i + 1;
-                });
+                state.days.forEach((day, i) => day.dayNum = i + 1);
                 state.currentDayIndex = Math.max(0, state.currentDayIndex - 1);
-                saveToLocalStorage();
-                renderDayTabs();
-                renderTimeline();
-                showToast("已成功刪除該天行程。");
+                saveToLocalStorage(); renderDayTabs(); renderTimeline(); showToast("天數已刪除。");
             });
         }
 
         function renderAccommodationSection() {
-            const currentDay = state.days[state.currentDayIndex];
-            if (!currentDay) return;
-
-            const hotel = currentDay.accommodation || { name: '尚未設定今日住宿', address: '', mapUrl: '', note: '' };
-            const titleEl = document.getElementById('hotel-name-display');
+            const currentDay = state.days[state.currentDayIndex]; if (!currentDay) return;
+            const hotel = currentDay.accommodation || { name: '尚未設定今日住宿' };
+            document.getElementById('hotel-name-display').innerText = hotel.name || '尚未設定今日住宿';
             const bodyEl = document.getElementById('hotel-detail-body');
-            
-            titleEl.innerText = hotel.name || '尚未設定今日住宿';
-
             if (hotel.address || hotel.note || hotel.mapUrl) {
                 bodyEl.classList.remove('hidden');
-                
                 const addrEl = document.getElementById('hotel-address-display');
-                if (hotel.address) {
-                    addrEl.querySelector('span').innerText = hotel.address;
-                    addrEl.classList.remove('hidden');
-                } else {
-                    addrEl.classList.add('hidden');
-                }
-
+                if(hotel.address) { addrEl.classList.remove('hidden'); addrEl.querySelector('span').innerText = hotel.address; } else addrEl.classList.add('hidden');
                 const noteEl = document.getElementById('hotel-note-display');
-                if (hotel.note) {
-                    noteEl.querySelector('span').innerText = hotel.note;
-                    noteEl.classList.remove('hidden');
-                } else {
-                    noteEl.classList.add('hidden');
-                }
-
-                const mapLink = document.getElementById('hotel-map-link');
-                if (hotel.mapUrl) {
-                    mapLink.href = hotel.mapUrl;
-                    mapLink.classList.remove('hidden');
-                } else {
-                    mapLink.classList.add('hidden');
-                }
-
-                const copyBtn = document.getElementById('hotel-copy-btn');
-                if (hotel.address) {
-                    copyBtn.setAttribute('onclick', `copyToClipboard('${hotel.address}', '🏨 飯店地址已複製！')`);
-                    copyBtn.classList.remove('hidden');
-                } else {
-                    copyBtn.classList.add('hidden');
-                }
-            } else {
-                bodyEl.classList.add('hidden');
-            }
+                if(hotel.note) { noteEl.classList.remove('hidden'); noteEl.querySelector('span').innerText = hotel.note; } else noteEl.classList.add('hidden');
+                document.getElementById('hotel-map-link').href = hotel.mapUrl || '#';
+                document.getElementById('hotel-copy-btn').setAttribute('onclick', `copyToClipboard('${hotel.address}', '🏨 地址已複製！')`);
+            } else bodyEl.classList.add('hidden');
         }
 
         function openHotelModal() {
-            const currentDay = state.days[state.currentDayIndex];
-            if (!currentDay) return;
-            
-            const hotel = currentDay.accommodation || { name: '', address: '', mapUrl: '', note: '' };
+            const currentDay = state.days[state.currentDayIndex]; if (!currentDay) return;
+            const hotel = currentDay.accommodation || {};
             document.getElementById('hotel-name-input').value = hotel.name || '';
             document.getElementById('hotel-address-input').value = hotel.address || '';
             document.getElementById('hotel-map-input').value = hotel.mapUrl || '';
             document.getElementById('hotel-note-input').value = hotel.note || '';
-            
             document.getElementById('hotel-edit-modal').classList.remove('hidden');
         }
-
-        function closeHotelModal() {
-            document.getElementById('hotel-edit-modal').classList.add('hidden');
-        }
-
+        function closeHotelModal() { document.getElementById('hotel-edit-modal').classList.add('hidden'); }
         function handleHotelSubmit(e) {
-            e.preventDefault();
-            const currentDay = state.days[state.currentDayIndex];
-            if (!currentDay) return;
-
+            e.preventDefault(); const currentDay = state.days[state.currentDayIndex];
             currentDay.accommodation = {
                 name: document.getElementById('hotel-name-input').value.trim(),
                 address: document.getElementById('hotel-address-input').value.trim(),
                 mapUrl: document.getElementById('hotel-map-input').value.trim(),
                 note: document.getElementById('hotel-note-input').value.trim()
             };
-
-            saveToLocalStorage();
-            renderAccommodationSection();
-            closeHotelModal();
-            showToast("本日旅宿數據保存成功！");
+            saveToLocalStorage(); renderAccommodationSection(); closeHotelModal(); showToast("住宿已保存！");
         }
 
-        const categoryConfig = {
-            attraction: { label: '自訂', icon: 'map-pin', pillText: '景點', bg: 'bg-rose-500', text: 'text-rose-500', lightBg: 'bg-rose-50' },
-            food: { label: '自訂', icon: 'utensils', pillText: '美食', bg: 'bg-rose-500', text: 'text-rose-500', lightBg: 'bg-rose-50' },
-            transport: { label: '自訂', icon: 'car', pillText: '交通', bg: 'bg-slate-500', text: 'text-slate-500', lightBg: 'bg-slate-50' },
-            hotel: { label: '自訂', icon: 'home', pillText: '住宿', bg: 'bg-indigo-500', text: 'text-indigo-500', lightBg: 'bg-indigo-50' },
-            shopping: { label: '自訂', icon: 'shopping-bag', pillText: '購物', bg: 'bg-pink-500', text: 'text-pink-500', lightBg: 'bg-pink-50' },
-            other: { label: '自訂', icon: 'info', pillText: '備忘', bg: 'bg-slate-500', text: 'text-slate-500', lightBg: 'bg-slate-50' }
-        };
-
         function renderTimeline() {
-            const currentDay = state.days[state.currentDayIndex];
-            if (!currentDay) return;
-
+            const currentDay = state.days[state.currentDayIndex]; if (!currentDay) return;
             renderAccommodationSection();
             document.getElementById('current-day-count-summary').innerText = `QUESTS: ${currentDay.itinerary.length}`;
-
-            const container = document.getElementById('timeline-container');
-            container.innerHTML = '';
+            const container = document.getElementById('timeline-container'); container.innerHTML = '';
 
             if (currentDay.itinerary.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-12 pixel-card mt-2 shadow-[4px_4px_0_0_#000]">
-                        <div class="bg-slate-100 border-2 border-black w-16 h-16 rounded-none flex items-center justify-center mx-auto mb-3 text-slate-400">
-                            <i data-lucide="map" class="w-8 h-8 text-black"></i>
-                        </div>
-                        <p class="text-slate-900 font-bold">今天還沒有任何冒險行程！</p>
-                        <p class="text-xs text-slate-500 mt-1">點擊上方「新增行程卡片」開創你的新地圖。</p>
-                    </div>
-                `;
-                lucide.createIcons();
+                container.innerHTML = `<div class="text-center py-12 pixel-card mt-2"><p class="text-slate-900 font-bold">今天還沒有行程卡片！</p></div>`;
                 return;
             }
 
             currentDay.itinerary.forEach((item, index) => {
-                const conf = categoryConfig[item.category] || categoryConfig.other;
                 const isLast = index === currentDay.itinerary.length - 1;
+                const cardImgUrl = item.imageUrl || 'https://placehold.co/300';
+                const transitLabels = { ferry: '🚢 搭船', plane: '✈️ 飛機', scooter: '🛵 機車', car: '🚗 搭車' };
+                let tBadge = (item.transitType && item.transitType !== 'none') ? `<div class="mt-1"><span class="bg-amber-100 text-xs px-2 py-0.5 border-2 border-black shadow-[1px_1px_0_0_#000] font-bold">${transitLabels[item.transitType]} ‧ ${item.transitTime}</span></div>` : '';
 
-                const cardImgUrl = item.imageUrl || `https://placehold.co/300x300/e2e8f0/64748b?text=🗺️`;
-                const imageBadgeHtml = `
-                    <div class="relative w-20 h-20 shrink-0 border-4 border-black shadow-[2px_2px_0_0_#000] bg-slate-100 overflow-hidden select-none">
-                        <img src="${cardImgUrl}" alt="${item.title}" class="w-full h-full object-cover pixelated">
-                        <div class="absolute top-0 left-0 bg-rose-500 text-white font-pixel text-[8px] px-2 py-1 border-r-2 border-b-2 border-black shadow">
-                            ${index + 1}
-                        </div>
-                    </div>
-                `;
-
-                const transitIcons = {
-                    ferry: '🚢 搭船',
-                    plane: '✈️ 飛機',
-                    scooter: '🛵 機車',
-                    car: '🚗 搭車'
-                };
-                let transitBadgeHtml = '';
-                if (item.transitType && item.transitType !== 'none' && item.transitTime) {
-                    const iconLabel = transitIcons[item.transitType] || '';
-                    transitBadgeHtml = `
-                        <div class="mt-1">
-                            <span class="inline-flex items-center gap-1 bg-amber-100 text-slate-950 font-bold text-[10px] px-2 py-0.5 border-2 border-black shadow-[1px_1px_0_0_#000]">
-                                ${iconLabel} ‧ ${item.transitTime}
-                            </span>
-                        </div>
-                    `;
-                }
-
-                const noteFlagText = item.note ? ' ‧ 有筆記' : '';
-                const subtitleDetail = `${conf.pillText}${noteFlagText}`;
-
-                const actionPanelHtml = `
-                    <div class="flex items-center space-x-1 shrink-0">
-                        <button onclick="moveItineraryUp(${index})" class="text-slate-400 hover:text-blue-600 p-1 hover:bg-slate-100 transition active:scale-95" title="往上移" ${index === 0 ? 'disabled style="opacity:0.3"' : ''}>
-                            <i data-lucide="chevron-up" class="w-4 h-4 text-black"></i>
-                        </button>
-                        <button onclick="moveItineraryDown(${index})" class="text-slate-400 hover:text-blue-600 p-1 hover:bg-slate-100 transition active:scale-95" title="往下移" ${isLast ? 'disabled style="opacity:0.3"' : ''}>
-                            <i data-lucide="chevron-down" class="w-4 h-4 text-black"></i>
-                        </button>
-                        <button onclick="editItinerary('${item.id}')" class="text-slate-400 hover:text-amber-500 p-1 hover:bg-slate-100 transition active:scale-95" title="編輯">
-                            <i data-lucide="edit-3" class="w-4 h-4 text-black"></i>
-                        </button>
-                        <button onclick="deleteItinerary('${item.id}')" class="text-slate-400 hover:text-rose-500 p-1 hover:bg-slate-100 transition active:scale-95" title="刪除">
-                            <i data-lucide="trash-2" class="w-4 h-4 text-black"></i>
-                        </button>
-                    </div>
-                `;
-
-                const addressBlockHtml = item.address 
-                    ? `<div class="mt-2 text-[11px] text-slate-700 bg-slate-50 border-2 border-black p-2 flex items-center justify-between gap-1">
-                         <span class="truncate max-w-[80%] font-bold">📍 ${item.address}</span>
-                         <button onclick="copyToClipboard('${item.address}', '📍 地址已複製至剪貼簿！')" class="text-[9px] bg-white border-2 border-black hover:bg-slate-100 px-1.5 py-0.5 shrink-0 font-bold shadow-[1px_1px_0_0_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none">
-                            複製
-                         </button>
-                       </div>`
-                    : '';
-
-                const notesBlockHtml = item.note
-                    ? `<p class="text-xs text-slate-600 border-l-4 border-slate-400 pl-2 py-0.5 mt-2 bg-slate-100 p-1 leading-relaxed font-medium">${item.note}</p>`
-                    : '';
-
-                const mapBtnHtml = item.mapUrl 
-                    ? `<a href="${item.mapUrl}" target="_blank" class="pixel-btn text-[10px] py-1 px-2.5 flex items-center gap-0.5 shrink-0 bg-white shadow-[1px_1px_0_0_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none">
-                         <i data-lucide="compass" class="w-3.5 h-3.5"></i>導航
-                       </a>`
-                    : '';
-
-                const cardHtml = `
-                    <div class="flex items-start space-x-3 bg-white border-4 border-black p-3 shadow-[4px_4px_0_0_#000] transition duration-200">
-                        ${imageBadgeHtml}
-                        
+                container.innerHTML += `
+                    <div class="flex items-start space-x-3 bg-white border-4 border-black p-3 shadow-[4px_4px_0_0_#000] mt-3">
+                        <div class="relative w-20 h-20 shrink-0 border-4 border-black overflow-hidden"><img src="${cardImgUrl}" class="w-full h-full object-cover pixelated"><div class="absolute top-0 left-0 bg-rose-500 text-white font-pixel text-[8px] px-1.5 py-0.5 border-r-2 border-b-2 border-black">${index+1}</div></div>
                         <div class="flex-grow min-w-0">
-                            <div class="flex items-center justify-between gap-2">
-                                <div class="flex items-center space-x-2">
-                                    <span class="text-rose-500 font-bold font-pixel text-[10px] flex items-center gap-1">
-                                        <span class="bg-rose-500 text-white p-1 text-[8px] font-pixel w-5 h-5 flex items-center justify-center border-2 border-black shadow">
-                                            YP
-                                        </span>
-                                        ${item.time}
-                                    </span>
+                            <div class="flex justify-between items-center">
+                                <span class="text-rose-500 font-pixel text-[10px] font-bold">YP ${item.time}</span>
+                                <div class="flex space-x-1">
+                                    <button onclick="moveItineraryUp(${index})" class="p-1" ${index===0?'disabled style="opacity:0.2"':''}><i data-lucide="chevron-up" class="w-4 h-4 text-black"></i></button>
+                                    <button onclick="moveItineraryDown(${index})" class="p-1" ${isLast?'disabled style="opacity:0.2"':''}><i data-lucide="chevron-down" class="w-4 h-4 text-black"></i></button>
+                                    <button onclick="editItinerary('${item.id}')" class="p-1"><i data-lucide="edit-3" class="w-4 h-4 text-black"></i></button>
+                                    <button onclick="deleteItinerary('${item.id}')" class="p-1"><i data-lucide="trash-2" class="w-4 h-4 text-black"></i></button>
                                 </div>
-                                ${actionPanelHtml}
                             </div>
-
-                            <h4 class="font-black text-slate-950 text-sm mt-1 truncate">
-                                ${item.title}
-                            </h4>
-
-                            <p class="text-xs font-bold text-slate-400 mt-0.5">
-                                ${subtitleDetail}
-                            </p>
-
-                            ${transitBadgeHtml}
-
-                            ${addressBlockHtml}
-                            ${notesBlockHtml}
-
-                            <div class="flex items-center justify-end gap-1 mt-2.5 pt-1.5 border-t border-dashed border-slate-200">
-                                ${mapBtnHtml}
-                            </div>
+                            <h4 class="font-black text-sm mt-1 truncate">${item.title}</h4>
+                            ${tBadge}
+                            ${item.address ? `<div class="mt-2 text-[11px] bg-slate-50 border-2 border-black p-1.5 flex justify-between items-center"><span>📍 ${item.address}</span><button onclick="copyToClipboard('${item.address}', '📍 地址已複製！')" class="bg-white border-2 border-black text-[9px] px-1 font-bold">複製</button></div>`:''}
+                            ${item.note ? `<p class="text-xs text-slate-600 border-l-4 border-slate-400 pl-2 mt-2 font-medium">${item.note}</p>`:''}
+                            <div class="text-right mt-2">${item.mapUrl ? `<a href="${item.mapUrl}" target="_blank" class="pixel-btn text-[10px] px-2 py-0.5 bg-white">導航</a>`:''}</div>
                         </div>
                     </div>
+                    ${isLast?'':'<div class="pixel-connector"></div>'}
                 `;
-
-                const connectorHtml = isLast ? '' : `
-                    <div class="relative py-1.5 flex flex-col justify-center items-center">
-                        <div class="pixel-connector"></div>
-                    </div>
-                `;
-
-                container.innerHTML += cardHtml + connectorHtml;
             });
-
             lucide.createIcons();
         }
 
-        function moveItineraryUp(index) {
-            const currentDay = state.days[state.currentDayIndex];
-            if (!currentDay || index <= 0) return;
+        window.moveItineraryUp = function(index) {
+            const day = state.days[state.currentDayIndex]; if(index<=0) return;
+            let tmp = day.itinerary[index]; day.itinerary[index] = day.itinerary[index-1]; day.itinerary[index-1] = tmp;
+            saveToLocalStorage(); renderTimeline();
+        };
+        window.moveItineraryDown = function(index) {
+            const day = state.days[state.currentDayIndex]; if(index>=day.itinerary.length-1) return;
+            let tmp = day.itinerary[index]; day.itinerary[index] = day.itinerary[index+1]; day.itinerary[index+1] = tmp;
+            saveToLocalStorage(); renderTimeline();
+        };
 
-            const temp = currentDay.itinerary[index];
-            currentDay.itinerary[index] = currentDay.itinerary[index - 1];
-            currentDay.itinerary[index - 1] = temp;
-
-            saveToLocalStorage();
-            renderTimeline();
-            showToast("已順利往上移動排序！");
-        }
-
-        function moveItineraryDown(index) {
-            const currentDay = state.days[state.currentDayIndex];
-            if (!currentDay || index >= currentDay.itinerary.length - 1) return;
-
-            const temp = currentDay.itinerary[index];
-            currentDay.itinerary[index] = currentDay.itinerary[index + 1];
-            currentDay.itinerary[index + 1] = temp;
-
-            saveToLocalStorage();
-            renderTimeline();
-            showToast("已順利往下移動排序！");
-        }
-
-        function openAddItineraryModal() {
-            document.getElementById('itinerary-form').reset();
-            document.getElementById('itinerary-edit-id').value = '';
+        window.openAddItineraryModal = function() {
+            document.getElementById('itinerary-form').reset(); document.getElementById('itinerary-edit-id').value = '';
             document.getElementById('itinerary-modal-title').innerText = 'ADD QUEST 行程';
             document.getElementById('itinerary-modal').classList.remove('hidden');
-        }
+        };
+        window.closeItineraryModal = function() { document.getElementById('itinerary-modal').classList.add('hidden'); };
 
-        function closeItineraryModal() {
-            document.getElementById('itinerary-modal').classList.add('hidden');
-        }
-
-        async function fetchStaticMapUrl(address, title) {
-            if (!address) {
-                return `https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=300&q=80`;
-            }
-            try {
-                // Fetch OSM Geocoordinates
-                const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&limit=1`);
-                const data = await response.json();
-                if (data && data.length > 0) {
-                    const lat = data[0].lat;
-                    const lon = data[0].lon;
-                    // Yandex pixelated road preview fallback URL
-                    return `https://static-maps.yandex.ru/1.x/?ll=${lon},${lat}&z=15&l=map&size=300,300&pt=${lon},${lat},pm2rdl`;
-                }
-            } catch (e) {
-                console.error("Nominatim geocoding error:", e);
-            }
-            return `https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=300&q=80`;
-        }
-
-        async function handleItinerarySubmit(e) {
-            e.preventDefault();
+        window.handleItinerarySubmit = async function(e) {
+            e.preventDefault(); const day = state.days[state.currentDayIndex];
             const id = document.getElementById('itinerary-edit-id').value;
-            const time = document.getElementById('itinerary-time').value;
-            const category = document.getElementById('itinerary-category').value;
-            const title = document.getElementById('itinerary-title').value;
-            
-            const transitType = document.getElementById('itinerary-transit-type').value;
-            const transitTime = document.getElementById('itinerary-transit-time').value.trim();
-            
-            const address = document.getElementById('itinerary-address').value;
-            const mapUrl = document.getElementById('itinerary-map-url').value;
-            const note = document.getElementById('itinerary-note').value;
+            const data = {
+                id: id || 'it-'+Date.now(), time: document.getElementById('itinerary-time').value,
+                category: document.getElementById('itinerary-category').value, title: document.getElementById('itinerary-title').value,
+                transitType: document.getElementById('itinerary-transit-type').value, transitTime: document.getElementById('itinerary-transit-time').value,
+                address: document.getElementById('itinerary-address').value, mapUrl: document.getElementById('itinerary-map-url').value,
+                note: document.getElementById('itinerary-note').value, imageUrl: "https://placehold.co/300"
+            };
+            if(id) { const idx = day.itinerary.findIndex(i=>i.id===id); if(idx!==-1) day.itinerary[idx] = data; }
+            else day.itinerary.push(data);
+            closeItineraryModal(); renderTimeline(); showToast("卡片已保存，載入地圖中...");
+            const mapImg = await fetchStaticMapUrl(data.address, data.title);
+            data.imageUrl = mapImg; saveToLocalStorage(); renderTimeline();
+        };
 
-            const currentDay = state.days[state.currentDayIndex];
-            const tempLoadingMap = "https://placehold.co/300x300/f1f5f9/94a3b8?text=Generating+Map...";
-
-            if (id) {
-                // Edit
-                const index = currentDay.itinerary.findIndex(item => item.id === id);
-                if (index !== -1) {
-                    const existingItem = currentDay.itinerary[index];
-                    currentDay.itinerary[index] = { 
-                        ...existingItem, id, time, category, title, address, mapUrl, note, transitType, transitTime 
-                    };
-                    
-                    showToast("行程卡片已更新，正在重新分析地圖定位...");
-                    closeItineraryModal();
-                    renderTimeline();
-
-                    const resolvedMapUrl = await fetchStaticMapUrl(address, title);
-                    currentDay.itinerary[index].imageUrl = resolvedMapUrl;
-                    saveToLocalStorage();
-                    renderTimeline();
-                }
-            } else {
-                // Add
-                const newId = 'it-' + Date.now();
-                const newItem = {
-                    id: newId,
-                    time, category, title, address, mapUrl, note,
-                    transitType, transitTime,
-                    imageUrl: tempLoadingMap
-                };
-                currentDay.itinerary.push(newItem);
-                closeItineraryModal();
-                renderTimeline();
-                showToast("行程卡片已加入，正在自動抓取地圖...");
-
-                const resolvedMapUrl = await fetchStaticMapUrl(address, title);
-                const updatedIndex = currentDay.itinerary.findIndex(item => item.id === newId);
-                if (updatedIndex !== -1) {
-                    currentDay.itinerary[updatedIndex].imageUrl = resolvedMapUrl;
-                }
-                saveToLocalStorage();
-                renderTimeline();
-            }
-        }
-
-        function editItinerary(id) {
-            const currentDay = state.days[state.currentDayIndex];
-            const item = currentDay.itinerary.find(i => i.id === id);
-            if (!item) return;
-
+        window.editItinerary = function(id) {
+            const item = state.days[state.currentDayIndex].itinerary.find(i=>i.id===id); if(!item) return;
             document.getElementById('itinerary-edit-id').value = item.id;
             document.getElementById('itinerary-time').value = item.time;
             document.getElementById('itinerary-category').value = item.category;
             document.getElementById('itinerary-title').value = item.title;
-            
             document.getElementById('itinerary-transit-type').value = item.transitType || 'none';
             document.getElementById('itinerary-transit-time').value = item.transitTime || '';
-            
             document.getElementById('itinerary-address').value = item.address || '';
             document.getElementById('itinerary-map-url').value = item.mapUrl || '';
             document.getElementById('itinerary-note').value = item.note || '';
-
             document.getElementById('itinerary-modal-title').innerText = 'EDIT QUEST 行程';
             document.getElementById('itinerary-modal').classList.remove('hidden');
-        }
+        };
 
-        function deleteItinerary(id) {
+        window.deleteItinerary = function(id) {
             customConfirm("確定要刪除這張行程卡片嗎？", () => {
-                const currentDay = state.days[state.currentDayIndex];
-                currentDay.itinerary = currentDay.itinerary.filter(i => i.id !== id);
-                saveToLocalStorage();
-                renderTimeline();
-                showToast("行程卡片已成功刪除。");
+                const day = state.days[state.currentDayIndex]; day.itinerary = day.itinerary.filter(i=>i.id!==id);
+                saveToLocalStorage(); renderTimeline();
             });
-        }
+        };
 
-        function triggerFloatMapAction() {
-            const currentDay = state.days[state.currentDayIndex];
-            if (!currentDay) return;
+        window.copyToClipboard = function(text, msg) {
+            navigator.clipboard.writeText(text); showToast(msg);
+        };
 
-            const maps = currentDay.itinerary.filter(i => i.mapUrl).map(i => i.mapUrl);
-            const hotel = currentDay.accommodation;
-            if (hotel && hotel.mapUrl) {
-                maps.push(hotel.mapUrl);
-            }
-
-            if (maps.length === 0) {
-                showToast("📍 本日行程尚未設定任何 Google Maps 地圖連結喔！");
-                return;
-            }
-
-            window.open(maps[0], '_blank');
-            showToast(`已為您開啟最接近的導航目標地圖！`);
-        }
-
-        function copyToClipboard(text, successMsg) {
-            const temp = document.createElement('textarea');
-            temp.value = text;
-            document.body.appendChild(temp);
-            temp.select();
-            document.execCommand('copy');
-            document.body.removeChild(temp);
-            showToast(successMsg || "📍 資料已複製至剪貼簿！");
-        }
-
-
-        // ==================== TAB 2 LOGIC: EXPENSES & SPLITTING ====================
+        // ==================== TAB 2: EXPENSES ====================
         function renderExpensesTab() {
-            let totalTwd = 0;
-            state.expenses.forEach(exp => {
-                totalTwd += convertToBase(exp.amount, exp.currency, state.baseCurrency);
-            });
-
-            document.getElementById('total-expense-display').innerText = formatMoney(totalTwd, state.baseCurrency);
-            document.getElementById('avg-expense-display').innerText = formatMoney(totalTwd / Math.max(1, state.companions.length), state.baseCurrency);
+            let total = 0; state.expenses.forEach(e => total += convertToBase(e.amount, e.currency, state.baseCurrency));
+            document.getElementById('total-expense-display').innerText = formatMoney(total, state.baseCurrency);
+            document.getElementById('avg-expense-display').innerText = formatMoney(total / Math.max(1, state.companions.length), state.baseCurrency);
             document.getElementById('member-count-badge').innerText = state.companions.length;
+            
+            const pSel = document.getElementById('exp-payer'); pSel.innerHTML = '';
+            state.companions.forEach(c => pSel.innerHTML += `<option value="${c}">${c}</option>`);
 
-            const payerSelect = document.getElementById('exp-payer');
-            payerSelect.innerHTML = '';
-            state.companions.forEach(c => {
-                payerSelect.innerHTML += `<option value="${c}">${c}</option>`;
-            });
-
-            const sharersContainer = document.getElementById('exp-sharers-container');
-            sharersContainer.innerHTML = '';
-            state.companions.forEach(c => {
-                sharersContainer.innerHTML += `
-                    <label class="flex items-center space-x-2 text-sm text-slate-800 cursor-pointer p-1 hover:bg-slate-100">
-                        <input type="checkbox" name="exp-sharer" value="${c}" checked class="border-4 border-black text-black focus:ring-0 rounded-none w-5 h-5 cursor-pointer">
-                        <span class="font-bold">${c}</span>
-                    </label>
-                `;
-            });
-
-            calculateAndDisplaySettlement();
-            renderExpenseList();
+            const sCon = document.getElementById('exp-sharers-container'); sCon.innerHTML = '';
+            state.companions.forEach(c => sCon.innerHTML += `<label class="flex items-center space-x-2 text-sm font-bold cursor-pointer"><input type="checkbox" name="exp-sharer" value="${c}" checked class="w-5 h-5 border-4 border-black rounded-none"><span>${c}</span></label>`);
+            calculateSettlement(); renderExpenseList();
         }
 
         function renderExpenseList() {
-            const container = document.getElementById('expense-list-container');
-            container.innerHTML = '';
-
-            if (state.expenses.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-10 text-slate-400 text-xs">
-                        <i data-lucide="receipt" class="w-8 h-8 mx-auto mb-2 text-slate-300"></i>
-                        還沒有任何冒險記帳紀錄，新增一筆吧！
-                    </div>
-                `;
-                lucide.createIcons();
-                return;
-            }
-
+            const container = document.getElementById('expense-list-container'); container.innerHTML = '';
+            if(state.expenses.length === 0) { container.innerHTML = '<p class="text-center text-xs text-slate-400">目前沒有記帳明細</p>'; return; }
             [...state.expenses].reverse().forEach(exp => {
-                const singleTwd = convertToBase(exp.amount, exp.currency, state.baseCurrency);
-                let sharersText = exp.splitWith.join('、');
-                if (exp.splitWith.length === state.companions.length) {
-                    sharersText = '所有人均分';
-                }
-
                 container.innerHTML += `
-                    <div class="bg-white border-4 border-black p-3.5 shadow-[2px_2px_0_0_#000] flex items-start justify-between gap-3">
-                        <div class="space-y-1">
-                            <h4 class="font-black text-slate-950 text-sm leading-tight">${exp.description}</h4>
-                            <p class="text-[11px] font-bold text-slate-500 flex items-center gap-1.5">
-                                <span class="bg-yellow-300 border border-black text-black px-1.5 py-0.25 font-bold">${exp.payer} 付款</span>
-                                <span>分攤: ${sharersText}</span>
-                            </p>
-                        </div>
-                        <div class="text-right shrink-0 flex items-center gap-2">
-                            <div>
-                                <span class="block font-pixel text-slate-900 text-[10px]">${exp.amount.toLocaleString()} ${exp.currency}</span>
-                                ${exp.currency !== state.baseCurrency ? `<span class="block text-[9px] font-bold text-slate-400">≈ ${Math.round(singleTwd).toLocaleString()} ${state.baseCurrency}</span>` : ''}
-                            </div>
-                            <button onclick="deleteExpense('${exp.id}')" class="text-slate-400 hover:text-rose-500 p-1 transition">
-                                <i data-lucide="x" class="w-4 h-4 text-black"></i>
-                            </button>
-                        </div>
+                    <div class="bg-white border-4 border-black p-3 flex justify-between items-center shadow-[2px_2px_0_0_#000]">
+                        <div><h4 class="font-black text-sm">${exp.description}</h4><p class="text-xs font-bold text-slate-500">${exp.payer} 先付 ‧ 分攤: ${exp.splitWith.join(',')}</p></div>
+                        <div class="flex items-center space-x-2"><span class="font-pixel text-[10px]">${exp.amount} ${exp.currency}</span><button onclick="deleteExpense('${exp.id}')"><i data-lucide="x" class="w-4 h-4 text-black"></i></button></div>
                     </div>
                 `;
             });
-
             lucide.createIcons();
         }
 
-        function handleNewExpenseSubmit(e) {
+        window.handleNewExpenseSubmit = function(e) {
             e.preventDefault();
-            const description = document.getElementById('exp-description').value;
-            const amount = parseFloat(document.getElementById('exp-amount').value);
-            const currency = document.getElementById('exp-currency').value;
-            const payer = document.getElementById('exp-payer').value;
-            
-            const checkedBoxes = document.querySelectorAll('input[name="exp-sharer"]:checked');
-            const splitWith = [];
-            checkedBoxes.forEach(box => {
-                splitWith.push(box.value);
-            });
-
-            if (splitWith.length === 0) {
-                showToast("⚠️ 分攤成員不能為空，請至少勾選一人！");
-                return;
-            }
-
+            const checked = document.querySelectorAll('input[name="exp-sharer"]:checked');
+            const splitWith = Array.from(checked).map(b => b.value);
+            if(splitWith.length === 0) { showToast("⚠️ 請至少勾選一位分攤成員！"); return; }
             state.expenses.push({
-                id: 'exp-' + Date.now(),
-                description, amount, currency, payer, splitWith
+                id: 'exp-'+Date.now(), description: document.getElementById('exp-description').value,
+                amount: parseFloat(document.getElementById('exp-amount').value), currency: document.getElementById('exp-currency').value,
+                payer: document.getElementById('exp-payer').value, splitWith
             });
+            saveToLocalStorage(); document.getElementById('expense-form').reset(); renderExpensesTab();
+        };
 
-            saveToLocalStorage();
-            document.getElementById('expense-form').reset();
-            renderExpensesTab();
-            showToast(`已成功記錄：$${amount} ${currency} (${description})`);
-        }
+        window.deleteExpense = function(id) { state.expenses = state.expenses.filter(e=>e.id!==id); saveToLocalStorage(); renderExpensesTab(); };
+        window.clearAllExpensesWithConfirm = function() { customConfirm("確定要清空所有明細嗎？", () => { state.expenses = []; saveToLocalStorage(); renderExpensesTab(); }); };
 
-        function deleteExpense(id) {
-            state.expenses = state.expenses.filter(exp => exp.id !== id);
-            saveToLocalStorage();
-            renderExpensesTab();
-            showToast("已成功刪除記帳。");
-        }
-
-        function clearAllExpensesWithConfirm() {
-            customConfirm("⚠️ 確定要刪除所有的流水帳與分帳數據嗎？這將無法復原。", () => {
-                state.expenses = [];
-                saveToLocalStorage();
-                renderExpensesTab();
-                showToast("分帳記錄已清空。");
+        function calculateSettlement() {
+            const list = document.getElementById('debt-settlement-list'); list.innerHTML = '';
+            let balances = {}; state.companions.forEach(c => balances[c] = 0);
+            state.expenses.forEach(e => {
+                let amt = convertToBase(e.amount, e.currency, state.baseCurrency); balances[e.payer] += amt;
+                let share = amt / e.splitWith.length; e.splitWith.forEach(p => { if(balances[p]!==undefined) balances[p] -= share; });
             });
-        }
-
-        function calculateAndDisplaySettlement() {
-            const listContainer = document.getElementById('debt-settlement-list');
-            listContainer.innerHTML = '';
-
-            let balances = {};
-            state.companions.forEach(c => balances[c] = 0);
-
-            state.expenses.forEach(exp => {
-                const amountInBase = convertToBase(exp.amount, exp.currency, state.baseCurrency);
-                if (balances[exp.payer] !== undefined) {
-                    balances[exp.payer] += amountInBase;
-                }
-
-                const validSharers = exp.splitWith.filter(s => state.companions.includes(s));
-                const splitCount = validSharers.length;
-                if (splitCount > 0) {
-                    const share = amountInBase / splitCount;
-                    validSharers.forEach(person => {
-                        balances[person] -= share;
-                    });
-                }
-            });
-
-            let debtors = [];
-            let creditors = [];
-            for (let person in balances) {
-                let bal = balances[person];
-                if (bal < -0.01) {
-                    debtors.push({ name: person, balance: bal });
-                } else if (bal > 0.01) {
-                    creditors.push({ name: person, balance: bal });
-                }
+            let debts = [], creds = [];
+            for (let p in balances) { if(balances[p] < -0.1) debts.push({name:p, bal:balances[p]}); else if(balances[p] > 0.1) creds.push({name:p, bal:balances[p]}); }
+            debts.sort((a,b)=>a.bal-b.bal); creds.sort((a,b)=>b.bal-a.bal);
+            let i=0, j=0;
+            while(i < debts.length && j < creds.length) {
+                let pay = Math.min(-debts[i].bal, creds[j].bal);
+                list.innerHTML += `<div class="bg-slate-50 border-4 border-black p-3 flex justify-between items-center text-xs font-bold"><div><span class="text-rose-500">${debts[i].name}</span> ➔ <span class="text-emerald-600">${creds[j].name}</span></div><span class="font-pixel text-[9px]">${formatMoney(pay, state.baseCurrency)}</span></div>`;
+                debts[i].bal += pay; creds[j].bal -= pay; if(Math.abs(debts[i].bal)<0.1) i++; if(Math.abs(creds[j].bal)<0.1) j++;
             }
-
-            debtors.sort((a, b) => a.balance - b.balance);
-            creditors.sort((a, b) => b.balance - a.balance);
-
-            let transactions = [];
-            let i = 0, j = 0;
-            while (i < debtors.length && j < creditors.length) {
-                let debtor = debtors[i];
-                let creditor = creditors[j];
-                let amountToPay = Math.min(-debtor.balance, creditor.balance);
-
-                transactions.push({
-                    from: debtor.name,
-                    to: creditor.name,
-                    amount: amountToPay
-                });
-
-                debtor.balance += amountToPay;
-                creditor.balance -= amountToPay;
-
-                if (Math.abs(debtor.balance) < 0.01) i++;
-                if (Math.abs(creditor.balance) < 0.01) j++;
-            }
-
-            if (transactions.length === 0) {
-                listContainer.innerHTML = `
-                    <div class="text-center py-6 text-slate-400 text-xs">
-                        <i data-lucide="check-circle" class="w-8 h-8 mx-auto mb-2 text-emerald-500"></i>
-                        大家目前帳務相抵！沒有人需要補給別人錢囉。
-                    </div>
-                `;
-                lucide.createIcons();
-                return;
-            }
-
-            transactions.forEach(t => {
-                listContainer.innerHTML += `
-                    <div class="bg-slate-50 border-4 border-black p-3.5 flex items-center justify-between text-xs sm:text-sm shadow-[2px_2px_0_0_#000]">
-                        <div class="flex items-center space-x-2">
-                            <span class="font-bold text-rose-500 bg-rose-50 border border-rose-300 px-2 py-0.5">${t.from}</span>
-                            <span class="text-slate-500 font-pixel text-[8px] flex items-center gap-0.5">
-                                PAY <i data-lucide="arrow-right" class="w-3.5 h-3.5 inline text-black"></i>
-                            </span>
-                            <span class="font-bold text-emerald-600 bg-emerald-50 border border-emerald-300 px-2 py-0.5">${t.to}</span>
-                        </div>
-                        <span class="font-pixel text-slate-900 text-[9px] font-bold">${formatMoney(t.amount, state.baseCurrency)}</span>
-                    </div>
-                `;
-            });
-
-            lucide.createIcons();
+            if(list.innerHTML === '') list.innerHTML = '<p class="text-center text-xs text-slate-400">🎉 目前所有帳目完全平分相抵！</p>';
         }
 
-
-        // ==================== TAB 3 LOGIC: COMPANIONS & SETTINGS ====================
+        // ==================== TAB 3: COMPANIONS ====================
         function renderCompanionsTab() {
-            const container = document.getElementById('companions-list-container');
-            container.innerHTML = '';
-
-            state.companions.forEach(companion => {
-                container.innerHTML += `
-                    <div class="flex items-center justify-between bg-white p-3 border-4 border-black shadow-[2px_2px_0_0_#000] text-sm">
-                        <span class="font-black text-slate-800 flex items-center gap-2">
-                            <div class="w-3 h-3 bg-blue-500 border border-black shadow"></div>
-                            ${companion}
-                        </span>
-                        <button onclick="removeCompanion('${companion}')" class="text-slate-400 hover:text-rose-500 transition active:scale-95">
-                            <i data-lucide="user-minus" class="w-5 h-5 text-black"></i>
-                        </button>
-                    </div>
-                `;
+            const container = document.getElementById('companions-list-container'); container.innerHTML = '';
+            state.companions.forEach(c => {
+                container.innerHTML += `<div class="flex justify-between items-center bg-white p-3 border-4 border-black shadow-[2px_2px_0_0_#000] font-bold text-sm"><span>${c}</span><button onclick="removeCompanion('${c}')"><i data-lucide="user-minus" class="w-4 h-4 text-black"></i></button></div>`;
             });
-
-            document.getElementById('base-currency-select').value = state.baseCurrency;
-            lucide.createIcons();
+            document.getElementById('base-currency-select').value = state.baseCurrency; lucide.createIcons();
         }
+        window.addCompanion = function() {
+            const input = document.getElementById('new-companion-name'); const val = input.value.trim();
+            if(!val || state.companions.includes(val)) return; state.companions.push(val); input.value = '';
+            saveToLocalStorage(); renderCompanionsTab();
+        };
+        window.removeCompanion = function(name) {
+            if(state.companions.length<=1) return;
+            customConfirm(`移出旅伴 ${name} 嗎？`, () => { state.companions = state.companions.filter(c=>c!==name); saveToLocalStorage(); renderCompanionsTab(); });
+        };
+        window.changeBaseCurrency = function(val) { state.baseCurrency = val; saveToLocalStorage(); renderExpensesTab(); };
+        window.confirmResetAllDataWithConfirm = function() { customConfirm("確定要彻底重置清除手冊嗎？", () => { localStorage.clear(); location.reload(); }); };
 
-        function addCompanion() {
-            const input = document.getElementById('new-companion-name');
-            const name = input.value.trim();
-            if (!name) return;
-
-            if (state.companions.includes(name)) {
-                showToast("這名旅伴已經存在手冊中了！");
-                return;
-            }
-
-            state.companions.push(name);
-            saveToLocalStorage();
-            input.value = '';
-            renderCompanionsTab();
-            showToast(`已歡迎「${name}」加入小隊！`);
-        }
-
-        function removeCompanion(name) {
-            if (state.companions.length <= 1) {
-                showToast("手冊中至少要有一名旅伴喔！");
-                return;
-            }
-            customConfirm(`確定移出旅伴「${name}」嗎？這不會更改歷史記帳數據。`, () => {
-                state.companions = state.companions.filter(c => c !== name);
-                saveToLocalStorage();
-                renderCompanionsTab();
-                showToast(`旅伴「${name}」已被移出。`);
-            });
-        }
-
-        function changeBaseCurrency(currency) {
-            state.baseCurrency = currency;
-            saveToLocalStorage();
-            showToast(`本位幣已設定為：${currency}`);
-        }
-
-        function confirmResetAllDataWithConfirm() {
-            customConfirm("⚠️ 此操作會清除所有天數行程卡片、分帳流水與打包清單！確定要重置嗎？", () => {
-                localStorage.removeItem('kiduwe_travel_data_v2');
-                localStorage.removeItem('kitowei_travel_data_v2');
-                location.reload();
-            });
-        }
-
-
-        // ==================== TAB 4 LOGIC: CHECKLIST ====================
+        // ==================== TAB 4: CHECKLIST ====================
         function renderChecklistTab() {
-            const container = document.getElementById('checklist-grid-container');
-            container.innerHTML = '';
-
-            const categories = {};
-            state.checklist.forEach(item => {
-                if (!categories[item.category]) {
-                    categories[item.category] = [];
-                }
-                categories[item.category].push(item);
-            });
-
-            // Calculate overall HP progress
-            const totalItems = state.checklist.length;
-            const doneItems = state.checklist.filter(i => i.done).length;
-            const progressRatio = totalItems > 0 ? Math.round((doneItems / totalItems) * 100) : 0;
+            const container = document.getElementById('checklist-grid-container'); container.innerHTML = '';
+            let groups = {}; state.checklist.forEach(i => { if(!groups[i.category]) groups[i.category] = []; groups[i.category].push(i); });
             
-            document.getElementById('overall-pack-ratio').innerText = `${progressRatio}% HP`;
-            document.getElementById('overall-pack-bar').style.width = `${progressRatio}%`;
+            let total = state.checklist.length, done = state.checklist.filter(i=>i.done).length;
+            let ratio = total > 0 ? Math.round((done/total)*100) : 0;
+            document.getElementById('overall-pack-ratio').innerText = `${ratio}% HP`;
+            document.getElementById('overall-pack-bar').style.width = `${ratio}%`;
 
-            for (let cat in categories) {
+            for(let cat in groups) {
                 let itemsHtml = '';
-                categories[cat].forEach(item => {
-                    itemsHtml += `
-                        <div class="flex items-center justify-between py-1.5 px-1 hover:bg-slate-100 rounded transition">
-                            <label class="flex items-start space-x-3.5 cursor-pointer flex-grow text-sm select-none">
-                                <input type="checkbox" onchange="toggleChecklistItem('${item.id}')" ${item.done ? 'checked' : ''} class="mt-0.5 border-4 border-black text-black focus:ring-0 rounded-none w-5 h-5 cursor-pointer">
-                                <span class="${item.done ? 'line-through text-slate-400 font-medium' : 'text-slate-800 font-bold'}">${item.text}</span>
-                            </label>
-                            <button onclick="deleteChecklistItem('${item.id}')" class="text-slate-400 hover:text-rose-500 p-1 transition active:scale-95" title="刪除本項">
-                                <i data-lucide="trash-2" class="w-4 h-4 text-black"></i>
-                            </button>
-                        </div>
-                    `;
+                groups[cat].forEach(i => {
+                    itemsHtml += `<div class="flex justify-between items-center text-sm font-bold"><label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" onchange="toggleChecklistItem('${i.id}')" ${i.done?'checked':''} class="w-5 h-5 border-4 border-black rounded-none"><span class="${i.done?'line-through text-slate-400':''}">${i.text}</span></label><button onclick="deleteChecklistItem('${i.id}')"><i data-lucide="trash-2" class="w-4 h-4 text-black"></i></button></div>`;
                 });
-
-                container.innerHTML += `
-                    <div class="bg-white border-4 border-black p-4 shadow-[2px_2px_0_0_#000]">
-                        <h4 class="font-black text-slate-900 text-sm border-b-2 border-dashed border-slate-300 pb-2 mb-2.5 flex items-center justify-between">
-                            <span>${cat}</span>
-                            <span class="font-pixel text-[8px] bg-yellow-300 border border-black px-1.5 py-0.25 font-bold">
-                                ${categories[cat].filter(i=>i.done).length}/${categories[cat].length}
-                            </span>
-                        </h4>
-                        <div class="flex flex-col space-y-1">
-                            ${itemsHtml}
-                        </div>
-                    </div>
-                `;
+                container.innerHTML += `<div class="bg-white border-4 border-black p-4 shadow-[2px_2px_0_0_#000]"><h4 class="font-black border-b-2 border-dashed border-black pb-1 mb-2">${cat}</h4><div class="space-y-2">${itemsHtml}</div></div>`;
             }
             lucide.createIcons();
         }
+        window.toggleChecklistItem = function(id) { const i = state.checklist.find(x=>x.id===id); if(i) { i.done = !i.done; saveToLocalStorage(); renderChecklistTab(); } };
+        window.deleteChecklistItem = function(id) { state.checklist = state.checklist.filter(x=>x.id!==id); saveToLocalStorage(); renderChecklistTab(); };
+        window.openChecklistAddModal = function() { document.getElementById('checklist-add-form').reset(); document.getElementById('checklist-custom-category-group').classList.add('hidden'); document.getElementById('checklist-add-modal').classList.remove('hidden'); };
+        window.closeChecklistAddModal = function() { document.getElementById('checklist-add-modal').classList.add('hidden'); };
+        window.toggleCustomCategoryField = function() { document.getElementById('checklist-custom-category-group').classList.toggle('hidden', document.getElementById('checklist-category-select').value !== 'CUSTOM'); };
+        window.handleChecklistSubmit = function(e) {
+            e.preventDefault(); const sel = document.getElementById('checklist-category-select').value;
+            let cat = sel === 'CUSTOM' ? document.getElementById('checklist-custom-category-input').value.trim() : sel;
+            state.checklist.push({ id: 'chk-'+Date.now(), category: cat || '自訂裝備', text: document.getElementById('checklist-text-input').value.trim(), done: false });
+            saveToLocalStorage(); closeChecklistAddModal(); renderChecklistTab();
+        };
 
-        function toggleChecklistItem(id) {
-            const item = state.checklist.find(i => i.id === id);
-            if (item) {
-                item.done = !item.done;
-                saveToLocalStorage();
-                renderChecklistTab();
-            }
-        }
+        // ==================== SYNC SERVICES ====================
+        window.openShareModal = function() { document.getElementById('export-json-text').value = JSON.stringify(state); updateCloudSyncUI(); document.getElementById('share-modal').classList.remove('hidden'); };
+        window.closeShareModal = function() { document.getElementById('share-modal').classList.add('hidden'); };
+        window.copyExportCode = function() { navigator.clipboard.writeText(document.getElementById('export-json-text').value); showToast("📋 JSON 備份碼複製成功！"); };
 
-        function deleteChecklistItem(id) {
-            state.checklist = state.checklist.filter(i => i.id !== id);
-            saveToLocalStorage();
-            renderChecklistTab();
-            showToast("已將項目自裝備清單移除。");
-        }
-
-        function openChecklistAddModal() {
-            document.getElementById('checklist-add-form').reset();
-            document.getElementById('checklist-custom-category-group').classList.add('hidden');
-            document.getElementById('checklist-add-modal').classList.remove('hidden');
-        }
-
-        function closeChecklistAddModal() {
-            document.getElementById('checklist-add-modal').classList.add('hidden');
-        }
-
-        function toggleCustomCategoryField() {
-            const selectedVal = document.getElementById('checklist-category-select').value;
-            const customGroup = document.getElementById('checklist-custom-category-group');
-            if (selectedVal === 'CUSTOM') {
-                customGroup.classList.remove('hidden');
-            } else {
-                customGroup.classList.add('hidden');
-            }
-        }
-
-        function handleChecklistSubmit(e) {
-            e.preventDefault();
-            const selectVal = document.getElementById('checklist-category-select').value;
-            let categoryName = selectVal;
-            
-            if (selectVal === 'CUSTOM') {
-                const inputVal = document.getElementById('checklist-custom-category-input').value.trim();
-                categoryName = inputVal || "自訂分類";
-            }
-
-            const itemText = document.getElementById('checklist-text-input').value.trim();
-            if (!itemText) return;
-
-            state.checklist.push({
-                id: 'chk-' + Date.now(),
-                category: categoryName,
-                text: itemText,
-                done: false
-            });
-
-            saveToLocalStorage();
-            closeChecklistAddModal();
-            renderChecklistTab();
-            showToast(`已成功添加裝備：${itemText}`);
-        }
-
-
-        // ==================== SYNC & IMPORT/EXPORT JAVASCRIPT ====================
-        function openShareModal() {
-            const jsonText = JSON.stringify(state);
-            document.getElementById('export-json-text').value = jsonText;
-            document.getElementById('sync-join-id-input').value = '';
-            
-            updateCloudSyncUI();
-            document.getElementById('share-modal').classList.remove('hidden');
-        }
-
-        function closeShareModal() {
-            document.getElementById('share-modal').classList.add('hidden');
-        }
-
-        function copyExportCode() {
-            const textarea = document.getElementById('export-json-text');
-            textarea.select();
-            document.execCommand('copy');
-            showToast("📋 8-Bit 規劃代碼複製成功！快拿去群組貼上備份吧！");
-        }
-
-        // --- CLOUD SYNC LOGIC ENGINE (REAL-TIME SNAPSHOT UPGRADE) ---
-
-        function updateCloudSyncUI() {
-            const indicatorHeader = document.getElementById('header-sync-badge');
-            const dotHeader = document.getElementById('sync-badge-dot');
-            const textHeader = document.getElementById('sync-badge-text');
-
-            const indicatorModal = document.getElementById('modal-sync-indicator');
-            const setupPanel = document.getElementById('sync-setup-panel');
-            const activePanel = document.getElementById('sync-active-panel');
-            const roomCodeDisplay = document.getElementById('sync-room-code-display');
-
-            if (state.isSyncEnabled && state.syncRoomId) {
-                // Enabled state
-                dotHeader.className = "w-2.5 h-2.5 bg-green-400 border border-black inline-block pixel-blink-slow shadow";
-                textHeader.innerText = `${state.syncRoomId}`;
-                indicatorHeader.className = "pixel-btn bg-emerald-100 text-slate-800 text-[10px] py-1.5 px-3 flex items-center gap-1.5 shadow";
-
-                indicatorModal.innerText = "ONLINE";
-                indicatorModal.className = "font-pixel text-[8px] bg-green-400 border border-black px-1.5 py-0.5 text-black font-bold";
-                
-                setupPanel.classList.add('hidden');
-                activePanel.classList.remove('hidden');
-                roomCodeDisplay.innerText = state.syncRoomId;
-            } else {
-                // Offline state
-                dotHeader.className = "w-2.5 h-2.5 bg-slate-400 border border-black inline-block shadow";
-                textHeader.innerText = "OFFLINE";
-                indicatorHeader.className = "pixel-btn bg-slate-100 text-slate-800 text-[10px] py-1.5 px-3 flex items-center gap-1.5 shadow";
-
-                indicatorModal.innerText = "STANDBY";
-                indicatorModal.className = "font-pixel text-[8px] bg-slate-200 text-slate-600 border border-black px-1.5 py-0.5 font-semibold";
-
-                setupPanel.classList.remove('hidden');
-                activePanel.classList.add('hidden');
-            }
-        }
-
-        // POST/PUT to Cloud engine
-        async function createCloudSyncRoom() {
-            showToast("🚀 正在為您向雲端申請專屬協作房...");
-            
-            // If Firebase Firestore initialized, create Room document there (Rule 1)
-            if (db && currentUser) {
-                try {
-                    const rId = 'room-' + Math.random().toString(36).substring(2, 9).toUpperCase();
-                    state.syncRoomId = rId;
-                    state.isSyncEnabled = true;
-                    state.lastUpdated = Date.now();
-                    
-                    const roomDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'rooms', rId);
-                    await setDoc(roomDocRef, state);
-                    
-                    localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
-                    startFirestoreSync(rId);
-                    updateCloudSyncUI();
-                    showToast(`🎉 8-Bit 雲端協作房創建成功！房號：${rId}`);
-                    return;
-                } catch (err) {
-                    console.error("Firestore room creation failed, falling back", err);
-                }
-            }
-
-            // Fallback Npoint public engine
-            try {
-                state.lastUpdated = Date.now();
-                const response = await fetch("https://api.npoint.io", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(state)
-                });
-                
-                if (response.ok) {
-                    const result = await response.json();
-                    if (result && result.id) {
-                        state.syncRoomId = result.id;
-                        state.isSyncEnabled = true;
-                        localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
-                        
-                        startSyncPolling();
-                        updateCloudSyncUI();
-                        showToast(`🎉 協作房建立成功！房號為 ${result.id}`);
-                    }
-                } else {
-                    showToast("⚠️ 建立失敗：雲端伺服器回應錯誤，請再試一次。");
-                }
-            } catch (e) {
-                console.error("Fallback room creation failed:", e);
-                showToast("⚠️ 網路連線失敗，請檢查網路設定。");
-            }
-        }
-
-        // Join Cloud Sync Room
-        async function joinCloudSyncRoom() {
-            const inputVal = document.getElementById('sync-join-id-input').value.trim();
-            if (!inputVal) {
-                showToast("⚠️ 請輸入有效的房號！");
-                return;
-            }
-
-            showToast(`📡 正在連線讀取房間 [${inputVal}] 狀態...`);
-
-            // If Firebase initialized, load and subscribe immediately
-            if (db && currentUser) {
-                try {
-                    const roomDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'rooms', inputVal);
-                    const docSnap = await getDoc(roomDocRef);
-                    if (docSnap.exists()) {
-                        customConfirm("偵測到此協作房有現成數據。加入將覆蓋您本機目前的編輯項目，確定要繼續連線嗎？", () => {
-                            state = docSnap.data();
-                            state.syncRoomId = inputVal;
-                            state.isSyncEnabled = true;
-                            
-                            localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
-                            
-                            renderAll();
-                            startFirestoreSync(inputVal);
-                            updateCloudSyncUI();
-                            closeShareModal();
-                            showToast(`🟢 成功連線！已與旅伴即時同步 [${inputVal}]`);
-                        });
-                        return;
-                    }
-                } catch (err) {
-                    console.error("Firestore join failed, falling back", err);
-                }
-            }
-
-            // Fallback Npoint Engine
-            try {
-                const response = await fetch(`https://api.npoint.io/${inputVal}`);
-                if (response.ok) {
-                    const cloudState = await response.json();
-                    if (cloudState && cloudState.days) {
-                        customConfirm("加入將會覆蓋您本機目前的編輯項目，確定要繼續連線嗎？", () => {
-                            state = cloudState;
-                            state.syncRoomId = inputVal;
-                            state.isSyncEnabled = true;
-                            
-                            localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
-                            
-                            renderAll();
-                            startSyncPolling();
-                            updateCloudSyncUI();
-                            closeShareModal();
-                            showToast(`成功加入 [${inputVal}]！已與旅伴同步。`);
-                        });
-                    } else {
-                        showToast("⚠️ 此房號內無有效的手冊數據。");
-                    }
-                } else {
-                    showToast("⚠️ 找不到此房號，請確認旅伴是否打錯。");
-                }
-            } catch (e) {
-                console.error("Npoint Join failure:", e);
-                showToast("⚠️ 連線時發生網路錯誤。");
-            }
-        }
-
-        function copySyncRoomCode() {
-            if (!state.syncRoomId) return;
-            copyToClipboard(state.syncRoomId, `📋 協作房號 [${state.syncRoomId}] 已複製！快傳給 LINE 群組成員吧！`);
-        }
-
-        function disconnectCloudSync() {
-            customConfirm("確定要斷開連線，回到離線單機狀態嗎？", () => {
-                stopSyncPolling();
-                if (unsubscribeRoom) {
-                    unsubscribeRoom();
-                    unsubscribeRoom = null;
-                }
-                state.isSyncEnabled = false;
-                state.syncRoomId = null;
-                saveToLocalStorage();
-                updateCloudSyncUI();
-                showToast("🔌 斷開完成，您已回歸單機模式。");
-            });
-        }
-
-        // Background Push Triggering
-        let isPushing = false;
-        async function pushStateToCloud() {
-            if (!state.syncRoomId || !state.isSyncEnabled || isPushing) return;
-            isPushing = true;
-            
-            const textHeader = document.getElementById('sync-badge-text');
-            if (textHeader) textHeader.innerText = "UP-SYNC";
-
-            // If Firebase initialized, push directly there
-            if (db && currentUser) {
-                try {
-                    const roomDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'rooms', state.syncRoomId);
-                    await setDoc(roomDocRef, state);
-                    if (textHeader) textHeader.innerText = state.syncRoomId;
-                    isPushing = false;
-                    return;
-                } catch (err) {
-                    console.error("Firestore push failed, falling back", err);
-                }
-            }
-
-            // Fallback Npoint overwrite mechanism
-            try {
-                const response = await fetch(`https://api.npoint.io/${state.syncRoomId}`, {
-                    method: "POST", 
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(state)
-                });
-                
-                if (response.ok) {
-                    if (textHeader) textHeader.innerText = state.syncRoomId;
-                } else {
-                    if (textHeader) textHeader.innerText = "ERR";
-                }
-            } catch (e) {
-                console.error("Cloud push failed:", e);
-                if (textHeader) textHeader.innerText = "OFFLINE";
-            } finally {
-                isPushing = false;
-            }
-        }
-
-        // Background Pull Check Trigger (Required for npoint fallback)
-        let isPulling = false;
-        async function pullStateFromCloud() {
-            if (!state.syncRoomId || !state.isSyncEnabled || isPulling || isPushing) return;
-            isPulling = true;
-
-            try {
-                const response = await fetch(`https://api.npoint.io/${state.syncRoomId}`);
-                if (response.ok) {
-                    const cloudState = await response.json();
-                    if (cloudState && cloudState.lastUpdated > state.lastUpdated) {
-                        cloudState.syncRoomId = state.syncRoomId;
-                        cloudState.isSyncEnabled = state.isSyncEnabled;
-
-                        state = cloudState;
-                        localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
-
-                        renderAll();
-                        showToast("🟢 [8-Bit 雲端同步] 旅伴已完成了新的編輯，畫面已自動更新！");
-                    }
-                }
-            } catch (e) {
-                console.error("Cloud pull failed:", e);
-            } finally {
-                isPulling = false;
-            }
-        }
-
-        // Real-time Firestore Subscriber
         let unsubscribeRoom = null;
-        function startFirestoreSync(roomId) {
-            if (!db || !currentUser) return;
-            if (unsubscribeRoom) unsubscribeRoom();
-            
-            const roomDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'rooms', roomId);
-            unsubscribeRoom = onSnapshot(roomDocRef, (docSnap) => {
-                if (docSnap.exists()) {
-                    const cloudState = docSnap.data();
-                    if (cloudState && cloudState.lastUpdated > state.lastUpdated) {
-                        cloudState.syncRoomId = state.syncRoomId;
-                        cloudState.isSyncEnabled = state.isSyncEnabled;
+        function updateCloudSyncUI() {
+            const active = state.isSyncEnabled && state.syncRoomId;
+            document.getElementById('sync-badge-dot').className = `w-2.5 h-2.5 border-2 border-black inline-block shadow ${active?'bg-green-400 pixel-blink-slow':'bg-slate-400'}`;
+            document.getElementById('sync-badge-text').innerText = active ? state.syncRoomId : 'OFFLINE';
+            document.getElementById('modal-sync-indicator').innerText = active ? 'ONLINE' : 'STANDBY';
+            document.getElementById('modal-sync-indicator').className = `font-pixel text-[8px] border border-black px-1.5 py-0.5 font-bold ${active?'bg-green-400 text-black':'bg-slate-200'}`;
+            document.getElementById('sync-setup-panel').classList.toggle('hidden', active);
+            document.getElementById('sync-active-panel').classList.toggle('hidden', !active);
+            document.getElementById('sync-room-code-display').innerText = active ? state.syncRoomId : '------';
+        }
 
-                        state = cloudState;
+        window.createCloudSyncRoom = async function() {
+            if(!db || !currentUser) { showToast("⚠️ Firebase 未連接，請檢查設定！"); return; }
+            showToast("🚀 正在向您的 Firebase 資料庫開闢協作房...");
+            try {
+                const rId = 'room-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+                state.syncRoomId = rId; state.isSyncEnabled = true; state.lastUpdated = Date.now();
+                await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'rooms', rId), state);
+                localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
+                startFirestoreSync(rId); updateCloudSyncUI(); showToast(`🎉 協作房開房成功！房號：${rId}`);
+            } catch(e) { showToast("⚠️ 開房失敗，請確認 Firebase Rules 規則是否開啟為測試模式！"); }
+        };
+
+        window.joinCloudSyncRoom = async function() {
+            const rId = document.getElementById('sync-join-id-input').value.trim();
+            if(!rId || !db) return;
+            try {
+                const snap = await getDoc(doc(db, 'artifacts', appId, 'public', 'data', 'rooms', rId));
+                if(snap.exists()) {
+                    customConfirm("載入資料會覆蓋目前手機上的編輯，確認加入嗎？", () => {
+                        state = snap.data(); state.syncRoomId = rId; state.isSyncEnabled = true;
                         localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
+                        renderAll(); startFirestoreSync(rId); updateCloudSyncUI(); closeShareModal(); showToast(`🟢 已同步加入協作房：${rId}`);
+                    });
+                } else showToast("⚠️ 找不到該房間代碼！");
+            } catch(e){ showToast("連線失敗。"); }
+        };
 
-                        renderAll();
-                        showToast("🟢 [8-Bit 雲端即時同步] 旅伴已完成了新的編輯，畫面已刷新！");
+        window.copySyncRoomCode = function() { navigator.clipboard.writeText(state.syncRoomId); showToast("📋 房號複製成功！快傳給旅伴！"); };
+        window.disconnectCloudSync = function() { customConfirm("確認斷開同步連線，回到單機模式嗎？", () => { if(unsubscribeRoom) unsubscribeRoom(); state.isSyncEnabled = false; state.syncRoomId = null; saveToLocalStorage(); updateCloudSyncUI(); showToast("已回歸單機儲存狀態。"); }); };
+
+        async function pushStateToCloud() {
+            if(!db || !state.isSyncEnabled || !state.syncRoomId) return;
+            try { await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'rooms', state.syncRoomId), state); } catch(e){}
+        }
+
+        function startFirestoreSync(roomId) {
+            if(!db) return; if(unsubscribeRoom) unsubscribeRoom();
+            unsubscribeRoom = onSnapshot(doc(db, 'artifacts', appId, 'public', 'data', 'rooms', roomId), (snap) => {
+                if(snap.exists()) {
+                    const cloud = snap.data();
+                    if(cloud && cloud.lastUpdated > state.lastUpdated) {
+                        cloud.syncRoomId = state.syncRoomId; cloud.isSyncEnabled = state.isSyncEnabled;
+                        state = cloud; localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state)); renderAll();
+                        showToast("📡 偵測到旅伴有新更動，畫面已即時同步更新！");
                     }
                 }
-            }, (error) => {
-                console.error("Firestore subscription error:", error);
             });
         }
 
-        let syncIntervalId = null;
-        function startSyncPolling() {
-            if (syncIntervalId) clearInterval(syncIntervalId);
-            syncIntervalId = setInterval(pullStateFromCloud, 5000); 
-        }
+        function renderAll() { renderDayTabs(); renderTimeline(); renderTripMeta(); }
 
-        function stopSyncPolling() {
-            if (syncIntervalId) {
-                clearInterval(syncIntervalId);
-                syncIntervalId = null;
-            }
-        }
-
-        // Render everything safely
-        function renderAll() {
-            renderDayTabs();
-            renderTimeline();
-            renderTripMeta();
-            
-            const activeTab = document.querySelector('.pixel-tab-active');
-            if (activeTab) {
-                const tabId = activeTab.id.replace('tab-', '');
-                if (tabId === 'expenses') renderExpensesTab();
-                if (tabId === 'companions') renderCompanionsTab();
-                if (tabId === 'checklist') renderChecklistTab();
-            }
-        }
-
-        // Map modular window scopes for pure HTML inline actions
-        window.switchTab = switchTab;
-        window.addNewDay = addNewDay;
-        window.deleteCurrentDayWithConfirm = deleteCurrentDayWithConfirm;
-        window.selectDay = selectDay;
-        window.openHotelModal = openHotelModal;
-        window.closeHotelModal = closeHotelModal;
-        window.handleHotelSubmit = handleHotelSubmit;
-        window.moveItineraryUp = moveItineraryUp;
-        window.moveItineraryDown = moveItineraryDown;
-        window.openAddItineraryModal = openAddItineraryModal;
-        window.closeItineraryModal = closeItineraryModal;
-        window.handleItinerarySubmit = handleItinerarySubmit;
-        window.editItinerary = editItinerary;
-        window.deleteItinerary = deleteItinerary;
-        window.triggerFloatMapAction = triggerFloatMapAction;
-        window.copyToClipboard = copyToClipboard;
-        window.handleNewExpenseSubmit = handleNewExpenseSubmit;
-        window.deleteExpense = deleteExpense;
-        window.clearAllExpensesWithConfirm = clearAllExpensesWithConfirm;
-        window.addCompanion = addCompanion;
-        window.removeCompanion = removeCompanion;
-        window.changeBaseCurrency = changeBaseCurrency;
-        window.confirmResetAllDataWithConfirm = confirmResetAllDataWithConfirm;
-        window.toggleChecklistItem = toggleChecklistItem;
-        window.deleteChecklistItem = deleteChecklistItem;
-        window.openChecklistAddModal = openChecklistAddModal;
-        window.closeChecklistAddModal = closeChecklistAddModal;
-        window.toggleCustomCategoryField = toggleCustomCategoryField;
-        window.handleChecklistSubmit = handleChecklistSubmit;
-        window.openShareModal = openShareModal;
-        window.closeShareModal = closeShareModal;
-        window.copyExportCode = copyExportCode;
-        window.createCloudSyncRoom = createCloudSyncRoom;
-        window.joinCloudSyncRoom = joinCloudSyncRoom;
-        window.copySyncRoomCode = copySyncRoomCode;
-        window.disconnectCloudSync = disconnectCloudSync;
-        window.openTripEditModal = openTripEditModal;
-        window.closeTripEditModal = closeTripEditModal;
-        window.handleTripEditSubmit = handleTripEditSubmit;
-        window.handleCoverFileSelected = handleCoverFileSelected;
-
-        // INITIAL LOAD ON START
         window.onload = async function() {
-            loadFromLocalStorage();
-            renderAll();
-            lucide.createIcons();
-
-            // Firebase init check
+            loadFromLocalStorage(); renderAll(); lucide.createIcons();
             await initFirebase();
-
-            // Background Polling Activator as fallback if sync room is stored
-            if (state.syncRoomId && state.isSyncEnabled) {
-                if (db && currentUser) {
-                    startFirestoreSync(state.syncRoomId);
-                } else {
-                    startSyncPolling();
-                }
-                updateCloudSyncUI();
-            } else {
-                updateCloudSyncUI();
-            }
+            if (state.syncRoomId && state.isSyncEnabled) { startFirestoreSync(state.syncRoomId); updateCloudSyncUI(); }
         };
     </script>
 </body>
