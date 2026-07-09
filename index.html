@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kiduwe - 8-Bit 像素協作旅遊手冊</title>
+    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons for crisp clean vector indicators -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Press Start 2P for ultimate retro 8-bit vibe -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -107,6 +110,7 @@
 </head>
 <body class="min-h-screen flex flex-col pb-24 text-slate-950">
 
+    <!-- Header bar styled as retro arcade game menu -->
     <header class="sticky top-0 z-40 bg-white border-b-4 border-black shadow-[0_4px_0_0_rgba(0,0,0,1)]">
         <div class="max-w-4xl mx-auto px-4 py-2 flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -130,6 +134,7 @@
         </div>
     </header>
 
+    <!-- Navigation styled with custom 8-bit image buttons (no black border) -->
     <nav class="bg-slate-200 border-b-4 border-black sticky top-[85px] z-30 shadow-[0_4px_0_0_rgba(0,0,0,0.1)]">
         <div class="max-w-md mx-auto px-4 py-2 flex justify-between items-center gap-2">
             <button onclick="switchTab('itinerary')" id="tab-itinerary" class="flex-1 py-1.5 flex flex-col items-center justify-center bg-white nav-tab-custom pixel-tab-active" title="行程規劃">
@@ -151,13 +156,16 @@
         </div>
     </nav>
 
+    <!-- Main Content Container -->
     <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-6">
 
+        <!-- Pixelated notification toast -->
         <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-black border-4 border-yellow-400 text-white px-4 py-3 rounded-none shadow-lg flex items-center gap-3 text-xs z-50 transition-all opacity-0 pointer-events-none transform translate-y-2 max-w-[90%]">
             <span class="text-yellow-400 font-pixel text-[10px]">▶</span>
             <span id="toast-message" class="font-bold">提示訊息</span>
         </div>
 
+        <!-- ==================== TAB 1: ITINERARY TIMELINE ==================== -->
         <section id="content-itinerary" class="space-y-6">
             
             <div id="trip-cover-banner" class="relative border-4 border-black shadow-[4px_4px_0_0_#000] overflow-hidden h-56 md:h-64 bg-slate-900 text-white flex flex-col justify-end p-6">
@@ -179,6 +187,7 @@
                 </div>
             </div>
 
+            <!-- Day Selection Slider -->
             <div class="pixel-card p-4 space-y-4">
                 <div class="flex items-center space-x-2 overflow-x-auto no-scrollbar py-1" id="day-tabs-slider"></div>
                 
@@ -194,6 +203,7 @@
                 </div>
             </div>
 
+            <!-- Dedicated Accommodation Card -->
             <div class="pixel-card bg-sky-50 border-4 border-black p-4 shadow-[4px_4px_0_0_#000]">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-2">
                     <div class="flex items-center gap-3">
@@ -235,6 +245,7 @@
             <div class="space-y-0" id="timeline-container"></div>
         </section>
 
+        <!-- ==================== TAB 2: EXPENSES ==================== -->
         <section id="content-expenses" class="hidden space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="pixel-card bg-emerald-400 p-5 shadow-[4px_4px_0_0_#000]">
@@ -327,6 +338,7 @@
             </div>
         </section>
 
+        <!-- ==================== TAB 3: COMPANIONS ==================== -->
         <section id="content-companions" class="hidden space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="pixel-card p-5 shadow-[4px_4px_0_0_#000]">
@@ -373,6 +385,7 @@
             </div>
         </section>
 
+        <!-- ==================== TAB 4: CHECKLIST ==================== -->
         <section id="content-checklist" class="hidden space-y-6">
             <div class="pixel-card p-5 shadow-[4px_4px_0_0_#000]">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b-2 border-dashed border-slate-200 gap-3 mb-4">
@@ -405,6 +418,7 @@
 
     </main>
 
+    <!-- Footer of Page -->
     <footer class="bg-white border-t-4 border-black py-6 mt-12 text-center text-xs font-bold text-slate-500">
         <div class="max-w-4xl mx-auto px-4 space-y-1">
             <p>🕹️ © 2026 kiduwe 隨身旅伴 👾</p>
@@ -412,6 +426,7 @@
         </div>
     </footer>
 
+    <!-- ==================== MODALS ==================== -->
     <div id="itinerary-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 border-b-4 border-black px-5 py-4 text-white flex justify-between items-center">
@@ -480,6 +495,7 @@
         </div>
     </div>
 
+    <!-- Modal 2: Edit Trip Meta-Info -->
     <div id="trip-edit-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
@@ -522,6 +538,7 @@
         </div>
     </div>
 
+    <!-- Modal 3: Accommodation Block -->
     <div id="hotel-edit-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
@@ -553,6 +570,7 @@
         </div>
     </div>
 
+    <!-- Modal 4: Cloud Sync Room -->
     <div id="share-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
@@ -605,6 +623,7 @@
         </div>
     </div>
 
+    <!-- Modal 5: Add Checklist Item -->
     <div id="checklist-add-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-sm border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
@@ -639,6 +658,7 @@
         </div>
     </div>
 
+    <!-- Alert/Confirm Replacement -->
     <div id="custom-confirm-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-[99] flex items-center justify-center p-4 hidden">
         <div class="bg-white border-4 border-black p-6 max-w-sm w-full shadow-[8px_8px_0px_0px_#000] text-center space-y-4">
             <div class="bg-red-500 text-white font-pixel text-[8px] p-2 border-2 border-black inline-block shadow-[2px_2px_0_0_#000]">WARNING!</div>
@@ -650,12 +670,13 @@
         </div>
     </div>
 
+    <!-- ==================== JAVASCRIPT ENGINE ==================== -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, setDoc, onSnapshot, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // 用戶提供的真實金鑰配置
+        // 用戶提供的真實金鑰配置 (已成功綁定 🔒)
         const MY_FIREBASE_CONFIG = {
             apiKey: "AIzaSyAhj1D7y1KRNmGh5NqXUAGoU4yjUvqV9FU",
             authDomain: "kiduwe.firebaseapp.com",
@@ -733,7 +754,7 @@
             document.getElementById('confirm-modal-text').innerText = message;
             modal.classList.remove('hidden');
             const okBtn = document.getElementById('confirm-modal-ok');
-            const cancelBtn = document.getElementById('confirm-modal-cancel');
+            const cancelBtn = document.getElementById('custom-confirm-modal').querySelector('#confirm-modal-cancel');
             const newOk = okBtn.cloneNode(true);
             const newCancel = cancelBtn.cloneNode(true);
             okBtn.parentNode.replaceChild(newOk, okBtn);
@@ -934,61 +955,32 @@
         };
         window.closeItineraryModal = function() { document.getElementById('itinerary-modal').classList.add('hidden'); };
 
-        // 🚀 重構核心：改為非同步「秒發存檔」機制，徹底解決卡頓問題
+        // 🚀 重構核心：秒發存檔 + 異步背景圖片抓取
         window.handleItinerarySubmit = async function(e) {
-            e.preventDefault(); 
-            const day = state.days[state.currentDayIndex];
+            e.preventDefault(); const day = state.days[state.currentDayIndex];
             const id = document.getElementById('itinerary-edit-id').value;
-            
-            // 1. 建立基本物件，預設高質感的柴犬臨時 Logo 佔位
             const data = {
-                id: id || 'it-'+Date.now(), 
-                time: document.getElementById('itinerary-time').value,
-                category: document.getElementById('itinerary-category').value, 
-                title: document.getElementById('itinerary-title').value,
-                transitType: document.getElementById('itinerary-transit-type').value, 
-                transitTime: document.getElementById('itinerary-transit-time').value,
-                address: document.getElementById('itinerary-address').value, 
-                mapUrl: document.getElementById('itinerary-map-url').value,
-                note: document.getElementById('itinerary-note').value, 
-                imageUrl: "https://i.postimg.cc/w3QZj6V8/tu-ceng7.png" // 先行使用專屬像素小狗，0秒閃發
+                id: id || 'it-'+Date.now(), time: document.getElementById('itinerary-time').value,
+                category: document.getElementById('itinerary-category').value, title: document.getElementById('itinerary-title').value,
+                transitType: document.getElementById('itinerary-transit-type').value, transitTime: document.getElementById('itinerary-transit-time').value,
+                address: document.getElementById('itinerary-address').value, mapUrl: document.getElementById('itinerary-map-url').value,
+                note: document.getElementById('itinerary-note').value, imageUrl: "https://i.postimg.cc/w3QZj6V8/tu-ceng7.png" // 預設使用您的像素小狗 Logo
             };
-
-            // 如果原本就有地圖圖片，編輯時先沿用
             if(id) {
                 const oldItem = day.itinerary.find(i=>i.id===id);
-                if (oldItem && oldItem.imageUrl && !oldItem.imageUrl.includes('tu-ceng7.png')) {
-                    data.imageUrl = oldItem.imageUrl;
-                }
+                if (oldItem && oldItem.imageUrl && !oldItem.imageUrl.includes('tu-ceng7.png')) data.imageUrl = oldItem.imageUrl;
             }
-
-            // 2. 「秒速存檔」：不等待地圖 API 請求，直接塞入狀態機與 Firebase
-            if(id) { 
-                const idx = day.itinerary.findIndex(i=>i.id===id); 
-                if(idx!==-1) day.itinerary[idx] = data; 
-            } else { 
-                day.itinerary.push(data); 
-            }
-
-            // 3. 瞬間渲染畫面、關閉彈出視窗並同步至雲端
-            closeItineraryModal(); 
-            renderTimeline(); 
-            saveToLocalStorage(); 
-            showToast("⚡ 卡片已瞬間保存並同步！");
-
-            // 4. 【背景安靜處理】偷偷去撈地圖圖片，成功後自動更新，不打擾用戶操作
+            if(id) { const idx = day.itinerary.findIndex(i=>i.id===id); if(idx!==-1) day.itinerary[idx] = data; }
+            else day.itinerary.push(data);
+            
+            closeItineraryModal(); renderTimeline(); saveToLocalStorage(); showToast("⚡ 卡片已瞬間保存並同步！");
+            
             if (data.address) {
                 const targetId = data.id;
-                // 用非同步背景異步請求，不阻斷執行緒
                 fetchStaticMapUrl(data.address, data.title).then(mapImg => {
-                    // 重新檢查卡片是否還存在（避免期間被旅伴刪除）
                     const freshDay = state.days[state.currentDayIndex];
                     const targetItem = freshDay.itinerary.find(i => i.id === targetId);
-                    if (targetItem) {
-                        targetItem.imageUrl = mapImg;
-                        saveToLocalStorage(); // 背景默默推播給所有人
-                        renderTimeline();     // 無感更新封面
-                    }
+                    if (targetItem) { targetItem.imageUrl = mapImg; saveToLocalStorage(); renderTimeline(); }
                 }).catch(err => console.log("Background map load skipped", err));
             }
         };
@@ -1015,9 +1007,7 @@
             });
         };
 
-        window.copyToClipboard = function(text, msg) {
-            navigator.clipboard.writeText(text); showToast(msg);
-        };
+        window.copyToClipboard = function(text, msg) { navigator.clipboard.writeText(text); showToast(msg); };
 
         async function fetchStaticMapUrl(address, title) {
             if (!address) return `https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=300&q=80`;
@@ -1114,7 +1104,7 @@
             customConfirm(`移出旅伴 ${name} 嗎？`, () => { state.companions = state.companions.filter(c=>c!==name); saveToLocalStorage(); renderCompanionsTab(); });
         };
         window.changeBaseCurrency = function(val) { state.baseCurrency = val; saveToLocalStorage(); renderExpensesTab(); };
-        window.confirmResetAllDataWithConfirm = function() { customConfirm("確定要彻底重置清除手冊嗎？", () => { localStorage.clear(); location.reload(); }); };
+        window.confirmResetAllDataWithConfirm = function() { customConfirm("確定要徹底重置清除手冊嗎？", () => { localStorage.clear(); location.reload(); }); };
 
         // ==================== TAB 4: CHECKLIST ====================
         function renderChecklistTab() {
@@ -1172,8 +1162,8 @@
                 state.syncRoomId = rId; state.isSyncEnabled = true; state.lastUpdated = Date.now();
                 await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'rooms', rId), state);
                 localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
-                startFirestoreSync(rId); updateCloudSyncUI(); showToast(`🎉 協作房開房成功！房號：${rId}`);
-            } catch(e) { showToast("⚠️ 開房失敗，請確認 Firebase Rules 規則是否開啟為測試模式！"); }
+                startFirestoreSync(rId); updateCloudSyncUI(); showToast("🎉 協作房開房成功！");
+            } catch(e) { showToast("⚠️ 開房失敗，請確認規則！"); }
         };
 
         window.joinCloudSyncRoom = async function() {
@@ -1185,13 +1175,13 @@
                     customConfirm("載入資料會覆蓋目前手機上的編輯，確認加入嗎？", () => {
                         state = snap.data(); state.syncRoomId = rId; state.isSyncEnabled = true;
                         localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
-                        renderAll(); startFirestoreSync(rId); updateCloudSyncUI(); closeShareModal(); showToast(`🟢 已同步加入協作房：${rId}`);
+                        renderAll(); startFirestoreSync(rId); updateCloudSyncUI(); closeShareModal(); showToast(`🟢 已加入房：${rId}`);
                     });
                 } else showToast("⚠️ 找不到該房間代碼！");
             } catch(e){ showToast("連線失敗。"); }
         };
 
-        window.copySyncRoomCode = function() { navigator.clipboard.writeText(state.syncRoomId); showToast("📋 房號複製成功！快傳給旅伴！"); };
+        window.copySyncRoomCode = function() { navigator.clipboard.writeText(state.syncRoomId); showToast("📋 房號複製成功！"); };
         window.disconnectCloudSync = function() { customConfirm("確認斷開同步連線，回到單機模式嗎？", () => { if(unsubscribeRoom) unsubscribeRoom(); state.isSyncEnabled = false; state.syncRoomId = null; saveToLocalStorage(); updateCloudSyncUI(); showToast("已回歸單機儲存狀態。"); }); };
 
         async function pushStateToCloud() {
@@ -1207,7 +1197,7 @@
                     if(cloud && cloud.lastUpdated > state.lastUpdated) {
                         cloud.syncRoomId = state.syncRoomId; cloud.isSyncEnabled = state.isSyncEnabled;
                         state = cloud; localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state)); renderAll();
-                        showToast("📡 偵測到旅伴有新更動，畫面已即時同步更新！");
+                        showToast("📡 畫面已即時同步更新！");
                     }
                 }
             });
