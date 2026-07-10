@@ -126,9 +126,9 @@
                 <!-- Enlarge Logo by 10% (w-16 -> w-[72px] h-[72px]) -->
                 <img src="https://i.postimg.cc/w3QZj6V8/tu-ceng7.png" onerror="this.onerror=null; this.src='https://placehold.co/72x72/ffd3d8/000000?text=👾';" alt="kiduwe" class="w-[72px] h-[72px] pixelated object-contain rounded-none">
                 <div>
-                    <!-- Name Font changed to Mode Variable style -->
-                    <h1 class="font-bold text-slate-950 text-2xl md:text-3xl tracking-tight flex items-center gap-2 font-mode-variable">
-                        <span>kiduwe</span>
+                    <!-- Name Font replaced by the provided branding name image -->
+                    <h1 class="font-bold text-slate-950 tracking-tight flex items-center gap-2">
+                        <img src="https://i.postimg.cc/C1m08wSH/7a26b6dc-4b4e-4eab-a2cc-928f393e0643.png" alt="kiduwe" class="h-8 md:h-10 object-contain pixelated">
                     </h1>
                 </div>
             </div>
@@ -676,6 +676,11 @@
         </div>
     </div>
 
+    <!-- Toast 提示訊息 -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] bg-black text-white text-xs font-bold px-4 py-3 border-4 border-black shadow-[4px_4px_0_0_#000] opacity-0 pointer-events-none translate-y-2 transition-all duration-300 max-w-[90vw] text-center">
+        <span id="toast-message"></span>
+    </div>
+
     <!-- ==================== JAVASCRIPT ENGINE ==================== -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -931,8 +936,8 @@
                             <div class="flex justify-between items-center">
                                 <span class="text-rose-500 font-pixel text-[10px] font-bold">YP ${item.time}</span>
                                 <div class="flex space-x-1">
-                                    <button onclick="moveItineraryUp(${index})" class="p-1"><i data-lucide="chevron-up" class="w-4 h-4 text-black"></i></button>
-                                    <button onclick="moveItineraryDown(${index})" class="p-1"><i data-lucide="chevron-down" class="w-4 h-4 text-black"></i></button>
+                                    <button onclick="moveItineraryUp(${index})" class="p-1" ${index===0?'disabled style="opacity:0.2"':''}><i data-lucide="chevron-up" class="w-4 h-4 text-black"></i></button>
+                                    <button onclick="moveItineraryDown(${index})" class="p-1" ${isLast?'disabled style="opacity:0.2"':''}><i data-lucide="chevron-down" class="w-4 h-4 text-black"></i></button>
                                     <button onclick="editItinerary('${item.id}')" class="p-1"><i data-lucide="edit-3" class="w-4 h-4 text-black"></i></button>
                                     <button onclick="deleteItinerary('${item.id}')" class="p-1"><i data-lucide="trash-2" class="w-4 h-4 text-black"></i></button>
                                 </div>
@@ -1102,6 +1107,7 @@
             return `https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=300&q=80`;
         }
 
+        // ==================== TAB 2: EXPENSES ====================
         function renderExpensesTab() {
             let total = 0; state.expenses.forEach(e => total += convertToBase(e.amount, e.currency, state.baseCurrency));
             document.getElementById('total-expense-display').innerText = formatMoney(total, state.baseCurrency);
@@ -1183,7 +1189,7 @@
             customConfirm(`移出旅伴 ${name} 嗎？`, () => { state.companions = state.companions.filter(c=>c!==name); saveToLocalStorage(); renderCompanionsTab(); });
         };
         window.changeBaseCurrency = function(val) { state.baseCurrency = val; saveToLocalStorage(); renderExpensesTab(); };
-        window.confirmResetAllDataWithConfirm = function() { customConfirm("確定要徹底重置清除手冊嗎？", () => { localStorage.clear(); location.reload(); }); };
+        window.confirmResetAllDataWithConfirm = function() { customConfirm("確定要清空全部數據並重置 kiduwe 嗎？", () => { localStorage.clear(); location.reload(); }); };
 
         // ==================== TAB 4: CHECKLIST ====================
         function renderChecklistTab() {
@@ -1234,39 +1240,40 @@
         }
 
         window.createCloudSyncRoom = async function() {
-            if(!db || !currentUser) { showToast("⚠️ Firebase 未連接，請檢查設定！"); return; }
+            if(!db) { showToast("⚠️ Firebase 資料庫初始化失敗，請檢查金鑰設定！"); return; }
             showToast("🚀 正在向您的 Firebase 資料庫開闢協作房...");
             try {
                 const rId = 'room-' + Math.random().toString(36).substring(2, 8).toUpperCase();
                 state.syncRoomId = rId; state.isSyncEnabled = true; state.lastUpdated = Date.now();
-                
-                // 扁平重構：將路徑簡化成雙層 doc，完美避開一切嵌套規則權限卡關
                 await setDoc(doc(db, 'rooms', rId), state);
-                
                 localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
                 startFirestoreSync(rId); updateCloudSyncUI(); showToast(`🎉 協作房開房成功！房號：${rId}`);
             } catch(e) { 
                 console.error("Firebase Sync error:", e);
-                showToast("⚠️ 開房失敗！請確認 1.Firestore Database 已經建立。 2.規則為測試模式。 3.已啟匿名登入！"); 
+                showToast("⚠️ 建立雲端協作房失敗！請確認 1.Firestore Database 已經建立 2.安全規則已設為測試模式（允許讀寫）！"); 
             }
         };
 
         window.joinCloudSyncRoom = async function() {
             const rId = document.getElementById('sync-join-id-input').value.trim();
-            if(!rId || !db) return;
+            if(!rId) { showToast("⚠️ 請輸入房間代碼！"); return; }
+            if(!db) { showToast("⚠️ Firebase 未連接，無法載入！"); return; }
             try {
                 const snap = await getDoc(doc(db, 'rooms', rId));
                 if(snap.exists()) {
-                    customConfirm("載入資料會覆蓋目前手機上的編輯，確認加入嗎？", () => {
+                    customConfirm("載入資料會覆蓋目前本機上的編輯，確認加入嗎？", () => {
                         state = snap.data(); state.syncRoomId = rId; state.isSyncEnabled = true;
                         localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
-                        renderAll(); startFirestoreSync(rId); updateCloudSyncUI(); closeShareModal(); showToast(`🟢 已加入房：${rId}`);
+                        renderAll(); startFirestoreSync(rId); updateCloudSyncUI(); closeShareModal(); showToast(`🟢 已同步加入協作房：${rId}`);
                     });
                 } else showToast("⚠️ 找不到該房間代碼！");
-            } catch(e){ showToast("連線失敗。"); }
+            } catch(e){ 
+                console.error(e);
+                showToast("⚠️ 連線失敗！請確認您的網路連線與 Firebase 設定是否正常。"); 
+            }
         };
 
-        window.copySyncRoomCode = function() { navigator.clipboard.writeText(state.syncRoomId); showToast("📋 房號複製成功！"); };
+        window.copySyncRoomCode = function() { navigator.clipboard.writeText(state.syncRoomId); showToast("📋 房號複製成功！快傳給旅伴！"); };
         window.disconnectCloudSync = function() { customConfirm("確認斷開同步連線，回到單機模式嗎？", () => { if(unsubscribeRoom) unsubscribeRoom(); state.isSyncEnabled = false; state.syncRoomId = null; saveToLocalStorage(); updateCloudSyncUI(); showToast("已回歸單機儲存狀態。"); }); };
 
         async function pushStateToCloud() {
@@ -1285,14 +1292,14 @@
                         showToast("📡 畫面已即時同步更新！");
                     }
                 }
+            }, (err) => {
+                console.error("Firestore sync error:", err);
+                showToast("📡 雲端即時同步失敗，請確認 Firebase 安全規則已開啟！");
             });
         }
 
         function renderAll() { renderDayTabs(); renderTimeline(); renderTripMeta(); }
 
-        // ========================================================
-        // 🌟 核心修復：強制將 ES 模組的私有函式，完全映射至全域 window 物件
-        // ========================================================
         window.switchTab = switchTab;
         window.addNewDay = addNewDay;
         window.deleteCurrentDayWithConfirm = deleteCurrentDayWithConfirm;
