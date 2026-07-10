@@ -362,8 +362,8 @@
                     </h3>
                     <p class="text-[14px] text-slate-500 mb-4 pb-2 border-b-2 border-dashed border-slate-200">設定出遊夥伴的暱稱，可以正確統計並平均分帳。</p>
                     <div class="flex gap-2 mb-4">
-                        <input type="text" id="new-companion-name" placeholder="輸入旅伴暱稱..." class="flex-grow text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
-                        <button onclick="addCompanion()" class="pixel-btn bg-sky-300 font-bold text-[14px] px-4">新增隊員</button>
+                        <input type="text" id="new-companion-name" placeholder="輸入旅伴暱稱..." class="flex-grow min-w-0 text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                        <button onclick="addCompanion()" class="pixel-btn bg-sky-300 font-bold text-[14px] px-4 shrink-0 whitespace-nowrap">新增隊員</button>
                     </div>
                     <div class="space-y-2.5 max-h-72 overflow-y-auto pr-1" id="companions-list-container"></div>
                 </div>
@@ -619,8 +619,8 @@
                             <div class="flex-grow border-t-2 border-slate-300"></div>
                         </div>
                         <div class="flex gap-2">
-                            <input type="text" id="sync-join-id-input" placeholder="輸入房間代碼" class="flex-grow text-[14px] border-4 border-black px-3 py-2 outline-none focus:bg-white font-mono">
-                            <button onclick="joinCloudSyncRoom()" class="pixel-btn bg-slate-950 text-white text-[14px] px-4 font-bold">載入加入</button>
+                            <input type="text" id="sync-join-id-input" placeholder="輸入房間代碼" class="flex-grow min-w-0 text-[14px] border-4 border-black px-3 py-2 outline-none focus:bg-white font-mono">
+                            <button onclick="joinCloudSyncRoom()" class="pixel-btn bg-slate-950 text-white text-[14px] px-4 font-bold shrink-0 whitespace-nowrap">載入加入</button>
                         </div>
                     </div>
 
