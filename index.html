@@ -428,7 +428,7 @@
     <footer class="bg-white border-t-4 border-black py-6 mt-12 text-center text-xs font-bold text-slate-500 w-full">
         <div class="max-w-4xl mx-auto px-4 space-y-1">
             <p>🕹️ © 2026 kiduwe 隨身旅伴 👾</p>
-            <p class="text-[10px] text-slate-400">CLASSIC 8-BIT ADVENTURER MANUAL</p>
+            <p class="text-[10px] text-slate-400">2026 Yijie. All rights reserved.</p>
         </div>
     </footer>
 
@@ -678,9 +678,9 @@
 
     <!-- ==================== JAVASCRIPT ENGINE ==================== -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc, onSnapshot, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, onSnapshot, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
         // 用戶提供的真實金鑰配置 (已成功綁定 🔒)
         const MY_FIREBASE_CONFIG = {
@@ -760,7 +760,7 @@
             document.getElementById('confirm-modal-text').innerText = message;
             modal.classList.remove('hidden');
             const okBtn = document.getElementById('confirm-modal-ok');
-            const cancelBtn = document.getElementById('confirm-modal-cancel');
+            const cancelBtn = document.getElementById('custom-confirm-modal').querySelector('#confirm-modal-cancel');
             const newOk = okBtn.cloneNode(true);
             const newCancel = cancelBtn.cloneNode(true);
             okBtn.parentNode.replaceChild(newOk, okBtn);
@@ -775,10 +775,17 @@
                 const app = initializeApp(MY_FIREBASE_CONFIG);
                 auth = getAuth(app);
                 db = getFirestore(app);
-                await signInAnonymously(auth);
+                
+                // 匿名登入 (加強防呆在即使後台沒開，也能正常降級讀寫 Firestore)
+                try {
+                    await signInAnonymously(auth);
+                } catch (authErr) {
+                    console.warn("匿名登入未開啟，將嘗試直接讀寫。請至 Firebase Console 的 Authentication 啟用「匿名」登入。", authErr);
+                }
+
                 onAuthStateChanged(auth, (user) => {
                     currentUser = user;
-                    if (user && state.syncRoomId && state.isSyncEnabled) startFirestoreSync(state.syncRoomId);
+                    if (state.syncRoomId && state.isSyncEnabled) startFirestoreSync(state.syncRoomId);
                 });
             } catch (e) { console.error("Firebase init failed", e); }
         }
@@ -924,8 +931,8 @@
                             <div class="flex justify-between items-center">
                                 <span class="text-rose-500 font-pixel text-[10px] font-bold">YP ${item.time}</span>
                                 <div class="flex space-x-1">
-                                    <button onclick="moveItineraryUp(${index})" class="p-1" ${index===0?'disabled style="opacity:0.2"':''}><i data-lucide="chevron-up" class="w-4 h-4 text-black"></i></button>
-                                    <button onclick="moveItineraryDown(${index})" class="p-1" ${isLast?'disabled style="opacity:0.2"':''}><i data-lucide="chevron-down" class="w-4 h-4 text-black"></i></button>
+                                    <button onclick="moveItineraryUp(${index})" class="p-1"><i data-lucide="chevron-up" class="w-4 h-4 text-black"></i></button>
+                                    <button onclick="moveItineraryDown(${index})" class="p-1"><i data-lucide="chevron-down" class="w-4 h-4 text-black"></i></button>
                                     <button onclick="editItinerary('${item.id}')" class="p-1"><i data-lucide="edit-3" class="w-4 h-4 text-black"></i></button>
                                     <button onclick="deleteItinerary('${item.id}')" class="p-1"><i data-lucide="trash-2" class="w-4 h-4 text-black"></i></button>
                                 </div>
@@ -943,27 +950,93 @@
             lucide.createIcons();
         }
 
-        function moveItineraryUp(index) {
+        function openTripEditModal() {
+            document.getElementById('trip-name-input').value = state.tripName || '';
+            document.getElementById('trip-status-input').value = state.tripStatus || '';
+            document.getElementById('trip-dates-input').value = `${state.startDate || ''} - ${state.endDate || ''}`;
+            document.getElementById('trip-cover-file-name').innerText = "未選擇檔案";
+            document.getElementById('trip-cover-base64').value = state.coverUrl || '';
+            document.getElementById('trip-tags-input').value = state.tripTags ? state.tripTags.join(',') : '';
+            document.getElementById('trip-edit-modal').classList.remove('hidden');
+        }
+
+        function closeTripEditModal() {
+            document.getElementById('trip-edit-modal').classList.add('hidden');
+        }
+
+        function handleCoverFileSelected(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            document.getElementById('trip-cover-file-name').innerText = file.name;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    let width = img.width;
+                    let height = img.height;
+                    const MAX_WIDTH = 800;
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    const base64 = canvas.toDataURL('image/jpeg', 0.7);
+                    document.getElementById('trip-cover-base64').value = base64;
+                    showToast("📸 封面圖載入完成！");
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleTripEditSubmit(e) {
+            e.preventDefault();
+            state.tripName = document.getElementById('trip-name-input').value.trim();
+            state.tripStatus = document.getElementById('trip-status-input').value.trim() || '#ADVENTURING';
+            const rawDates = document.getElementById('trip-dates-input').value.trim();
+            if (rawDates.includes('-')) {
+                const parts = rawDates.split('-');
+                state.startDate = parts[0].trim();
+                state.endDate = parts[1].trim();
+            } else {
+                state.startDate = rawDates;
+                state.endDate = rawDates;
+            }
+            const base64 = document.getElementById('trip-cover-base64').value;
+            if (base64) {
+                state.coverUrl = base64;
+            }
+            const tagsRaw = document.getElementById('trip-tags-input').value;
+            state.tripTags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(t => t) : [];
+            saveToLocalStorage();
+            renderTripMeta();
+            closeTripEditModal();
+            showToast("旅程設定已成功儲存！");
+        }
+
+        window.moveItineraryUp = function(index) {
             const day = state.days[state.currentDayIndex]; if(index<=0) return;
             let tmp = day.itinerary[index]; day.itinerary[index] = day.itinerary[index-1]; day.itinerary[index-1] = tmp;
             saveToLocalStorage(); renderTimeline();
-        }
-        
-        function moveItineraryDown(index) {
+        };
+        window.moveItineraryDown = function(index) {
             const day = state.days[state.currentDayIndex]; if(index>=day.itinerary.length-1) return;
             let tmp = day.itinerary[index]; day.itinerary[index] = day.itinerary[index+1]; day.itinerary[index+1] = tmp;
             saveToLocalStorage(); renderTimeline();
-        }
+        };
 
-        function openAddItineraryModal() {
+        window.openAddItineraryModal = function() {
             document.getElementById('itinerary-form').reset(); document.getElementById('itinerary-edit-id').value = '';
             document.getElementById('itinerary-modal-title').innerText = 'ADD QUEST 行程';
             document.getElementById('itinerary-modal').classList.remove('hidden');
-        }
-        function closeItineraryModal() { document.getElementById('itinerary-modal').classList.add('hidden'); }
+        };
+        window.closeItineraryModal = function() { document.getElementById('itinerary-modal').classList.add('hidden'); };
 
-        // 🚀 重構核心：秒發存檔 + 異步背景圖片抓取
-        async function handleItinerarySubmit(e) {
+        window.handleItinerarySubmit = async function(e) {
             e.preventDefault(); const day = state.days[state.currentDayIndex];
             const id = document.getElementById('itinerary-edit-id').value;
             const data = {
@@ -990,9 +1063,9 @@
                     if (targetItem) { targetItem.imageUrl = mapImg; saveToLocalStorage(); renderTimeline(); }
                 }).catch(err => console.log("Background map load skipped", err));
             }
-        }
+        };
 
-        function editItinerary(id) {
+        window.editItinerary = function(id) {
             const item = state.days[state.currentDayIndex].itinerary.find(i=>i.id===id); if(!item) return;
             document.getElementById('itinerary-edit-id').value = item.id;
             document.getElementById('itinerary-time').value = item.time;
@@ -1005,16 +1078,16 @@
             document.getElementById('itinerary-note').value = item.note || '';
             document.getElementById('itinerary-modal-title').innerText = 'EDIT QUEST 行程';
             document.getElementById('itinerary-modal').classList.remove('hidden');
-        }
+        };
 
-        function deleteItinerary(id) {
+        window.deleteItinerary = function(id) {
             customConfirm("確定要刪除這張行程卡片嗎？", () => {
                 const day = state.days[state.currentDayIndex]; day.itinerary = day.itinerary.filter(i=>i.id!==id);
                 saveToLocalStorage(); renderTimeline();
             });
-        }
+        };
 
-        function copyToClipboard(text, msg) { navigator.clipboard.writeText(text); showToast(msg); }
+        window.copyToClipboard = function(text, msg) { navigator.clipboard.writeText(text); showToast(msg); };
 
         async function fetchStaticMapUrl(address, title) {
             if (!address) return `https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=300&q=80`;
@@ -1029,7 +1102,6 @@
             return `https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=300&q=80`;
         }
 
-        // ==================== TAB 2: EXPENSES ====================
         function renderExpensesTab() {
             let total = 0; state.expenses.forEach(e => total += convertToBase(e.amount, e.currency, state.baseCurrency));
             document.getElementById('total-expense-display').innerText = formatMoney(total, state.baseCurrency);
@@ -1058,7 +1130,7 @@
             lucide.createIcons();
         }
 
-        function handleNewExpenseSubmit(e) {
+        window.handleNewExpenseSubmit = function(e) {
             e.preventDefault();
             const checked = document.querySelectorAll('input[name="exp-sharer"]:checked');
             const splitWith = Array.from(checked).map(b => b.value);
@@ -1069,10 +1141,10 @@
                 payer: document.getElementById('exp-payer').value, splitWith
             });
             saveToLocalStorage(); document.getElementById('expense-form').reset(); renderExpensesTab();
-        }
+        };
 
-        function deleteExpense(id) { state.expenses = state.expenses.filter(e=>e.id!==id); saveToLocalStorage(); renderExpensesTab(); }
-        function clearAllExpensesWithConfirm() { customConfirm("確定要清空所有明細嗎？", () => { state.expenses = []; saveToLocalStorage(); renderExpensesTab(); }); }
+        window.deleteExpense = function(id) { state.expenses = state.expenses.filter(e=>e.id!==id); saveToLocalStorage(); renderExpensesTab(); };
+        window.clearAllExpensesWithConfirm = function() { customConfirm("確定要清空所有明細嗎？", () => { state.expenses = []; saveToLocalStorage(); renderExpensesTab(); }); };
 
         function calculateSettlement() {
             const list = document.getElementById('debt-settlement-list'); list.innerHTML = '';
@@ -1101,17 +1173,17 @@
             });
             document.getElementById('base-currency-select').value = state.baseCurrency; lucide.createIcons();
         }
-        function addCompanion() {
+        window.addCompanion = function() {
             const input = document.getElementById('new-companion-name'); const val = input.value.trim();
             if(!val || state.companions.includes(val)) return; state.companions.push(val); input.value = '';
             saveToLocalStorage(); renderCompanionsTab();
-        }
-        function removeCompanion(name) {
+        };
+        window.removeCompanion = function(name) {
             if(state.companions.length<=1) return;
             customConfirm(`移出旅伴 ${name} 嗎？`, () => { state.companions = state.companions.filter(c=>c!==name); saveToLocalStorage(); renderCompanionsTab(); });
-        }
-        function changeBaseCurrency(val) { state.baseCurrency = val; saveToLocalStorage(); renderExpensesTab(); }
-        function confirmResetAllDataWithConfirm() { customConfirm("確定要徹底重置清除手冊嗎？", () => { localStorage.clear(); location.reload(); }); }
+        };
+        window.changeBaseCurrency = function(val) { state.baseCurrency = val; saveToLocalStorage(); renderExpensesTab(); };
+        window.confirmResetAllDataWithConfirm = function() { customConfirm("確定要徹底重置清除手冊嗎？", () => { localStorage.clear(); location.reload(); }); };
 
         // ==================== TAB 4: CHECKLIST ====================
         function renderChecklistTab() {
@@ -1132,22 +1204,22 @@
             }
             lucide.createIcons();
         }
-        function toggleChecklistItem(id) { const i = state.checklist.find(x=>x.id===id); if(i) { i.done = !i.done; saveToLocalStorage(); renderChecklistTab(); } }
-        function deleteChecklistItem(id) { state.checklist = state.checklist.filter(x=>x.id!==id); saveToLocalStorage(); renderChecklistTab(); }
-        function openChecklistAddModal() { document.getElementById('checklist-add-form').reset(); document.getElementById('checklist-custom-category-group').classList.add('hidden'); document.getElementById('checklist-add-modal').classList.remove('hidden'); }
-        function closeChecklistAddModal() { document.getElementById('checklist-add-modal').classList.add('hidden'); }
-        function toggleCustomCategoryField() { document.getElementById('checklist-custom-category-group').classList.toggle('hidden', document.getElementById('checklist-category-select').value !== 'CUSTOM'); }
-        function handleChecklistSubmit(e) {
+        window.toggleChecklistItem = function(id) { const i = state.checklist.find(x=>x.id===id); if(i) { i.done = !i.done; saveToLocalStorage(); renderChecklistTab(); } };
+        window.deleteChecklistItem = function(id) { state.checklist = state.checklist.filter(x=>x.id!==id); saveToLocalStorage(); renderChecklistTab(); };
+        window.openChecklistAddModal = function() { document.getElementById('checklist-add-form').reset(); document.getElementById('checklist-custom-category-group').classList.add('hidden'); document.getElementById('checklist-add-modal').classList.remove('hidden'); };
+        window.closeChecklistAddModal = function() { document.getElementById('checklist-add-modal').classList.add('hidden'); };
+        window.toggleCustomCategoryField = function() { document.getElementById('checklist-custom-category-group').classList.toggle('hidden', document.getElementById('checklist-category-select').value !== 'CUSTOM'); };
+        window.handleChecklistSubmit = function(e) {
             e.preventDefault(); const sel = document.getElementById('checklist-category-select').value;
             let cat = sel === 'CUSTOM' ? document.getElementById('checklist-custom-category-input').value.trim() : sel;
             state.checklist.push({ id: 'chk-'+Date.now(), category: cat || '自訂裝備', text: document.getElementById('checklist-text-input').value.trim(), done: false });
             saveToLocalStorage(); closeChecklistAddModal(); renderChecklistTab();
-        }
+        };
 
         // ==================== SYNC SERVICES ====================
-        function openShareModal() { document.getElementById('export-json-text').value = JSON.stringify(state); updateCloudSyncUI(); document.getElementById('share-modal').classList.remove('hidden'); }
-        function closeShareModal() { document.getElementById('share-modal').classList.add('hidden'); }
-        function copyExportCode() { navigator.clipboard.writeText(document.getElementById('export-json-text').value); showToast("📋 JSON 備份碼複製成功！"); }
+        window.openShareModal = function() { document.getElementById('export-json-text').value = JSON.stringify(state); updateCloudSyncUI(); document.getElementById('share-modal').classList.remove('hidden'); };
+        window.closeShareModal = function() { document.getElementById('share-modal').classList.add('hidden'); };
+        window.copyExportCode = function() { navigator.clipboard.writeText(document.getElementById('export-json-text').value); showToast("📋 JSON 備份碼複製成功！"); };
 
         let unsubscribeRoom = null;
         function updateCloudSyncUI() {
@@ -1161,23 +1233,29 @@
             document.getElementById('sync-room-code-display').innerText = active ? state.syncRoomId : '------';
         }
 
-        async function createCloudSyncRoom() {
+        window.createCloudSyncRoom = async function() {
             if(!db || !currentUser) { showToast("⚠️ Firebase 未連接，請檢查設定！"); return; }
             showToast("🚀 正在向您的 Firebase 資料庫開闢協作房...");
             try {
                 const rId = 'room-' + Math.random().toString(36).substring(2, 8).toUpperCase();
                 state.syncRoomId = rId; state.isSyncEnabled = true; state.lastUpdated = Date.now();
-                await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'rooms', rId), state);
+                
+                // 扁平重構：將路徑簡化成雙層 doc，完美避開一切嵌套規則權限卡關
+                await setDoc(doc(db, 'rooms', rId), state);
+                
                 localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
-                startFirestoreSync(rId); updateCloudSyncUI(); showToast("🎉 協作房開房成功！");
-            } catch(e) { showToast("⚠️ 開房失敗，請確認 Firebase Rules 規則是否開啟為測試模式！"); }
-        }
+                startFirestoreSync(rId); updateCloudSyncUI(); showToast(`🎉 協作房開房成功！房號：${rId}`);
+            } catch(e) { 
+                console.error("Firebase Sync error:", e);
+                showToast("⚠️ 開房失敗！請確認 1.Firestore Database 已經建立。 2.規則為測試模式。 3.已啟匿名登入！"); 
+            }
+        };
 
-        async function joinCloudSyncRoom() {
+        window.joinCloudSyncRoom = async function() {
             const rId = document.getElementById('sync-join-id-input').value.trim();
             if(!rId || !db) return;
             try {
-                const snap = await getDoc(doc(db, 'artifacts', appId, 'public', 'data', 'rooms', rId));
+                const snap = await getDoc(doc(db, 'rooms', rId));
                 if(snap.exists()) {
                     customConfirm("載入資料會覆蓋目前手機上的編輯，確認加入嗎？", () => {
                         state = snap.data(); state.syncRoomId = rId; state.isSyncEnabled = true;
@@ -1186,19 +1264,19 @@
                     });
                 } else showToast("⚠️ 找不到該房間代碼！");
             } catch(e){ showToast("連線失敗。"); }
-        }
+        };
 
-        function copySyncRoomCode() { navigator.clipboard.writeText(state.syncRoomId); showToast("📋 房號複製成功！"); }
-        function disconnectCloudSync() { customConfirm("確認斷開同步連線，回到單機模式嗎？", () => { if(unsubscribeRoom) unsubscribeRoom(); state.isSyncEnabled = false; state.syncRoomId = null; saveToLocalStorage(); updateCloudSyncUI(); showToast("已回歸單機儲存狀態。"); }); }
+        window.copySyncRoomCode = function() { navigator.clipboard.writeText(state.syncRoomId); showToast("📋 房號複製成功！"); };
+        window.disconnectCloudSync = function() { customConfirm("確認斷開同步連線，回到單機模式嗎？", () => { if(unsubscribeRoom) unsubscribeRoom(); state.isSyncEnabled = false; state.syncRoomId = null; saveToLocalStorage(); updateCloudSyncUI(); showToast("已回歸單機儲存狀態。"); }); };
 
         async function pushStateToCloud() {
             if(!db || !state.isSyncEnabled || !state.syncRoomId) return;
-            try { await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'rooms', state.syncRoomId), state); } catch(e){}
+            try { await setDoc(doc(db, 'rooms', state.syncRoomId), state); } catch(e){}
         }
 
         function startFirestoreSync(roomId) {
             if(!db) return; if(unsubscribeRoom) unsubscribeRoom();
-            unsubscribeRoom = onSnapshot(doc(db, 'artifacts', appId, 'public', 'data', 'rooms', roomId), (snap) => {
+            unsubscribeRoom = onSnapshot(doc(db, 'rooms', roomId), (snap) => {
                 if(snap.exists()) {
                     const cloud = snap.data();
                     if(cloud && cloud.lastUpdated > state.lastUpdated) {
