@@ -9,7 +9,7 @@
     <!-- Lucide Icons for crisp clean vector indicators -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google Fonts: Press Start 2P for ultimate retro 8-bit vibe -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+TC:wght@500;700;900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -24,6 +24,13 @@
         
         .font-pixel {
             font-family: 'Press Start 2P', 'Noto Sans TC', monospace;
+        }
+
+        /* Mode Variable custom brand typography */
+        .font-mode-variable {
+            font-family: 'Mode Variable', 'Inter', 'Noto Sans TC', sans-serif;
+            font-style: normal;
+            font-variation-settings: "CUTT" 50, "wdth" 100, "wght" 900;
         }
 
         .no-scrollbar::-webkit-scrollbar {
@@ -66,8 +73,9 @@
             box-shadow: 1px 1px 0px 0px #000000;
         }
 
+        /* Highlight changed to Soft Light Pink as requested */
         .pixel-tab-active {
-            background-color: #ffde59 !important;
+            background-color: #ffd3d8 !important;
             transform: translate(2px, 2px);
             box-shadow: 1px 1px 0px 0px #000000 !important;
         }
@@ -84,8 +92,9 @@
             transform: scale(0.95) !important;
         }
 
+        /* Active navigation highlight changed to Soft Light Pink */
         .nav-tab-custom.pixel-tab-active {
-            background-color: #ffde59 !important;
+            background-color: #ffd3d8 !important;
             transform: none !important;
             box-shadow: none !important;
         }
@@ -108,15 +117,17 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col pb-24 text-slate-950">
+<body class="min-h-screen flex flex-col text-slate-950 pb-0">
 
     <!-- Header bar styled as retro arcade game menu -->
     <header class="sticky top-0 z-40 bg-white border-b-4 border-black shadow-[0_4px_0_0_rgba(0,0,0,1)]">
         <div class="max-w-4xl mx-auto px-4 py-2 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <img src="https://i.postimg.cc/w3QZj6V8/tu-ceng7.png" onerror="this.onerror=null; this.src='https://placehold.co/64x64/ffde59/000000?text=👾';" alt="kiduwe" class="w-16 h-16 pixelated object-contain rounded-none">
+                <!-- Enlarge Logo by 10% (w-16 -> w-[72px] h-[72px]) -->
+                <img src="https://i.postimg.cc/w3QZj6V8/tu-ceng7.png" onerror="this.onerror=null; this.src='https://placehold.co/72x72/ffd3d8/000000?text=👾';" alt="kiduwe" class="w-[72px] h-[72px] pixelated object-contain rounded-none">
                 <div>
-                    <h1 class="font-bold text-slate-950 text-xl md:text-2xl tracking-tight flex items-center gap-2">
+                    <!-- Name Font changed to Mode Variable style -->
+                    <h1 class="font-bold text-slate-950 text-2xl md:text-3xl tracking-tight flex items-center gap-2 font-mode-variable">
                         <span>kiduwe</span>
                     </h1>
                 </div>
@@ -134,36 +145,31 @@
         </div>
     </header>
 
-    <!-- Navigation styled with custom 8-bit image buttons (no black border) -->
+    <!-- Navigation styled with custom 8-bit image buttons (no black border, enlarged 10%) -->
     <nav class="bg-slate-200 border-b-4 border-black sticky top-[85px] z-30 shadow-[0_4px_0_0_rgba(0,0,0,0.1)]">
         <div class="max-w-md mx-auto px-4 py-2 flex justify-between items-center gap-2">
-            <button onclick="switchTab('itinerary')" id="tab-itinerary" class="flex-1 py-1.5 flex flex-col items-center justify-center bg-white nav-tab-custom pixel-tab-active" title="行程規劃">
-                <img src="https://i.postimg.cc/H8YM20Rh/tu-ceng-2.png" alt="行程" class="w-8 h-8 object-contain pixelated mb-0.5">
-                <span class="text-[10px] font-bold">行程</span>
+            <!-- Button Icons scaled up by 10% (w-8 -> w-9 h-9, text-[10px] -> text-[11px]) -->
+            <button onclick="switchTab('itinerary')" id="tab-itinerary" class="flex-1 py-2 flex flex-col items-center justify-center bg-white nav-tab-custom pixel-tab-active" title="行程規劃">
+                <img src="https://i.postimg.cc/H8YM20Rh/tu-ceng-2.png" alt="行程" class="w-9 h-9 object-contain pixelated mb-0.5">
+                <span class="text-[11px] font-bold">行程</span>
             </button>
-            <button onclick="switchTab('expenses')" id="tab-expenses" class="flex-1 py-1.5 flex flex-col items-center justify-center bg-white nav-tab-custom" title="記帳與分帳">
-                <img src="https://i.postimg.cc/308GBjVz/tu-ceng-3.png" alt="分帳" class="w-8 h-8 object-contain pixelated mb-0.5">
-                <span class="text-[10px] font-bold">分帳</span>
+            <button onclick="switchTab('expenses')" id="tab-expenses" class="flex-1 py-2 flex flex-col items-center justify-center bg-white nav-tab-custom" title="記帳與分帳">
+                <img src="https://i.postimg.cc/308GBjVz/tu-ceng-3.png" alt="分帳" class="w-9 h-9 object-contain pixelated mb-0.5">
+                <span class="text-[11px] font-bold">分帳</span>
             </button>
-            <button onclick="switchTab('companions')" id="tab-companions" class="flex-1 py-1.5 flex flex-col items-center justify-center bg-white nav-tab-custom" title="成員與設定">
-                <img src="https://i.postimg.cc/bSynT0W7/tu-ceng-5.png" alt="成員" class="w-8 h-8 object-contain pixelated mb-0.5">
-                <span class="text-[10px] font-bold">成員</span>
+            <button onclick="switchTab('companions')" id="tab-companions" class="flex-1 py-2 flex flex-col items-center justify-center bg-white nav-tab-custom" title="成員與設定">
+                <img src="https://i.postimg.cc/bSynT0W7/tu-ceng-5.png" alt="成員" class="w-9 h-9 object-contain pixelated mb-0.5">
+                <span class="text-[11px] font-bold">成員</span>
             </button>
-            <button onclick="switchTab('checklist')" id="tab-checklist" class="flex-1 py-1.5 flex flex-col items-center justify-center bg-white nav-tab-custom" title="行前準備清單">
-                <img src="https://i.postimg.cc/5Q4z35TZ/tu-ceng-4.png" alt="行李" class="w-8 h-8 object-contain pixelated mb-0.5">
-                <span class="text-[10px] font-bold">行李</span>
+            <button onclick="switchTab('checklist')" id="tab-checklist" class="flex-1 py-2 flex flex-col items-center justify-center bg-white nav-tab-custom" title="行前準備清單">
+                <img src="https://i.postimg.cc/5Q4z35TZ/tu-ceng-4.png" alt="行李" class="w-9 h-9 object-contain pixelated mb-0.5">
+                <span class="text-[11px] font-bold">行李</span>
             </button>
         </div>
     </nav>
 
     <!-- Main Content Container -->
     <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-6">
-
-        <!-- Pixelated notification toast -->
-        <div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-black border-4 border-yellow-400 text-white px-4 py-3 rounded-none shadow-lg flex items-center gap-3 text-xs z-50 transition-all opacity-0 pointer-events-none transform translate-y-2 max-w-[90%]">
-            <span class="text-yellow-400 font-pixel text-[10px]">▶</span>
-            <span id="toast-message" class="font-bold">提示訊息</span>
-        </div>
 
         <!-- ==================== TAB 1: ITINERARY TIMELINE ==================== -->
         <section id="content-itinerary" class="space-y-6">
@@ -418,8 +424,8 @@
 
     </main>
 
-    <!-- Footer of Page -->
-    <footer class="bg-white border-t-4 border-black py-6 mt-12 text-center text-xs font-bold text-slate-500">
+    <!-- Footer of Page - Ensure it sticks directly to the bottom (no body padding under it) -->
+    <footer class="bg-white border-t-4 border-black py-6 mt-12 text-center text-xs font-bold text-slate-500 w-full">
         <div class="max-w-4xl mx-auto px-4 space-y-1">
             <p>🕹️ © 2026 kiduwe 隨身旅伴 👾</p>
             <p class="text-[10px] text-slate-400">CLASSIC 8-BIT ADVENTURER MANUAL</p>
@@ -754,7 +760,7 @@
             document.getElementById('confirm-modal-text').innerText = message;
             modal.classList.remove('hidden');
             const okBtn = document.getElementById('confirm-modal-ok');
-            const cancelBtn = document.getElementById('custom-confirm-modal').querySelector('#confirm-modal-cancel');
+            const cancelBtn = document.getElementById('confirm-modal-cancel');
             const newOk = okBtn.cloneNode(true);
             const newCancel = cancelBtn.cloneNode(true);
             okBtn.parentNode.replaceChild(newOk, okBtn);
@@ -833,7 +839,7 @@
             container.innerHTML = '';
             state.days.forEach((day, index) => {
                 const isActive = index === state.currentDayIndex;
-                const activeClass = isActive ? 'pixel-tab-active bg-[#ffde59] text-black font-black shadow-[2px_2px_0_0_rgba(0,0,0,1)]' : 'bg-white text-slate-700';
+                const activeClass = isActive ? 'pixel-tab-active bg-[#ffd3d8] text-black font-black shadow-[2px_2px_0_0_rgba(0,0,0,1)]' : 'bg-white text-slate-700';
                 container.innerHTML += `<button onclick="selectDay(${index})" class="pixel-btn shrink-0 px-6 py-2.5 text-xs font-pixel ${activeClass}">Day ${day.dayNum}</button>`;
             });
         }
@@ -937,26 +943,27 @@
             lucide.createIcons();
         }
 
-        window.moveItineraryUp = function(index) {
+        function moveItineraryUp(index) {
             const day = state.days[state.currentDayIndex]; if(index<=0) return;
             let tmp = day.itinerary[index]; day.itinerary[index] = day.itinerary[index-1]; day.itinerary[index-1] = tmp;
             saveToLocalStorage(); renderTimeline();
-        };
-        window.moveItineraryDown = function(index) {
+        }
+        
+        function moveItineraryDown(index) {
             const day = state.days[state.currentDayIndex]; if(index>=day.itinerary.length-1) return;
             let tmp = day.itinerary[index]; day.itinerary[index] = day.itinerary[index+1]; day.itinerary[index+1] = tmp;
             saveToLocalStorage(); renderTimeline();
-        };
+        }
 
-        window.openAddItineraryModal = function() {
+        function openAddItineraryModal() {
             document.getElementById('itinerary-form').reset(); document.getElementById('itinerary-edit-id').value = '';
             document.getElementById('itinerary-modal-title').innerText = 'ADD QUEST 行程';
             document.getElementById('itinerary-modal').classList.remove('hidden');
-        };
-        window.closeItineraryModal = function() { document.getElementById('itinerary-modal').classList.add('hidden'); };
+        }
+        function closeItineraryModal() { document.getElementById('itinerary-modal').classList.add('hidden'); }
 
         // 🚀 重構核心：秒發存檔 + 異步背景圖片抓取
-        window.handleItinerarySubmit = async function(e) {
+        async function handleItinerarySubmit(e) {
             e.preventDefault(); const day = state.days[state.currentDayIndex];
             const id = document.getElementById('itinerary-edit-id').value;
             const data = {
@@ -983,9 +990,9 @@
                     if (targetItem) { targetItem.imageUrl = mapImg; saveToLocalStorage(); renderTimeline(); }
                 }).catch(err => console.log("Background map load skipped", err));
             }
-        };
+        }
 
-        window.editItinerary = function(id) {
+        function editItinerary(id) {
             const item = state.days[state.currentDayIndex].itinerary.find(i=>i.id===id); if(!item) return;
             document.getElementById('itinerary-edit-id').value = item.id;
             document.getElementById('itinerary-time').value = item.time;
@@ -998,16 +1005,16 @@
             document.getElementById('itinerary-note').value = item.note || '';
             document.getElementById('itinerary-modal-title').innerText = 'EDIT QUEST 行程';
             document.getElementById('itinerary-modal').classList.remove('hidden');
-        };
+        }
 
-        window.deleteItinerary = function(id) {
+        function deleteItinerary(id) {
             customConfirm("確定要刪除這張行程卡片嗎？", () => {
                 const day = state.days[state.currentDayIndex]; day.itinerary = day.itinerary.filter(i=>i.id!==id);
                 saveToLocalStorage(); renderTimeline();
             });
-        };
+        }
 
-        window.copyToClipboard = function(text, msg) { navigator.clipboard.writeText(text); showToast(msg); };
+        function copyToClipboard(text, msg) { navigator.clipboard.writeText(text); showToast(msg); }
 
         async function fetchStaticMapUrl(address, title) {
             if (!address) return `https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=300&q=80`;
@@ -1051,7 +1058,7 @@
             lucide.createIcons();
         }
 
-        window.handleNewExpenseSubmit = function(e) {
+        function handleNewExpenseSubmit(e) {
             e.preventDefault();
             const checked = document.querySelectorAll('input[name="exp-sharer"]:checked');
             const splitWith = Array.from(checked).map(b => b.value);
@@ -1062,10 +1069,10 @@
                 payer: document.getElementById('exp-payer').value, splitWith
             });
             saveToLocalStorage(); document.getElementById('expense-form').reset(); renderExpensesTab();
-        };
+        }
 
-        window.deleteExpense = function(id) { state.expenses = state.expenses.filter(e=>e.id!==id); saveToLocalStorage(); renderExpensesTab(); };
-        window.clearAllExpensesWithConfirm = function() { customConfirm("確定要清空所有明細嗎？", () => { state.expenses = []; saveToLocalStorage(); renderExpensesTab(); }); };
+        function deleteExpense(id) { state.expenses = state.expenses.filter(e=>e.id!==id); saveToLocalStorage(); renderExpensesTab(); }
+        function clearAllExpensesWithConfirm() { customConfirm("確定要清空所有明細嗎？", () => { state.expenses = []; saveToLocalStorage(); renderExpensesTab(); }); }
 
         function calculateSettlement() {
             const list = document.getElementById('debt-settlement-list'); list.innerHTML = '';
@@ -1094,17 +1101,17 @@
             });
             document.getElementById('base-currency-select').value = state.baseCurrency; lucide.createIcons();
         }
-        window.addCompanion = function() {
+        function addCompanion() {
             const input = document.getElementById('new-companion-name'); const val = input.value.trim();
             if(!val || state.companions.includes(val)) return; state.companions.push(val); input.value = '';
             saveToLocalStorage(); renderCompanionsTab();
-        };
-        window.removeCompanion = function(name) {
+        }
+        function removeCompanion(name) {
             if(state.companions.length<=1) return;
             customConfirm(`移出旅伴 ${name} 嗎？`, () => { state.companions = state.companions.filter(c=>c!==name); saveToLocalStorage(); renderCompanionsTab(); });
-        };
-        window.changeBaseCurrency = function(val) { state.baseCurrency = val; saveToLocalStorage(); renderExpensesTab(); };
-        window.confirmResetAllDataWithConfirm = function() { customConfirm("確定要徹底重置清除手冊嗎？", () => { localStorage.clear(); location.reload(); }); };
+        }
+        function changeBaseCurrency(val) { state.baseCurrency = val; saveToLocalStorage(); renderExpensesTab(); }
+        function confirmResetAllDataWithConfirm() { customConfirm("確定要徹底重置清除手冊嗎？", () => { localStorage.clear(); location.reload(); }); }
 
         // ==================== TAB 4: CHECKLIST ====================
         function renderChecklistTab() {
@@ -1125,22 +1132,22 @@
             }
             lucide.createIcons();
         }
-        window.toggleChecklistItem = function(id) { const i = state.checklist.find(x=>x.id===id); if(i) { i.done = !i.done; saveToLocalStorage(); renderChecklistTab(); } };
-        window.deleteChecklistItem = function(id) { state.checklist = state.checklist.filter(x=>x.id!==id); saveToLocalStorage(); renderChecklistTab(); };
-        window.openChecklistAddModal = function() { document.getElementById('checklist-add-form').reset(); document.getElementById('checklist-custom-category-group').classList.add('hidden'); document.getElementById('checklist-add-modal').classList.remove('hidden'); };
-        window.closeChecklistAddModal = function() { document.getElementById('checklist-add-modal').classList.add('hidden'); };
-        window.toggleCustomCategoryField = function() { document.getElementById('checklist-custom-category-group').classList.toggle('hidden', document.getElementById('checklist-category-select').value !== 'CUSTOM'); };
-        window.handleChecklistSubmit = function(e) {
+        function toggleChecklistItem(id) { const i = state.checklist.find(x=>x.id===id); if(i) { i.done = !i.done; saveToLocalStorage(); renderChecklistTab(); } }
+        function deleteChecklistItem(id) { state.checklist = state.checklist.filter(x=>x.id!==id); saveToLocalStorage(); renderChecklistTab(); }
+        function openChecklistAddModal() { document.getElementById('checklist-add-form').reset(); document.getElementById('checklist-custom-category-group').classList.add('hidden'); document.getElementById('checklist-add-modal').classList.remove('hidden'); }
+        function closeChecklistAddModal() { document.getElementById('checklist-add-modal').classList.add('hidden'); }
+        function toggleCustomCategoryField() { document.getElementById('checklist-custom-category-group').classList.toggle('hidden', document.getElementById('checklist-category-select').value !== 'CUSTOM'); }
+        function handleChecklistSubmit(e) {
             e.preventDefault(); const sel = document.getElementById('checklist-category-select').value;
             let cat = sel === 'CUSTOM' ? document.getElementById('checklist-custom-category-input').value.trim() : sel;
             state.checklist.push({ id: 'chk-'+Date.now(), category: cat || '自訂裝備', text: document.getElementById('checklist-text-input').value.trim(), done: false });
             saveToLocalStorage(); closeChecklistAddModal(); renderChecklistTab();
-        };
+        }
 
         // ==================== SYNC SERVICES ====================
-        window.openShareModal = function() { document.getElementById('export-json-text').value = JSON.stringify(state); updateCloudSyncUI(); document.getElementById('share-modal').classList.remove('hidden'); };
-        window.closeShareModal = function() { document.getElementById('share-modal').classList.add('hidden'); };
-        window.copyExportCode = function() { navigator.clipboard.writeText(document.getElementById('export-json-text').value); showToast("📋 JSON 備份碼複製成功！"); };
+        function openShareModal() { document.getElementById('export-json-text').value = JSON.stringify(state); updateCloudSyncUI(); document.getElementById('share-modal').classList.remove('hidden'); }
+        function closeShareModal() { document.getElementById('share-modal').classList.add('hidden'); }
+        function copyExportCode() { navigator.clipboard.writeText(document.getElementById('export-json-text').value); showToast("📋 JSON 備份碼複製成功！"); }
 
         let unsubscribeRoom = null;
         function updateCloudSyncUI() {
@@ -1154,7 +1161,7 @@
             document.getElementById('sync-room-code-display').innerText = active ? state.syncRoomId : '------';
         }
 
-        window.createCloudSyncRoom = async function() {
+        async function createCloudSyncRoom() {
             if(!db || !currentUser) { showToast("⚠️ Firebase 未連接，請檢查設定！"); return; }
             showToast("🚀 正在向您的 Firebase 資料庫開闢協作房...");
             try {
@@ -1163,10 +1170,10 @@
                 await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'rooms', rId), state);
                 localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
                 startFirestoreSync(rId); updateCloudSyncUI(); showToast("🎉 協作房開房成功！");
-            } catch(e) { showToast("⚠️ 開房失敗，請確認規則！"); }
-        };
+            } catch(e) { showToast("⚠️ 開房失敗，請確認 Firebase Rules 規則是否開啟為測試模式！"); }
+        }
 
-        window.joinCloudSyncRoom = async function() {
+        async function joinCloudSyncRoom() {
             const rId = document.getElementById('sync-join-id-input').value.trim();
             if(!rId || !db) return;
             try {
@@ -1179,10 +1186,10 @@
                     });
                 } else showToast("⚠️ 找不到該房間代碼！");
             } catch(e){ showToast("連線失敗。"); }
-        };
+        }
 
-        window.copySyncRoomCode = function() { navigator.clipboard.writeText(state.syncRoomId); showToast("📋 房號複製成功！"); };
-        window.disconnectCloudSync = function() { customConfirm("確認斷開同步連線，回到單機模式嗎？", () => { if(unsubscribeRoom) unsubscribeRoom(); state.isSyncEnabled = false; state.syncRoomId = null; saveToLocalStorage(); updateCloudSyncUI(); showToast("已回歸單機儲存狀態。"); }); };
+        function copySyncRoomCode() { navigator.clipboard.writeText(state.syncRoomId); showToast("📋 房號複製成功！"); }
+        function disconnectCloudSync() { customConfirm("確認斷開同步連線，回到單機模式嗎？", () => { if(unsubscribeRoom) unsubscribeRoom(); state.isSyncEnabled = false; state.syncRoomId = null; saveToLocalStorage(); updateCloudSyncUI(); showToast("已回歸單機儲存狀態。"); }); }
 
         async function pushStateToCloud() {
             if(!db || !state.isSyncEnabled || !state.syncRoomId) return;
@@ -1204,6 +1211,49 @@
         }
 
         function renderAll() { renderDayTabs(); renderTimeline(); renderTripMeta(); }
+
+        // ========================================================
+        // 🌟 核心修復：強制將 ES 模組的私有函式，完全映射至全域 window 物件
+        // ========================================================
+        window.switchTab = switchTab;
+        window.addNewDay = addNewDay;
+        window.deleteCurrentDayWithConfirm = deleteCurrentDayWithConfirm;
+        window.selectDay = selectDay;
+        window.openHotelModal = openHotelModal;
+        window.closeHotelModal = closeHotelModal;
+        window.handleHotelSubmit = handleHotelSubmit;
+        window.moveItineraryUp = moveItineraryUp;
+        window.moveItineraryDown = moveItineraryDown;
+        window.openAddItineraryModal = openAddItineraryModal;
+        window.closeItineraryModal = closeItineraryModal;
+        window.handleItinerarySubmit = handleItinerarySubmit;
+        window.editItinerary = editItinerary;
+        window.deleteItinerary = deleteItinerary;
+        window.copyToClipboard = copyToClipboard;
+        window.handleNewExpenseSubmit = handleNewExpenseSubmit;
+        window.deleteExpense = deleteExpense;
+        window.clearAllExpensesWithConfirm = clearAllExpensesWithConfirm;
+        window.addCompanion = addCompanion;
+        window.removeCompanion = removeCompanion;
+        window.changeBaseCurrency = changeBaseCurrency;
+        window.confirmResetAllDataWithConfirm = confirmResetAllDataWithConfirm;
+        window.toggleChecklistItem = toggleChecklistItem;
+        window.deleteChecklistItem = deleteChecklistItem;
+        window.openChecklistAddModal = openChecklistAddModal;
+        window.closeChecklistAddModal = closeChecklistAddModal;
+        window.toggleCustomCategoryField = toggleCustomCategoryField;
+        window.handleChecklistSubmit = handleChecklistSubmit;
+        window.openShareModal = openShareModal;
+        window.closeShareModal = closeShareModal;
+        window.copyExportCode = copyExportCode;
+        window.createCloudSyncRoom = createCloudSyncRoom;
+        window.joinCloudSyncRoom = joinCloudSyncRoom;
+        window.copySyncRoomCode = copySyncRoomCode;
+        window.disconnectCloudSync = disconnectCloudSync;
+        window.openTripEditModal = openTripEditModal;
+        window.closeTripEditModal = closeTripEditModal;
+        window.handleTripEditSubmit = handleTripEditSubmit;
+        window.handleCoverFileSelected = handleCoverFileSelected;
 
         window.onload = async function() {
             loadFromLocalStorage(); renderAll(); lucide.createIcons();
