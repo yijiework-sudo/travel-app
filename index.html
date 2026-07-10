@@ -74,9 +74,9 @@
             box-shadow: 1px 1px 0px 0px #000000;
         }
 
-        /* Highlight changed to Soft Light Pink as requested */
+        /* Highlight changed to Soft Light Yellow as requested */
         .pixel-tab-active {
-            background-color: #ffd3d8 !important;
+            background-color: #fff3b0 !important;
             transform: translate(2px, 2px);
             box-shadow: 1px 1px 0px 0px #000000 !important;
         }
@@ -93,9 +93,9 @@
             transform: scale(0.95) !important;
         }
 
-        /* Active navigation highlight changed to Soft Light Pink */
+        /* Active navigation highlight changed to Soft Light Yellow */
         .nav-tab-custom.pixel-tab-active {
-            background-color: #ffd3d8 !important;
+            background-color: #fff3b0 !important;
             transform: none !important;
             box-shadow: none !important;
         }
@@ -135,9 +135,9 @@
             </div>
             
             <div class="flex items-center space-x-2">
-                <button onclick="openShareModal()" id="header-sync-badge" class="pixel-btn bg-slate-100 text-slate-800 text-[12px] font-bold py-1.5 px-3 flex items-center gap-1.5" title="雲端多人即時協作">
-                    <span id="sync-badge-dot" class="w-2.5 h-2.5 bg-slate-400 border-2 border-black inline-block"></span>
-                    <span id="sync-badge-text" class="font-pixel text-[10px]">OFFLINE</span>
+                <button onclick="openShareModal()" id="header-sync-badge" class="pixel-btn bg-slate-100 text-slate-800 text-[12px] font-bold py-1 px-2 sm:py-1.5 sm:px-3 flex items-center gap-1 sm:gap-1.5" title="雲端多人即時協作">
+                    <span id="sync-badge-dot" class="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-slate-400 border-2 border-black inline-block shrink-0"></span>
+                    <span id="sync-badge-text" class="font-pixel text-[10px] whitespace-nowrap">OFFLINE</span>
                 </button>
             </div>
         </div>
@@ -461,7 +461,7 @@
                             <option value="food">🍽️ 美食餐飲</option>
                             <option value="attraction">🗺️ 景點探訪</option>
                             <option value="transport">🚗 交通銜接</option>
-                            <option value="hotel">🏨 住宿安排</option>
+                            <option value="entertainment">🎡 娛樂項目</option>
                             <option value="shopping">🛍️ 購物商圈</option>
                             <option value="other">⭐ 其他備忘</option>
                         </select>
@@ -479,12 +479,18 @@
                             <option value="ferry">🚢 搭船 (Ferry)</option>
                             <option value="plane">✈️ 搭飛機 (Plane)</option>
                             <option value="scooter">🛵 騎機車 (Scooter)</option>
-                            <option value="car">🚗 搭車 (Car)</option>
+                            <option value="car">🚗 開車/搭車 (Car)</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-[12px] font-bold text-slate-600 mb-1">⏱️ 交通時間</label>
-                        <input type="text" id="itinerary-transit-time" placeholder="如：25分鐘" class="w-full text-[16px] border-4 border-black px-3 py-1.5 outline-none bg-white font-mono">
+                        <div class="flex gap-1">
+                            <input type="number" min="0" step="1" id="itinerary-transit-time-value" placeholder="25" class="w-full text-[16px] border-4 border-black px-2 py-1.5 outline-none bg-white font-mono">
+                            <select id="itinerary-transit-time-unit" class="text-[14px] border-4 border-black px-1 py-1.5 outline-none bg-white shrink-0">
+                                <option value="分鐘">分鐘</option>
+                                <option value="小時">小時</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -623,13 +629,6 @@
                             <button onclick="disconnectCloudSync()" class="w-1/2 pixel-btn bg-red-100 text-red-600 text-[14px] py-2.5 flex items-center justify-center gap-1"><i data-lucide="power" class="w-4 h-4 text-red-600"></i><span>斷開同步</span></button>
                         </div>
                     </div>
-                </div>
-
-                <hr class="border-t-2 border-dashed border-slate-200">
-                <div class="space-y-2">
-                    <span class="font-pixel text-[10px] text-slate-500 block">📦 MANUAL BACKUP</span>
-                    <textarea id="export-json-text" readonly rows="2" class="w-full text-[12px] bg-slate-50 border-4 border-black p-2 font-mono text-slate-600 resize-none outline-none"></textarea>
-                    <button onclick="copyExportCode()" class="w-full pixel-btn bg-slate-100 text-[14px] py-2 flex items-center justify-center gap-1"><i data-lucide="copy" class="w-4 h-4 text-black"></i><span>複製傳統備份代碼</span></button>
                 </div>
             </div>
         </div>
@@ -806,6 +805,11 @@
         }
         function formatMoney(amount, currency) { return `${Math.round(amount).toLocaleString()} ${currency}`; }
 
+        function getTransitTimeLabel(item) {
+            if (item.transitTimeValue) return `${item.transitTimeValue}${item.transitTimeUnit || '分鐘'}`;
+            return item.transitTime || '';
+        }
+
         function saveToLocalStorage() {
             state.lastUpdated = Date.now();
             localStorage.setItem('kiduwe_travel_data_v2', JSON.stringify(state));
@@ -862,7 +866,7 @@
             container.innerHTML = '';
             state.days.forEach((day, index) => {
                 const isActive = index === state.currentDayIndex;
-                const activeClass = isActive ? 'pixel-tab-active bg-[#ffd3d8] text-black font-black shadow-[2px_2px_0_0_rgba(0,0,0,1)]' : 'bg-white text-slate-700';
+                const activeClass = isActive ? 'pixel-tab-active bg-[#fff3b0] text-black font-black shadow-[2px_2px_0_0_rgba(0,0,0,1)]' : 'bg-white text-slate-700';
                 container.innerHTML += `<button onclick="selectDay(${index})" class="pixel-btn shrink-0 px-6 py-2.5 text-[14px] font-pixel ${activeClass}">Day ${day.dayNum}</button>`;
             });
         }
@@ -937,8 +941,8 @@
             currentDay.itinerary.forEach((item, index) => {
                 const isLast = index === currentDay.itinerary.length - 1;
                 const cardImgUrl = item.imageUrl || 'https://placehold.co/300';
-                const transitLabels = { ferry: '🚢 搭船', plane: '✈️ 飛機', scooter: '🛵 機車', car: '🚗 搭車' };
-                let tBadge = (item.transitType && item.transitType !== 'none') ? `<div class="mt-1"><span class="bg-amber-100 text-[14px] px-2 py-0.5 border-2 border-black shadow-[1px_1px_0_0_#000] font-bold">${transitLabels[item.transitType]} ‧ ${item.transitTime}</span></div>` : '';
+                const transitLabels = { ferry: '🚢 搭船', plane: '✈️ 飛機', scooter: '🛵 機車', car: '🚗 開車/搭車' };
+                let tBadge = (item.transitType && item.transitType !== 'none') ? `<div class="mt-1"><span class="bg-amber-100 text-[14px] px-2 py-0.5 border-2 border-black shadow-[1px_1px_0_0_#000] font-bold">${transitLabels[item.transitType]} ‧ ${getTransitTimeLabel(item)}</span></div>` : '';
 
                 container.innerHTML += `
                     <div class="flex items-start space-x-3 bg-white border-4 border-black p-3 shadow-[4px_4px_0_0_#000] mt-3">
@@ -1068,7 +1072,9 @@
             const data = {
                 id: id || 'it-'+Date.now(), time,
                 category: document.getElementById('itinerary-category').value, title: document.getElementById('itinerary-title').value,
-                transitType: document.getElementById('itinerary-transit-type').value, transitTime: document.getElementById('itinerary-transit-time').value,
+                transitType: document.getElementById('itinerary-transit-type').value,
+                transitTimeValue: document.getElementById('itinerary-transit-time-value').value,
+                transitTimeUnit: document.getElementById('itinerary-transit-time-unit').value,
                 address: document.getElementById('itinerary-address').value, mapUrl: document.getElementById('itinerary-map-url').value,
                 note: document.getElementById('itinerary-note').value, imageUrl: "https://i.postimg.cc/w3QZj6V8/tu-ceng7.png" // 預設使用您的像素小狗 Logo
             };
@@ -1101,7 +1107,14 @@
             document.getElementById('itinerary-category').value = item.category;
             document.getElementById('itinerary-title').value = item.title;
             document.getElementById('itinerary-transit-type').value = item.transitType || 'none';
-            document.getElementById('itinerary-transit-time').value = item.transitTime || '';
+            if (item.transitTimeValue) {
+                document.getElementById('itinerary-transit-time-value').value = item.transitTimeValue;
+                document.getElementById('itinerary-transit-time-unit').value = item.transitTimeUnit || '分鐘';
+            } else {
+                const legacyMatch = (item.transitTime || '').match(/(\d+)\s*(分鐘|小時)?/);
+                document.getElementById('itinerary-transit-time-value').value = legacyMatch ? legacyMatch[1] : '';
+                document.getElementById('itinerary-transit-time-unit').value = (legacyMatch && legacyMatch[2]) || '分鐘';
+            }
             document.getElementById('itinerary-address').value = item.address || '';
             document.getElementById('itinerary-map-url').value = item.mapUrl || '';
             document.getElementById('itinerary-note').value = item.note || '';
@@ -1310,14 +1323,13 @@
         };
 
         // ==================== SYNC SERVICES ====================
-        window.openShareModal = function() { document.getElementById('export-json-text').value = JSON.stringify(state); updateCloudSyncUI(); document.getElementById('share-modal').classList.remove('hidden'); };
+        window.openShareModal = function() { updateCloudSyncUI(); document.getElementById('share-modal').classList.remove('hidden'); };
         window.closeShareModal = function() { document.getElementById('share-modal').classList.add('hidden'); };
-        window.copyExportCode = function() { navigator.clipboard.writeText(document.getElementById('export-json-text').value); showToast("📋 JSON 備份碼複製成功！"); };
 
         let unsubscribeRoom = null;
         function updateCloudSyncUI() {
             const active = state.isSyncEnabled && state.syncRoomId;
-            document.getElementById('sync-badge-dot').className = `w-2.5 h-2.5 border-2 border-black inline-block shadow ${active?'bg-green-400 pixel-blink-slow':'bg-slate-400'}`;
+            document.getElementById('sync-badge-dot').className = `w-2 h-2 sm:w-2.5 sm:h-2.5 border-2 border-black inline-block shrink-0 shadow ${active?'bg-green-400 pixel-blink-slow':'bg-slate-400'}`;
             document.getElementById('sync-badge-text').innerText = active ? state.syncRoomId : 'OFFLINE';
             document.getElementById('modal-sync-indicator').innerText = active ? 'ONLINE' : 'STANDBY';
             document.getElementById('modal-sync-indicator').className = `font-pixel text-[10px] border border-black px-1.5 py-0.5 font-bold ${active?'bg-green-400 text-black':'bg-slate-200'}`;
@@ -1417,7 +1429,6 @@
         window.handleChecklistSubmit = handleChecklistSubmit;
         window.openShareModal = openShareModal;
         window.closeShareModal = closeShareModal;
-        window.copyExportCode = copyExportCode;
         window.createCloudSyncRoom = createCloudSyncRoom;
         window.joinCloudSyncRoom = joinCloudSyncRoom;
         window.copySyncRoomCode = copySyncRoomCode;
