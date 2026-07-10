@@ -135,9 +135,9 @@
             </div>
             
             <div class="flex items-center space-x-2">
-                <button onclick="openShareModal()" id="header-sync-badge" class="pixel-btn bg-slate-100 text-slate-800 text-[10px] font-bold py-1.5 px-3 flex items-center gap-1.5" title="雲端多人即時協作">
+                <button onclick="openShareModal()" id="header-sync-badge" class="pixel-btn bg-slate-100 text-slate-800 text-[12px] font-bold py-1.5 px-3 flex items-center gap-1.5" title="雲端多人即時協作">
                     <span id="sync-badge-dot" class="w-2.5 h-2.5 bg-slate-400 border-2 border-black inline-block"></span>
-                    <span id="sync-badge-text" class="font-pixel text-[8px]">OFFLINE</span>
+                    <span id="sync-badge-text" class="font-pixel text-[10px]">OFFLINE</span>
                 </button>
             </div>
         </div>
@@ -146,22 +146,22 @@
     <!-- Navigation styled with custom 8-bit image buttons (no black border, enlarged 10%) -->
     <nav class="bg-slate-200 border-b-4 border-black sticky top-[85px] z-30 shadow-[0_4px_0_0_rgba(0,0,0,0.1)]">
         <div class="max-w-md mx-auto px-4 py-2 flex justify-between items-center gap-2">
-            <!-- Button Icons scaled up by 10% (w-8 -> w-9 h-9, text-[10px] -> text-[11px]) -->
+            <!-- Button Icons scaled up by 10% (w-8 -> w-9 h-9, text-[12px] -> text-[13px]) -->
             <button onclick="switchTab('itinerary')" id="tab-itinerary" class="flex-1 py-2 flex flex-col items-center justify-center bg-white nav-tab-custom pixel-tab-active" title="行程規劃">
                 <img src="https://i.postimg.cc/H8YM20Rh/tu-ceng-2.png" alt="行程" class="w-9 h-9 object-contain pixelated mb-0.5">
-                <span class="text-[11px] font-bold">行程</span>
+                <span class="text-[13px] font-bold">行程</span>
             </button>
             <button onclick="switchTab('expenses')" id="tab-expenses" class="flex-1 py-2 flex flex-col items-center justify-center bg-white nav-tab-custom" title="記帳與分帳">
                 <img src="https://i.postimg.cc/308GBjVz/tu-ceng-3.png" alt="分帳" class="w-9 h-9 object-contain pixelated mb-0.5">
-                <span class="text-[11px] font-bold">分帳</span>
+                <span class="text-[13px] font-bold">分帳</span>
             </button>
             <button onclick="switchTab('companions')" id="tab-companions" class="flex-1 py-2 flex flex-col items-center justify-center bg-white nav-tab-custom" title="成員與設定">
                 <img src="https://i.postimg.cc/bSynT0W7/tu-ceng-5.png" alt="成員" class="w-9 h-9 object-contain pixelated mb-0.5">
-                <span class="text-[11px] font-bold">成員</span>
+                <span class="text-[13px] font-bold">成員</span>
             </button>
             <button onclick="switchTab('checklist')" id="tab-checklist" class="flex-1 py-2 flex flex-col items-center justify-center bg-white nav-tab-custom" title="行前準備清單">
                 <img src="https://i.postimg.cc/5Q4z35TZ/tu-ceng-4.png" alt="行李" class="w-9 h-9 object-contain pixelated mb-0.5">
-                <span class="text-[11px] font-bold">行李</span>
+                <span class="text-[13px] font-bold">行李</span>
             </button>
         </div>
     </nav>
@@ -176,16 +176,16 @@
                 <img id="trip-cover-img" src="https://i.pinimg.com/736x/b0/f6/2a/b0f62a827f64bada93ee3a3376325ca7.jpg" alt="Trip Cover" class="absolute inset-0 w-full h-full object-cover opacity-60 pixelated">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20"></div>
                 
-                <button onclick="openTripEditModal()" class="absolute top-4 right-4 pixel-btn bg-black/60 text-white text-xs py-1.5 px-3 flex items-center gap-1.5 z-10">
+                <button onclick="openTripEditModal()" class="absolute top-4 right-4 pixel-btn bg-black/60 text-white text-[14px] py-1.5 px-3 flex items-center gap-1.5 z-10">
                     <i data-lucide="image" class="w-4 h-4 text-sky-300"></i>
                     <span>設定封面與旅程</span>
                 </button>
 
                 <div class="relative z-10 space-y-2">
-                    <h2 id="trip-title-display" class="text-xl md:text-2xl font-black tracking-tight border-b-2 border-dashed border-white/30 pb-2">小琉球極簡旅程</h2>
-                    <div class="flex flex-wrap items-center gap-2 text-xs text-white/90">
-                        <span id="trip-status-display" class="font-pixel text-[8px] bg-red-600 border-2 border-black px-2 py-0.5">#ADVENTURING</span>
-                        <span id="trip-dates-display" class="font-pixel text-[8px] bg-slate-800 border border-slate-600 px-2 py-0.5">DATES</span>
+                    <h2 id="trip-title-display" class="text-[22px] md:text-[26px] font-black tracking-tight border-b-2 border-dashed border-white/30 pb-2">小琉球極簡旅程</h2>
+                    <div class="flex flex-wrap items-center gap-2 text-[14px] text-white/90">
+                        <span id="trip-status-display" class="font-pixel text-[10px] bg-red-600 border-2 border-black px-2 py-0.5">#ADVENTURING</span>
+                        <span id="trip-dates-display" class="font-pixel text-[10px] bg-slate-800 border border-slate-600 px-2 py-0.5">DATES</span>
                     </div>
                     <div id="trip-tags-container" class="flex flex-wrap gap-1.5 pt-1"></div>
                 </div>
@@ -196,11 +196,11 @@
                 <div class="flex items-center space-x-2 overflow-x-auto no-scrollbar py-1" id="day-tabs-slider"></div>
                 
                 <div class="flex flex-wrap items-center gap-3 pt-3 border-t-2 border-dashed border-slate-200">
-                    <button onclick="addNewDay()" class="pixel-btn bg-emerald-400 text-xs py-2.5 px-4 flex items-center justify-center gap-2 flex-grow font-bold">
+                    <button onclick="addNewDay()" class="pixel-btn bg-emerald-400 text-[14px] py-2.5 px-4 flex items-center justify-center gap-2 flex-grow font-bold">
                         <i data-lucide="plus-circle" class="w-4 h-4 text-black"></i>
                         <span>增加天數 (+)</span>
                     </button>
-                    <button onclick="deleteCurrentDayWithConfirm()" class="pixel-btn bg-rose-400 text-xs py-2.5 px-4 flex items-center justify-center gap-2 flex-grow font-bold">
+                    <button onclick="deleteCurrentDayWithConfirm()" class="pixel-btn bg-rose-400 text-[14px] py-2.5 px-4 flex items-center justify-center gap-2 flex-grow font-bold">
                         <i data-lucide="minus-circle" class="w-4 h-4 text-black"></i>
                         <span>刪除本日 (-)</span>
                     </button>
@@ -215,23 +215,23 @@
                             <i data-lucide="home" class="w-5 h-5"></i>
                         </div>
                         <div>
-                            <span class="font-pixel text-[8px] text-sky-700 tracking-wider">🏨 本日下榻旅社</span>
-                            <h3 id="hotel-name-display" class="font-black text-slate-950 text-base">尚未設定今日住宿</h3>
+                            <span class="font-pixel text-[10px] text-sky-700 tracking-wider">🏨 本日下榻旅社</span>
+                            <h3 id="hotel-name-display" class="font-black text-slate-950 text-[18px]">尚未設定今日住宿</h3>
                         </div>
                     </div>
-                    <button onclick="openHotelModal()" class="pixel-btn bg-white text-xs py-1.5 px-3">
+                    <button onclick="openHotelModal()" class="pixel-btn bg-white text-[14px] py-1.5 px-3">
                         修改住宿
                     </button>
                 </div>
                 
-                <div id="hotel-detail-body" class="hidden text-xs text-slate-800 space-y-2 mt-3 pt-3 border-t-2 border-dashed border-slate-300">
+                <div id="hotel-detail-body" class="hidden text-[14px] text-slate-800 space-y-2 mt-3 pt-3 border-t-2 border-dashed border-slate-300">
                     <p id="hotel-address-display" class="flex items-center gap-1">📍 <span></span></p>
                     <p id="hotel-note-display" class="italic text-slate-500 flex items-center gap-1">📝 <span></span></p>
                     <div class="flex gap-2 pt-1">
-                        <a id="hotel-map-link" href="#" target="_blank" class="pixel-btn text-[11px] py-1 px-2.5 flex items-center gap-1 bg-white">
+                        <a id="hotel-map-link" href="#" target="_blank" class="pixel-btn text-[13px] py-1 px-2.5 flex items-center gap-1 bg-white">
                             <i data-lucide="compass" class="w-4 h-4"></i>導航
                         </a>
-                        <button id="hotel-copy-btn" class="pixel-btn text-[11px] py-1 px-2.5 flex items-center gap-1 bg-white">
+                        <button id="hotel-copy-btn" class="pixel-btn text-[13px] py-1 px-2.5 flex items-center gap-1 bg-white">
                             <i data-lucide="copy" class="w-4 h-4"></i>複製地址
                         </button>
                     </div>
@@ -239,10 +239,10 @@
             </div>
 
             <div class="flex justify-between items-center px-1">
-                <span id="current-day-count-summary" class="font-pixel text-[8px] text-slate-500">QUESTS: 0</span>
-                <button onclick="openAddItineraryModal()" class="pixel-btn bg-emerald-400 text-xs py-2 px-4 flex items-center gap-2">
+                <span id="current-day-count-summary" class="font-pixel text-[10px] text-slate-500">QUESTS: 0</span>
+                <button onclick="openAddItineraryModal()" class="pixel-btn bg-emerald-400 text-[14px] py-2 px-4 flex items-center gap-2">
                     <i data-lucide="plus-square" class="w-5 h-5 text-black"></i>
-                    <span>新增行程卡片</span>
+                    <span>新增行程</span>
                 </button>
             </div>
 
@@ -253,18 +253,18 @@
         <section id="content-expenses" class="hidden space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="pixel-card bg-emerald-400 p-5 shadow-[4px_4px_0_0_#000]">
-                    <span class="font-pixel text-[8px] text-emerald-900 block">總支出金額</span>
-                    <h3 class="text-xl font-bold font-pixel mt-2 text-black" id="total-expense-display">0 TWD</h3>
-                    <p class="text-[10px] font-bold text-emerald-800 mt-2" id="expense-currency-hint">（已折合本位幣）</p>
+                    <span class="font-pixel text-[10px] text-emerald-900 block">總支出金額</span>
+                    <h3 class="text-[22px] font-bold font-pixel mt-2 text-black" id="total-expense-display">0 TWD</h3>
+                    <p class="text-[12px] font-bold text-emerald-800 mt-2" id="expense-currency-hint">（已折合本位幣）</p>
                 </div>
                 <div class="pixel-card bg-white p-5 shadow-[4px_4px_0_0_#000]">
-                    <span class="font-pixel text-[8px] text-slate-500 block">每人平均分攤</span>
-                    <h3 class="text-xl font-bold font-pixel mt-2 text-slate-900" id="avg-expense-display">0 TWD</h3>
-                    <p class="text-[10px] font-bold text-slate-500 mt-2">共計 <span id="member-count-badge" class="font-pixel text-[9px] bg-slate-100 border border-black px-1">0</span> 位冒險者參與</p>
+                    <span class="font-pixel text-[10px] text-slate-500 block">每人平均分攤</span>
+                    <h3 class="text-[22px] font-bold font-pixel mt-2 text-slate-900" id="avg-expense-display">0 TWD</h3>
+                    <p class="text-[12px] font-bold text-slate-500 mt-2">共計 <span id="member-count-badge" class="font-pixel text-[11px] bg-slate-100 border border-black px-1">0</span> 位冒險者參與</p>
                 </div>
                 <div class="pixel-card bg-amber-100 p-5 shadow-[4px_4px_0_0_#000]">
-                    <span class="font-pixel text-[8px] text-amber-800 block">匯率參考基準</span>
-                    <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-xs text-slate-700 mt-2.5 font-mono">
+                    <span class="font-pixel text-[10px] text-amber-800 block">匯率參考基準</span>
+                    <div class="grid grid-cols-2 gap-x-2 gap-y-1 text-[14px] text-slate-700 mt-2.5 font-mono">
                         <div>1 USD = <span class="font-bold text-slate-950">32.5</span></div>
                         <div>1 JPY = <span class="font-bold text-slate-950">0.21</span></div>
                         <div>1 EUR = <span class="font-bold text-slate-950">35.0</span></div>
@@ -275,11 +275,11 @@
 
             <div class="pixel-card p-5 shadow-[4px_4px_0_0_#000]">
                 <div class="flex items-center justify-between mb-4 pb-2 border-b-2 border-dashed border-slate-200">
-                    <h3 class="font-pixel text-[10px] text-slate-950 flex items-center gap-2">
+                    <h3 class="font-pixel text-[12px] text-slate-950 flex items-center gap-2">
                         <i data-lucide="git-merge" class="w-5 h-5 text-blue-600"></i>
                         <span>智能結算分帳路徑</span>
                     </h3>
-                    <span class="font-pixel text-[8px] bg-indigo-100 border-2 border-black px-1.5 py-0.5">AUTO DEBT CUT</span>
+                    <span class="font-pixel text-[10px] bg-indigo-100 border-2 border-black px-1.5 py-0.5">AUTO DEBT CUT</span>
                 </div>
                 <div id="debt-settlement-list" class="space-y-2"></div>
             </div>
@@ -291,18 +291,19 @@
                         <span>新增一筆支出</span>
                     </h3>
                     <form id="expense-form" onsubmit="handleNewExpenseSubmit(event)" class="space-y-4">
+                        <input type="hidden" id="exp-edit-id">
                         <div>
-                            <label class="block text-xs font-bold text-slate-600 mb-1">支出品項 / 說明</label>
-                            <input type="text" id="exp-description" required placeholder="如：泰富航運船票" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                            <label class="block text-[14px] font-bold text-slate-600 mb-1">支出品項 / 說明</label>
+                            <input type="text" id="exp-description" required placeholder="如：泰富航運船票" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                         </div>
                         <div class="grid grid-cols-3 gap-2">
                             <div class="col-span-2">
-                                <label class="block text-xs font-bold text-slate-600 mb-1">金額</label>
-                                <input type="number" step="any" id="exp-amount" required placeholder="0.00" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-mono font-bold">
+                                <label class="block text-[14px] font-bold text-slate-600 mb-1">金額</label>
+                                <input type="number" step="any" id="exp-amount" required placeholder="0.00" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-mono font-bold">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-600 mb-1">幣別</label>
-                                <select id="exp-currency" class="w-full text-xs border-4 border-black px-1 py-2 outline-none focus:bg-amber-50 font-pixel">
+                                <label class="block text-[14px] font-bold text-slate-600 mb-1">幣別</label>
+                                <select id="exp-currency" class="w-full text-[14px] border-4 border-black px-1 py-2 outline-none focus:bg-amber-50 font-pixel">
                                     <option value="TWD">TWD</option>
                                     <option value="JPY">JPY</option>
                                     <option value="USD">USD</option>
@@ -312,17 +313,20 @@
                             </div>
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-slate-600 mb-1">由誰付款？</label>
-                            <select id="exp-payer" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-bold"></select>
+                            <label class="block text-[14px] font-bold text-slate-600 mb-1">由誰付款？</label>
+                            <select id="exp-payer" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-bold"></select>
                         </div>
                         <div>
-                            <label class="block text-xs font-bold text-slate-600 mb-1">分攤隊員（可複選）</label>
+                            <label class="block text-[14px] font-bold text-slate-600 mb-1">分攤隊員（可複選）</label>
                             <div class="border-4 border-black p-3 max-h-36 overflow-y-auto space-y-2 bg-slate-50" id="exp-sharers-container"></div>
                         </div>
-                        <button type="submit" class="w-full pixel-btn bg-emerald-400 text-sm py-3 flex items-center justify-center gap-1">
-                            <i data-lucide="check" class="w-5 h-5 text-black"></i>
-                            <span>記錄這筆支出</span>
-                        </button>
+                        <div class="flex gap-2">
+                            <button type="button" onclick="cancelEditExpense()" id="exp-cancel-edit-btn" class="hidden w-1/3 pixel-btn bg-slate-100 text-[16px] py-3">取消編輯</button>
+                            <button type="submit" class="flex-grow pixel-btn bg-emerald-400 text-[16px] py-3 flex items-center justify-center gap-1">
+                                <i data-lucide="check" class="w-5 h-5 text-black"></i>
+                                <span id="exp-submit-btn-text">記錄這筆支出</span>
+                            </button>
+                        </div>
                     </form>
                 </div>
 
@@ -332,7 +336,7 @@
                             <i data-lucide="receipt" class="w-5 h-5 text-slate-600"></i>
                             <span>流水帳明細</span>
                         </span>
-                        <button onclick="clearAllExpensesWithConfirm()" class="text-xs text-rose-600 font-bold hover:underline flex items-center gap-1">
+                        <button onclick="clearAllExpensesWithConfirm()" class="text-[14px] text-rose-600 font-bold hover:underline flex items-center gap-1">
                             <i data-lucide="trash" class="w-4 h-4"></i>
                             <span>全部清空</span>
                         </button>
@@ -350,10 +354,10 @@
                         <i data-lucide="users" class="w-5 h-5 text-blue-500"></i>
                         <span>冒險隊伍成員</span>
                     </h3>
-                    <p class="text-xs text-slate-500 mb-4 pb-2 border-b-2 border-dashed border-slate-200">設定出遊夥伴的暱稱，可以正確統計並平均分帳。</p>
+                    <p class="text-[14px] text-slate-500 mb-4 pb-2 border-b-2 border-dashed border-slate-200">設定出遊夥伴的暱稱，可以正確統計並平均分帳。</p>
                     <div class="flex gap-2 mb-4">
-                        <input type="text" id="new-companion-name" placeholder="輸入旅伴暱稱..." class="flex-grow text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
-                        <button onclick="addCompanion()" class="pixel-btn bg-sky-300 font-bold text-xs px-4">新增隊員</button>
+                        <input type="text" id="new-companion-name" placeholder="輸入旅伴暱稱..." class="flex-grow text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                        <button onclick="addCompanion()" class="pixel-btn bg-sky-300 font-bold text-[14px] px-4">新增隊員</button>
                     </div>
                     <div class="space-y-2.5 max-h-72 overflow-y-auto pr-1" id="companions-list-container"></div>
                 </div>
@@ -364,8 +368,8 @@
                             <i data-lucide="globe" class="w-5 h-5 text-blue-500"></i>
                             <span>旅行結算本位幣</span>
                         </h3>
-                        <p class="text-xs text-slate-500 mb-3 pb-2 border-b-2 border-dashed border-slate-200">分帳及統計時，系統會以此幣別作為結算依據。</p>
-                        <select id="base-currency-select" onchange="changeBaseCurrency(this.value)" class="w-full text-xs border-4 border-black p-3 outline-none focus:bg-amber-50 font-pixel">
+                        <p class="text-[14px] text-slate-500 mb-3 pb-2 border-b-2 border-dashed border-slate-200">分帳及統計時，系統會以此幣別作為結算依據。</p>
+                        <select id="base-currency-select" onchange="changeBaseCurrency(this.value)" class="w-full text-[14px] border-4 border-black p-3 outline-none focus:bg-amber-50 font-pixel">
                             <option value="TWD">新台幣 (TWD)</option>
                             <option value="JPY">日圓 (JPY)</option>
                             <option value="USD">美金 (USD)</option>
@@ -379,8 +383,8 @@
                             <i data-lucide="refresh-cw" class="w-5 h-5 text-blue-500"></i>
                             <span>系統手冊重置</span>
                         </h3>
-                        <p class="text-xs text-slate-500 mb-4 pb-2 border-b-2 border-dashed border-slate-200">清空瀏覽器快取，重新開始全新規劃。</p>
-                        <button onclick="confirmResetAllDataWithConfirm()" class="w-full pixel-btn bg-red-100 text-red-700 text-xs py-3 px-4 flex items-center justify-center gap-1">
+                        <p class="text-[14px] text-slate-500 mb-4 pb-2 border-b-2 border-dashed border-slate-200">清空瀏覽器快取，重新開始全新規劃。</p>
+                        <button onclick="confirmResetAllDataWithConfirm()" class="w-full pixel-btn bg-red-100 text-red-700 text-[14px] py-3 px-4 flex items-center justify-center gap-1">
                             <i data-lucide="alert-triangle" class="w-4 h-4"></i>
                             <span>清空全部數據並重置 kiduwe</span>
                         </button>
@@ -394,22 +398,22 @@
             <div class="pixel-card p-5 shadow-[4px_4px_0_0_#000]">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b-2 border-dashed border-slate-200 gap-3 mb-4">
                     <div>
-                        <h3 class="font-pixel text-[12px] text-slate-950 flex items-center gap-1.5">
+                        <h3 class="font-pixel text-[14px] text-slate-950 flex items-center gap-1.5">
                             <i data-lucide="check-square" class="w-5 h-5 text-blue-600"></i>
                             <span>行前準備裝備欄</span>
                         </h3>
-                        <p class="text-xs text-slate-500 mt-1">出發小琉球前做好檢核，不怕漏掉物品！</p>
+                        <p class="text-[14px] text-slate-500 mt-1">出發小琉球前做好檢核，不怕漏掉物品！</p>
                     </div>
-                    <button onclick="openChecklistAddModal()" class="pixel-btn bg-sky-300 text-xs py-2 px-3.5 flex items-center gap-1">
+                    <button onclick="openChecklistAddModal()" class="pixel-btn bg-sky-300 text-[14px] py-2 px-3.5 flex items-center gap-1">
                         <i data-lucide="plus" class="w-4 h-4 text-black"></i>
                         <span>新增打包項目</span>
                     </button>
                 </div>
 
                 <div class="mb-6 bg-slate-100 border-4 border-black p-3.5 shadow-[2px_2px_0_0_#000]">
-                    <div class="flex justify-between items-center text-xs font-pixel mb-1.5">
-                        <span class="text-slate-700 text-[8px]">PACKING PROGRESS [HP]</span>
-                        <span id="overall-pack-ratio" class="text-[8px] bg-black text-green-400 px-1.5 font-mono">0%</span>
+                    <div class="flex justify-between items-center text-[14px] font-pixel mb-1.5">
+                        <span class="text-slate-700 text-[10px]">PACKING PROGRESS [HP]</span>
+                        <span id="overall-pack-ratio" class="text-[10px] bg-black text-green-400 px-1.5 font-mono">0%</span>
                     </div>
                     <div class="w-full bg-slate-900 border-2 border-black p-0.5">
                         <div id="overall-pack-bar" class="h-4 bg-green-500 transition-all duration-300" style="width: 0%"></div>
@@ -423,10 +427,10 @@
     </main>
 
     <!-- Footer of Page - Ensure it sticks directly to the bottom (no body padding under it) -->
-    <footer class="bg-white border-t-4 border-black py-6 mt-12 text-center text-xs font-bold text-slate-500 w-full">
+    <footer class="bg-white border-t-4 border-black py-6 mt-12 text-center text-[14px] font-bold text-slate-500 w-full">
         <div class="max-w-4xl mx-auto px-4 space-y-1">
             <p>🕹️ © 2026 kiduwe 隨身旅伴 👾</p>
-            <p class="text-[10px] text-slate-400">2026 Yijie. All rights reserved.</p>
+            <p class="text-[12px] text-slate-400">2026 Yijie. All rights reserved.</p>
         </div>
     </footer>
 
@@ -434,7 +438,7 @@
     <div id="itinerary-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 border-b-4 border-black px-5 py-4 text-white flex justify-between items-center">
-                <h3 class="font-pixel text-[10px] flex items-center gap-1.5" id="itinerary-modal-title">
+                <h3 class="font-pixel text-[12px] flex items-center gap-1.5" id="itinerary-modal-title">
                     <i data-lucide="map-pin" class="w-4 h-4 text-rose-500"></i>
                     <span>ADD QUEST</span>
                 </h3>
@@ -444,12 +448,16 @@
                 <input type="hidden" id="itinerary-edit-id">
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1">開始時間 <span class="text-rose-500">*</span></label>
-                        <input type="text" id="itinerary-time" required placeholder="如：13:00" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-mono">
+                        <label class="block text-[14px] font-bold text-slate-600 mb-1">開始時間 <span class="text-rose-500">*</span></label>
+                        <div class="flex items-center gap-1">
+                            <select id="itinerary-time-hour" required class="w-full text-[16px] border-4 border-black px-1 py-2 outline-none focus:bg-amber-50 font-mono"></select>
+                            <span class="font-black">:</span>
+                            <select id="itinerary-time-minute" required class="w-full text-[16px] border-4 border-black px-1 py-2 outline-none focus:bg-amber-50 font-mono"></select>
+                        </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1">行程類別</label>
-                        <select id="itinerary-category" class="w-full text-xs border-4 border-black px-1 py-2 outline-none focus:bg-amber-50 font-pixel">
+                        <label class="block text-[14px] font-bold text-slate-600 mb-1">行程類別</label>
+                        <select id="itinerary-category" class="w-full text-[14px] border-4 border-black px-1 py-2 outline-none focus:bg-amber-50 font-pixel">
                             <option value="food">🍽️ 美食餐飲</option>
                             <option value="attraction">🗺️ 景點探訪</option>
                             <option value="transport">🚗 交通銜接</option>
@@ -460,13 +468,13 @@
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">景點 / 活動名稱 <span class="text-rose-500">*</span></label>
-                    <input type="text" id="itinerary-title" required placeholder="如：花瓶岩浮潛" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">景點 / 活動名稱 <span class="text-rose-500">*</span></label>
+                    <input type="text" id="itinerary-title" required placeholder="如：花瓶岩浮潛" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
                 <div class="grid grid-cols-2 gap-3 bg-slate-50 p-3 border-4 border-black shadow-[2px_2px_0_0_#000]">
                     <div>
-                        <label class="block text-[10px] font-bold text-slate-600 mb-1">🚌 交通工具/方式</label>
-                        <select id="itinerary-transit-type" class="w-full text-xs border-4 border-black px-1 py-1.5 outline-none bg-white">
+                        <label class="block text-[12px] font-bold text-slate-600 mb-1">🚌 交通工具/方式</label>
+                        <select id="itinerary-transit-type" class="w-full text-[14px] border-4 border-black px-1 py-1.5 outline-none bg-white">
                             <option value="none">❌ 無 / 步行</option>
                             <option value="ferry">🚢 搭船 (Ferry)</option>
                             <option value="plane">✈️ 搭飛機 (Plane)</option>
@@ -475,21 +483,21 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-[10px] font-bold text-slate-600 mb-1">⏱️ 交通時間</label>
-                        <input type="text" id="itinerary-transit-time" placeholder="如：25分鐘" class="w-full text-sm border-4 border-black px-3 py-1.5 outline-none bg-white font-mono">
+                        <label class="block text-[12px] font-bold text-slate-600 mb-1">⏱️ 交通時間</label>
+                        <input type="text" id="itinerary-transit-time" placeholder="如：25分鐘" class="w-full text-[16px] border-4 border-black px-3 py-1.5 outline-none bg-white font-mono">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">詳細地址 (據此自動分析並生成地圖圖示！)</label>
-                    <input type="text" id="itinerary-address" placeholder="如：屏東縣琉球鄉花瓶岩" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">詳細地址 (據此自動分析並生成地圖圖示！)</label>
+                    <input type="text" id="itinerary-address" placeholder="如：屏東縣琉球鄉花瓶岩" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">Google Maps 導航連結 (非必填)</label>
-                    <input type="url" id="itinerary-map-url" placeholder="https://maps.google.com/..." class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">Google Maps 導航連結 (非必填)</label>
+                    <input type="url" id="itinerary-map-url" placeholder="https://maps.google.com/..." class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">備忘與細節秘笈</label>
-                    <textarea id="itinerary-note" rows="3" placeholder="裝備攜帶、推薦玩法..." class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 resize-none"></textarea>
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">備忘與細節秘笈</label>
+                    <textarea id="itinerary-note" rows="3" placeholder="裝備攜帶、推薦玩法..." class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 resize-none"></textarea>
                 </div>
                 <div class="flex space-x-2 pt-2">
                     <button type="button" onclick="closeItineraryModal()" class="w-1/2 pixel-btn bg-slate-100 py-3">取消</button>
@@ -503,36 +511,36 @@
     <div id="trip-edit-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
-                <h3 class="font-pixel text-[10px] flex items-center gap-1.5"><i data-lucide="image" class="w-4 h-4 text-sky-400"></i><span>MAP META SETTINGS</span></h3>
+                <h3 class="font-pixel text-[12px] flex items-center gap-1.5"><i data-lucide="image" class="w-4 h-4 text-sky-400"></i><span>MAP META SETTINGS</span></h3>
                 <button onclick="closeTripEditModal()" class="text-white hover:text-amber-400 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
             <form id="trip-edit-form" onsubmit="handleTripEditSubmit(event)" class="p-5 space-y-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">旅程名稱</label>
-                    <input type="text" id="trip-name-input" required class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">旅程名稱</label>
+                    <input type="text" id="trip-name-input" required class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1">狀態標籤 (如 #規劃中)</label>
-                        <input type="text" id="trip-status-input" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                        <label class="block text-[14px] font-bold text-slate-600 mb-1">狀態標籤 (如 #規劃中)</label>
+                        <input type="text" id="trip-status-input" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1">旅程日期</label>
-                        <input type="text" id="trip-dates-input" placeholder="2026/10/10 - 2026/10/12" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-mono">
+                        <label class="block text-[14px] font-bold text-slate-600 mb-1">旅程日期</label>
+                        <input type="text" id="trip-dates-input" placeholder="2026/10/10 - 2026/10/12" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-mono">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">自訂封面相片 (手機裝置直傳)</label>
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">自訂封面相片 (手機裝置直傳)</label>
                     <div class="flex items-center gap-2 mt-1.5">
-                        <button type="button" onclick="document.getElementById('trip-cover-file').click()" class="pixel-btn bg-sky-50 text-xs py-2 px-3.5 flex items-center gap-1"><i data-lucide="upload" class="w-4 h-4 text-black"></i>上傳照片</button>
-                        <span id="trip-cover-file-name" class="text-xs text-slate-500 truncate max-w-[200px] font-mono">未選擇檔案</span>
+                        <button type="button" onclick="document.getElementById('trip-cover-file').click()" class="pixel-btn bg-sky-50 text-[14px] py-2 px-3.5 flex items-center gap-1"><i data-lucide="upload" class="w-4 h-4 text-black"></i>上傳照片</button>
+                        <span id="trip-cover-file-name" class="text-[14px] text-slate-500 truncate max-w-[200px] font-mono">未選擇檔案</span>
                         <input type="file" id="trip-cover-file" accept="image/*" class="hidden" onchange="handleCoverFileSelected(event)">
                     </div>
                     <input type="hidden" id="trip-cover-base64">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">封面特色標籤 (用逗號隔開)</label>
-                    <input type="text" id="trip-tags-input" placeholder="浮潛、機車、海龜" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">封面特色標籤 (用逗號隔開)</label>
+                    <input type="text" id="trip-tags-input" placeholder="浮潛、機車、海龜" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
                 <div class="flex space-x-2 pt-2">
                     <button type="button" onclick="closeTripEditModal()" class="w-1/2 pixel-btn bg-slate-100 py-3">取消</button>
@@ -546,25 +554,25 @@
     <div id="hotel-edit-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
-                <h3 class="font-pixel text-[10px] flex items-center gap-1.5"><i data-lucide="hotel" class="w-4 h-4 text-sky-400"></i><span>LODGING INN</span></h3>
+                <h3 class="font-pixel text-[12px] flex items-center gap-1.5"><i data-lucide="hotel" class="w-4 h-4 text-sky-400"></i><span>LODGING INN</span></h3>
                 <button onclick="closeHotelModal()" class="text-white hover:text-amber-400 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
             <form id="hotel-form" onsubmit="handleHotelSubmit(event)" class="p-5 space-y-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">今日下榻民宿名稱</label>
-                    <input type="text" id="hotel-name-input" required placeholder="如：海景美宿" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">今日下榻民宿名稱</label>
+                    <input type="text" id="hotel-name-input" required placeholder="如：海景美宿" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">民宿詳細地址</label>
-                    <input type="text" id="hotel-address-input" placeholder="如：屏東縣琉球鄉三民路" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">民宿詳細地址</label>
+                    <input type="text" id="hotel-address-input" placeholder="如：屏東縣琉球鄉三民路" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">Google Maps 網址</label>
-                    <input type="url" id="hotel-map-input" placeholder="https://maps.google.com/..." class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">Google Maps 網址</label>
+                    <input type="url" id="hotel-map-input" placeholder="https://maps.google.com/..." class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">入住備忘事項</label>
-                    <textarea id="hotel-note-input" rows="2" placeholder="如：下午 3 點後辦理入住" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 resize-none"></textarea>
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">入住備忘事項</label>
+                    <textarea id="hotel-note-input" rows="2" placeholder="如：下午 3 點後辦理入住" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 resize-none"></textarea>
                 </div>
                 <div class="flex space-x-2 pt-2">
                     <button type="button" onclick="closeHotelModal()" class="w-1/2 pixel-btn bg-slate-100 py-3">取消</button>
@@ -578,50 +586,50 @@
     <div id="share-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-md border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
-                <h3 class="font-pixel text-[10px] flex items-center gap-1.5"><i data-lucide="share-2" class="w-4 h-4 text-sky-400"></i><span>REAL-TIME MULTIPLAYER</span></h3>
+                <h3 class="font-pixel text-[12px] flex items-center gap-1.5"><i data-lucide="share-2" class="w-4 h-4 text-sky-400"></i><span>REAL-TIME MULTIPLAYER</span></h3>
                 <button onclick="closeShareModal()" class="text-white hover:text-amber-400 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
             </div>
             <div class="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
                 <div class="bg-sky-50 border-4 border-black p-4 space-y-3 shadow-[2px_2px_0_0_#000]">
                     <div class="flex items-center justify-between">
-                        <span class="font-pixel text-[8px] text-sky-900">📡 CLOUD ENGINE</span>
-                        <span id="modal-sync-indicator" class="font-pixel text-[8px] bg-slate-300 border border-black px-1.5 py-0.5">STANDBY</span>
+                        <span class="font-pixel text-[10px] text-sky-900">📡 CLOUD ENGINE</span>
+                        <span id="modal-sync-indicator" class="font-pixel text-[10px] bg-slate-300 border border-black px-1.5 py-0.5">STANDBY</span>
                     </div>
-                    <p class="text-xs text-slate-700 leading-relaxed font-medium">啟用「即時協作房」後，所有隊員將同步共享手冊。任何資料編輯皆以「毫秒級」即時同步傳輸！</p>
+                    <p class="text-[14px] text-slate-700 leading-relaxed font-medium">啟用「即時協作房」後，所有隊員將同步共享手冊。任何資料編輯皆以「毫秒級」即時同步傳輸！</p>
                     
                     <div id="sync-setup-panel" class="space-y-3 pt-2">
-                        <button onclick="createCloudSyncRoom()" class="w-full pixel-btn bg-emerald-400 text-xs py-2.5 flex items-center justify-center gap-1.5">
+                        <button onclick="createCloudSyncRoom()" class="w-full pixel-btn bg-emerald-400 text-[14px] py-2.5 flex items-center justify-center gap-1.5">
                             <i data-lucide="plus-circle" class="w-4 h-4 text-black"></i><span>一鍵建立「全新雲端協作房」</span>
                         </button>
                         <div class="relative flex py-1 items-center">
                             <div class="flex-grow border-t-2 border-slate-300"></div>
-                            <span class="flex-shrink mx-3 text-slate-400 font-pixel text-[8px]">OR</span>
+                            <span class="flex-shrink mx-3 text-slate-400 font-pixel text-[10px]">OR</span>
                             <div class="flex-grow border-t-2 border-slate-300"></div>
                         </div>
                         <div class="flex gap-2">
-                            <input type="text" id="sync-join-id-input" placeholder="輸入房間代碼" class="flex-grow text-xs border-4 border-black px-3 py-2 outline-none focus:bg-white font-mono">
-                            <button onclick="joinCloudSyncRoom()" class="pixel-btn bg-slate-950 text-white text-xs px-4 font-bold">載入加入</button>
+                            <input type="text" id="sync-join-id-input" placeholder="輸入房間代碼" class="flex-grow text-[14px] border-4 border-black px-3 py-2 outline-none focus:bg-white font-mono">
+                            <button onclick="joinCloudSyncRoom()" class="pixel-btn bg-slate-950 text-white text-[14px] px-4 font-bold">載入加入</button>
                         </div>
                     </div>
 
                     <div id="sync-active-panel" class="hidden space-y-3 pt-2">
                         <div class="bg-white border-4 border-black p-3 text-center shadow-[2px_2px_0_0_#000]">
-                            <span class="block font-pixel text-[8px] text-slate-400">YOUR ROOM CODE</span>
-                            <span id="sync-room-code-display" class="block text-base md:text-lg font-pixel font-black text-blue-600 tracking-widest my-1 select-all">------</span>
-                            <span class="text-[9px] font-bold text-slate-400">（複製此代碼，發給 LINE 群組內的旅伴加入）</span>
+                            <span class="block font-pixel text-[10px] text-slate-400">YOUR ROOM CODE</span>
+                            <span id="sync-room-code-display" class="block text-[18px] md:text-[20px] font-pixel font-black text-blue-600 tracking-widest my-1 select-all">------</span>
+                            <span class="text-[11px] font-bold text-slate-400">（複製此代碼，發給 LINE 群組內的旅伴加入）</span>
                         </div>
                         <div class="flex gap-2">
-                            <button onclick="copySyncRoomCode()" class="w-1/2 pixel-btn bg-sky-200 text-xs py-2.5 flex items-center justify-center gap-1"><i data-lucide="copy" class="w-4 h-4 text-black"></i><span>複製房號</span></button>
-                            <button onclick="disconnectCloudSync()" class="w-1/2 pixel-btn bg-red-100 text-red-600 text-xs py-2.5 flex items-center justify-center gap-1"><i data-lucide="power" class="w-4 h-4 text-red-600"></i><span>斷開同步</span></button>
+                            <button onclick="copySyncRoomCode()" class="w-1/2 pixel-btn bg-sky-200 text-[14px] py-2.5 flex items-center justify-center gap-1"><i data-lucide="copy" class="w-4 h-4 text-black"></i><span>複製房號</span></button>
+                            <button onclick="disconnectCloudSync()" class="w-1/2 pixel-btn bg-red-100 text-red-600 text-[14px] py-2.5 flex items-center justify-center gap-1"><i data-lucide="power" class="w-4 h-4 text-red-600"></i><span>斷開同步</span></button>
                         </div>
                     </div>
                 </div>
 
                 <hr class="border-t-2 border-dashed border-slate-200">
                 <div class="space-y-2">
-                    <span class="font-pixel text-[8px] text-slate-500 block">📦 MANUAL BACKUP</span>
-                    <textarea id="export-json-text" readonly rows="2" class="w-full text-[10px] bg-slate-50 border-4 border-black p-2 font-mono text-slate-600 resize-none outline-none"></textarea>
-                    <button onclick="copyExportCode()" class="w-full pixel-btn bg-slate-100 text-xs py-2 flex items-center justify-center gap-1"><i data-lucide="copy" class="w-4 h-4 text-black"></i><span>複製傳統備份代碼</span></button>
+                    <span class="font-pixel text-[10px] text-slate-500 block">📦 MANUAL BACKUP</span>
+                    <textarea id="export-json-text" readonly rows="2" class="w-full text-[12px] bg-slate-50 border-4 border-black p-2 font-mono text-slate-600 resize-none outline-none"></textarea>
+                    <button onclick="copyExportCode()" class="w-full pixel-btn bg-slate-100 text-[14px] py-2 flex items-center justify-center gap-1"><i data-lucide="copy" class="w-4 h-4 text-black"></i><span>複製傳統備份代碼</span></button>
                 </div>
             </div>
         </div>
@@ -631,13 +639,13 @@
     <div id="checklist-add-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white w-full max-w-sm border-4 border-black shadow-[8px_8px_0px_0px_#000] overflow-hidden">
             <div class="bg-slate-950 px-5 py-4 text-white flex justify-between items-center border-b-4 border-black">
-                <h3 class="font-pixel text-[10px] flex items-center gap-1.5"><i data-lucide="check-square" class="w-4 h-4 text-sky-400"></i><span>ADD INVENTORY</span></h3>
+                <h3 class="font-pixel text-[12px] flex items-center gap-1.5"><i data-lucide="check-square" class="w-4 h-4 text-sky-400"></i><span>ADD INVENTORY</span></h3>
                 <button onclick="closeChecklistAddModal()" class="text-white hover:text-amber-400 transition"><i data-lucide="x" class="w-4 h-4"></i></button>
             </div>
             <form id="checklist-add-form" onsubmit="handleChecklistSubmit(event)" class="p-5 space-y-4">
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">選擇準備類別</label>
-                    <select id="checklist-category-select" onchange="toggleCustomCategoryField()" class="w-full text-xs border-4 border-black px-1.5 py-2.5 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">選擇準備類別</label>
+                    <select id="checklist-category-select" onchange="toggleCustomCategoryField()" class="w-full text-[14px] border-4 border-black px-1.5 py-2.5 outline-none focus:bg-amber-50">
                         <option value="證件 & 重要物品">🛂 證件 & 重要物品</option>
                         <option value="生活用品">🧴 生活盥洗用品</option>
                         <option value="電器充電">🔌 行動電器 & 充電</option>
@@ -647,12 +655,12 @@
                     </select>
                 </div>
                 <div id="checklist-custom-category-group" class="hidden">
-                    <label class="block text-xs font-bold text-slate-600 mb-1">輸入自訂的新類別名稱</label>
-                    <input type="text" id="checklist-custom-category-input" placeholder="例如：水上相機" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">輸入自訂的新類別名稱</label>
+                    <input type="text" id="checklist-custom-category-input" placeholder="例如：水上相機" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-600 mb-1">準備物品名稱</label>
-                    <input type="text" id="checklist-text-input" required placeholder="如：防曬乳、機車駕照" class="w-full text-sm border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
+                    <label class="block text-[14px] font-bold text-slate-600 mb-1">準備物品名稱</label>
+                    <input type="text" id="checklist-text-input" required placeholder="如：防曬乳、機車駕照" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50">
                 </div>
                 <div class="flex space-x-2 pt-1">
                     <button type="button" onclick="closeChecklistAddModal()" class="w-1/2 pixel-btn bg-slate-100 py-2.5">取消</button>
@@ -665,17 +673,17 @@
     <!-- Alert/Confirm Replacement -->
     <div id="custom-confirm-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-[99] flex items-center justify-center p-4 hidden">
         <div class="bg-white border-4 border-black p-6 max-w-sm w-full shadow-[8px_8px_0px_0px_#000] text-center space-y-4">
-            <div class="bg-red-500 text-white font-pixel text-[8px] p-2 border-2 border-black inline-block shadow-[2px_2px_0_0_#000]">WARNING!</div>
-            <p id="confirm-modal-text" class="text-sm font-black text-slate-900 leading-relaxed"></p>
+            <div class="bg-red-500 text-white font-pixel text-[10px] p-2 border-2 border-black inline-block shadow-[2px_2px_0_0_#000]">WARNING!</div>
+            <p id="confirm-modal-text" class="text-[16px] font-black text-slate-900 leading-relaxed"></p>
             <div class="flex gap-3 justify-center pt-2">
-                <button id="confirm-modal-cancel" class="pixel-btn bg-slate-100 text-slate-800 text-xs px-4 py-2">取消 (B)</button>
-                <button id="confirm-modal-ok" class="pixel-btn bg-red-400 text-black text-xs px-4 py-2">確認 (A)</button>
+                <button id="confirm-modal-cancel" class="pixel-btn bg-slate-100 text-slate-800 text-[14px] px-4 py-2">取消 (B)</button>
+                <button id="confirm-modal-ok" class="pixel-btn bg-red-400 text-black text-[14px] px-4 py-2">確認 (A)</button>
             </div>
         </div>
     </div>
 
     <!-- Toast 提示訊息 -->
-    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] bg-black text-white text-xs font-bold px-4 py-3 border-4 border-black shadow-[4px_4px_0_0_#000] opacity-0 pointer-events-none translate-y-2 transition-all duration-300 max-w-[90vw] text-center">
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] bg-black text-white text-[14px] font-bold px-4 py-3 border-4 border-black shadow-[4px_4px_0_0_#000] opacity-0 pointer-events-none translate-y-2 transition-all duration-300 max-w-[90vw] text-center">
         <span id="toast-message"></span>
     </div>
 
@@ -809,12 +817,17 @@
             if (saved) { try { const parsed = JSON.parse(saved); if (parsed && parsed.days) state = parsed; } catch(e){} }
         }
 
+        let toastTimer = null;
         function showToast(message) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-message').innerText = message;
             toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
             toast.classList.add('opacity-100', 'translate-y-0');
-            setTimeout(() => { toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2'); }, 2500);
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+            }, 1200);
         }
 
         function switchTab(tabId) {
@@ -839,7 +852,7 @@
             container.innerHTML = '';
             if (state.tripTags) {
                 state.tripTags.forEach(tag => {
-                    container.innerHTML += `<span class="bg-black/50 border border-black text-white px-3 py-1 font-bold text-[10px] shadow-[1px_1px_0_0_rgba(255,255,255,0.2)]">${tag}</span>`;
+                    container.innerHTML += `<span class="bg-black/50 border border-black text-white px-3 py-1 font-bold text-[12px] shadow-[1px_1px_0_0_rgba(255,255,255,0.2)]">${tag}</span>`;
                 });
             }
         }
@@ -850,7 +863,7 @@
             state.days.forEach((day, index) => {
                 const isActive = index === state.currentDayIndex;
                 const activeClass = isActive ? 'pixel-tab-active bg-[#ffd3d8] text-black font-black shadow-[2px_2px_0_0_rgba(0,0,0,1)]' : 'bg-white text-slate-700';
-                container.innerHTML += `<button onclick="selectDay(${index})" class="pixel-btn shrink-0 px-6 py-2.5 text-xs font-pixel ${activeClass}">Day ${day.dayNum}</button>`;
+                container.innerHTML += `<button onclick="selectDay(${index})" class="pixel-btn shrink-0 px-6 py-2.5 text-[14px] font-pixel ${activeClass}">Day ${day.dayNum}</button>`;
             });
         }
 
@@ -925,14 +938,14 @@
                 const isLast = index === currentDay.itinerary.length - 1;
                 const cardImgUrl = item.imageUrl || 'https://placehold.co/300';
                 const transitLabels = { ferry: '🚢 搭船', plane: '✈️ 飛機', scooter: '🛵 機車', car: '🚗 搭車' };
-                let tBadge = (item.transitType && item.transitType !== 'none') ? `<div class="mt-1"><span class="bg-amber-100 text-xs px-2 py-0.5 border-2 border-black shadow-[1px_1px_0_0_#000] font-bold">${transitLabels[item.transitType]} ‧ ${item.transitTime}</span></div>` : '';
+                let tBadge = (item.transitType && item.transitType !== 'none') ? `<div class="mt-1"><span class="bg-amber-100 text-[14px] px-2 py-0.5 border-2 border-black shadow-[1px_1px_0_0_#000] font-bold">${transitLabels[item.transitType]} ‧ ${item.transitTime}</span></div>` : '';
 
                 container.innerHTML += `
                     <div class="flex items-start space-x-3 bg-white border-4 border-black p-3 shadow-[4px_4px_0_0_#000] mt-3">
-                        <div class="relative w-20 h-20 shrink-0 border-4 border-black overflow-hidden"><img src="${cardImgUrl}" class="w-full h-full object-cover pixelated"><div class="absolute top-0 left-0 bg-rose-500 text-white font-pixel text-[8px] px-1.5 py-0.5 border-r-2 border-b-2 border-black">${index+1}</div></div>
+                        <div class="relative w-20 h-20 shrink-0 border-4 border-black overflow-hidden"><img src="${cardImgUrl}" class="w-full h-full object-cover pixelated"><div class="absolute top-0 left-0 bg-rose-500 text-white font-pixel text-[10px] px-1.5 py-0.5 border-r-2 border-b-2 border-black">${index+1}</div></div>
                         <div class="flex-grow min-w-0">
                             <div class="flex justify-between items-center">
-                                <span class="text-rose-500 font-pixel text-[10px] font-bold">YP ${item.time}</span>
+                                <span class="text-rose-500 font-pixel text-[12px] font-bold">YP ${item.time}</span>
                                 <div class="flex space-x-1">
                                     <button onclick="moveItineraryUp(${index})" class="p-1" ${index===0?'disabled style="opacity:0.2"':''}><i data-lucide="chevron-up" class="w-4 h-4 text-black"></i></button>
                                     <button onclick="moveItineraryDown(${index})" class="p-1" ${isLast?'disabled style="opacity:0.2"':''}><i data-lucide="chevron-down" class="w-4 h-4 text-black"></i></button>
@@ -940,11 +953,11 @@
                                     <button onclick="deleteItinerary('${item.id}')" class="p-1"><i data-lucide="trash-2" class="w-4 h-4 text-black"></i></button>
                                 </div>
                             </div>
-                            <h4 class="font-black text-sm mt-1 truncate">${item.title}</h4>
+                            <h4 class="font-black text-[16px] mt-1 truncate">${item.title}</h4>
                             ${tBadge}
-                            ${item.address ? `<div class="mt-2 text-[11px] bg-slate-50 border-2 border-black p-1.5 flex justify-between items-center"><span>📍 ${item.address}</span><button onclick="copyToClipboard('${item.address}', '📍 地址已複製！')" class="bg-white border-2 border-black text-[9px] px-1 font-bold">複製</button></div>`:''}
-                            ${item.note ? `<p class="text-xs text-slate-600 border-l-4 border-slate-400 pl-2 mt-2 font-medium">${item.note}</p>`:''}
-                            <div class="text-right mt-2">${item.mapUrl ? `<a href="${item.mapUrl}" target="_blank" class="pixel-btn text-[10px] px-2 py-0.5 bg-white">導航</a>`:''}</div>
+                            ${item.address ? `<div class="mt-2 text-[13px] bg-slate-50 border-2 border-black p-1.5 flex justify-between items-center"><span>📍 ${item.address}</span><button onclick="copyToClipboard('${item.address}', '📍 地址已複製！')" class="bg-white border-2 border-black text-[11px] px-1 font-bold">複製</button></div>`:''}
+                            ${item.note ? `<p class="text-[14px] text-slate-600 border-l-4 border-slate-400 pl-2 mt-2 font-medium">${item.note}</p>`:''}
+                            <div class="text-right mt-2">${item.mapUrl ? `<a href="${item.mapUrl}" target="_blank" class="pixel-btn text-[12px] px-2 py-0.5 bg-white">導航</a>`:''}</div>
                         </div>
                     </div>
                     ${isLast?'':'<div class="pixel-connector"></div>'}
@@ -1032,8 +1045,17 @@
             saveToLocalStorage(); renderTimeline();
         };
 
+        function populateTimeSelects() {
+            const hourSel = document.getElementById('itinerary-time-hour');
+            const minSel = document.getElementById('itinerary-time-minute');
+            hourSel.innerHTML = Array.from({length: 24}, (_, i) => String(i).padStart(2, '0')).map(h => `<option value="${h}">${h}</option>`).join('');
+            minSel.innerHTML = Array.from({length: 12}, (_, i) => String(i * 5).padStart(2, '0')).map(m => `<option value="${m}">${m}</option>`).join('');
+        }
+
         window.openAddItineraryModal = function() {
             document.getElementById('itinerary-form').reset(); document.getElementById('itinerary-edit-id').value = '';
+            document.getElementById('itinerary-time-hour').value = '09';
+            document.getElementById('itinerary-time-minute').value = '00';
             document.getElementById('itinerary-modal-title').innerText = 'ADD QUEST 行程';
             document.getElementById('itinerary-modal').classList.remove('hidden');
         };
@@ -1042,8 +1064,9 @@
         window.handleItinerarySubmit = async function(e) {
             e.preventDefault(); const day = state.days[state.currentDayIndex];
             const id = document.getElementById('itinerary-edit-id').value;
+            const time = `${document.getElementById('itinerary-time-hour').value}:${document.getElementById('itinerary-time-minute').value}`;
             const data = {
-                id: id || 'it-'+Date.now(), time: document.getElementById('itinerary-time').value,
+                id: id || 'it-'+Date.now(), time,
                 category: document.getElementById('itinerary-category').value, title: document.getElementById('itinerary-title').value,
                 transitType: document.getElementById('itinerary-transit-type').value, transitTime: document.getElementById('itinerary-transit-time').value,
                 address: document.getElementById('itinerary-address').value, mapUrl: document.getElementById('itinerary-map-url').value,
@@ -1071,7 +1094,10 @@
         window.editItinerary = function(id) {
             const item = state.days[state.currentDayIndex].itinerary.find(i=>i.id===id); if(!item) return;
             document.getElementById('itinerary-edit-id').value = item.id;
-            document.getElementById('itinerary-time').value = item.time;
+            const [h, m] = (item.time || '09:00').split(':');
+            let mm = Math.round((parseInt(m, 10) || 0) / 5) * 5; if (mm >= 60) mm = 0;
+            document.getElementById('itinerary-time-hour').value = h ? h.padStart(2, '0') : '09';
+            document.getElementById('itinerary-time-minute').value = String(mm).padStart(2, '0');
             document.getElementById('itinerary-category').value = item.category;
             document.getElementById('itinerary-title').value = item.title;
             document.getElementById('itinerary-transit-type').value = item.transitType || 'none';
@@ -1116,18 +1142,29 @@
             state.companions.forEach(c => pSel.innerHTML += `<option value="${c}">${c}</option>`);
 
             const sCon = document.getElementById('exp-sharers-container'); sCon.innerHTML = '';
-            state.companions.forEach(c => sCon.innerHTML += `<label class="flex items-center space-x-2 text-sm font-bold cursor-pointer"><input type="checkbox" name="exp-sharer" value="${c}" checked class="w-5 h-5 border-4 border-black rounded-none"><span>${c}</span></label>`);
+            state.companions.forEach(c => sCon.innerHTML += `<label class="flex items-center space-x-2 text-[16px] font-bold cursor-pointer"><input type="checkbox" name="exp-sharer" value="${c}" checked class="w-5 h-5 border-4 border-black rounded-none"><span>${c}</span></label>`);
             calculateSettlement(); renderExpenseList();
         }
 
         function renderExpenseList() {
             const container = document.getElementById('expense-list-container'); container.innerHTML = '';
-            if(state.expenses.length === 0) { container.innerHTML = '<p class="text-center text-xs text-slate-400">目前沒有記帳明細</p>'; return; }
+            if(state.expenses.length === 0) { container.innerHTML = '<p class="text-center text-[14px] text-slate-400">目前沒有記帳明細</p>'; return; }
             [...state.expenses].reverse().forEach(exp => {
+                const settled = !!exp.settled;
                 container.innerHTML += `
-                    <div class="bg-white border-4 border-black p-3 flex justify-between items-center shadow-[2px_2px_0_0_#000]">
-                        <div><h4 class="font-black text-sm">${exp.description}</h4><p class="text-xs font-bold text-slate-500">${exp.payer} 先付 ‧ 分攤: ${exp.splitWith.join(',')}</p></div>
-                        <div class="flex items-center space-x-2"><span class="font-pixel text-[10px]">${exp.amount} ${exp.currency}</span><button onclick="deleteExpense('${exp.id}')"><i data-lucide="x" class="w-4 h-4 text-black"></i></button></div>
+                    <div class="bg-white border-4 border-black p-3 flex justify-between items-center shadow-[2px_2px_0_0_#000] ${settled?'opacity-50':''}">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <input type="checkbox" onchange="toggleExpenseSettled('${exp.id}')" ${settled?'checked':''} title="標記已結清" class="w-5 h-5 border-4 border-black rounded-none shrink-0 cursor-pointer">
+                            <div class="min-w-0">
+                                <h4 class="font-black text-[16px] truncate ${settled?'line-through text-slate-400':''}">${exp.description}</h4>
+                                <p class="text-[14px] font-bold text-slate-500">${exp.payer} 先付 ‧ 分攤: ${exp.splitWith.join(',')}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 shrink-0">
+                            <span class="font-pixel text-[12px] ${settled?'line-through text-slate-400':''}">${exp.amount} ${exp.currency}</span>
+                            <button onclick="editExpense('${exp.id}')"><i data-lucide="edit-3" class="w-4 h-4 text-black"></i></button>
+                            <button onclick="deleteExpense('${exp.id}')"><i data-lucide="x" class="w-4 h-4 text-black"></i></button>
+                        </div>
                     </div>
                 `;
             });
@@ -1139,12 +1176,46 @@
             const checked = document.querySelectorAll('input[name="exp-sharer"]:checked');
             const splitWith = Array.from(checked).map(b => b.value);
             if(splitWith.length === 0) { showToast("⚠️ 請至少勾選一位分攤成員！"); return; }
-            state.expenses.push({
-                id: 'exp-'+Date.now(), description: document.getElementById('exp-description').value,
+            const editId = document.getElementById('exp-edit-id').value;
+            const data = {
+                description: document.getElementById('exp-description').value,
                 amount: parseFloat(document.getElementById('exp-amount').value), currency: document.getElementById('exp-currency').value,
                 payer: document.getElementById('exp-payer').value, splitWith
-            });
-            saveToLocalStorage(); document.getElementById('expense-form').reset(); renderExpensesTab();
+            };
+            if (editId) {
+                const idx = state.expenses.findIndex(x => x.id === editId);
+                if (idx !== -1) state.expenses[idx] = { ...state.expenses[idx], ...data };
+                showToast("✏️ 支出明細已更新！");
+            } else {
+                state.expenses.push({ id: 'exp-'+Date.now(), settled: false, ...data });
+                showToast("💰 支出已記錄！");
+            }
+            saveToLocalStorage(); cancelEditExpense(); renderExpensesTab();
+        };
+
+        window.editExpense = function(id) {
+            const exp = state.expenses.find(x => x.id === id); if (!exp) return;
+            document.getElementById('exp-edit-id').value = exp.id;
+            document.getElementById('exp-description').value = exp.description;
+            document.getElementById('exp-amount').value = exp.amount;
+            document.getElementById('exp-currency').value = exp.currency;
+            document.getElementById('exp-payer').value = exp.payer;
+            document.querySelectorAll('input[name="exp-sharer"]').forEach(cb => { cb.checked = exp.splitWith.includes(cb.value); });
+            document.getElementById('exp-submit-btn-text').innerText = '儲存編輯';
+            document.getElementById('exp-cancel-edit-btn').classList.remove('hidden');
+            document.getElementById('expense-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        };
+
+        window.cancelEditExpense = function() {
+            document.getElementById('expense-form').reset();
+            document.getElementById('exp-edit-id').value = '';
+            document.getElementById('exp-submit-btn-text').innerText = '記錄這筆支出';
+            document.getElementById('exp-cancel-edit-btn').classList.add('hidden');
+        };
+
+        window.toggleExpenseSettled = function(id) {
+            const exp = state.expenses.find(x => x.id === id);
+            if (exp) { exp.settled = !exp.settled; saveToLocalStorage(); renderExpenseList(); }
         };
 
         window.deleteExpense = function(id) { state.expenses = state.expenses.filter(e=>e.id!==id); saveToLocalStorage(); renderExpensesTab(); };
@@ -1163,17 +1234,25 @@
             let i=0, j=0;
             while(i < debts.length && j < creds.length) {
                 let pay = Math.min(-debts[i].bal, creds[j].bal);
-                list.innerHTML += `<div class="bg-slate-50 border-4 border-black p-3 flex justify-between items-center text-xs font-bold"><div><span class="text-rose-500">${debts[i].name}</span> ➔ <span class="text-emerald-600">${creds[j].name}</span></div><span class="font-pixel text-[9px]">${formatMoney(pay, state.baseCurrency)}</span></div>`;
+                list.innerHTML += `<div class="bg-slate-50 border-4 border-black p-3 flex justify-between items-center text-[14px] font-bold"><div><span class="text-rose-500">${debts[i].name}</span> ➔ <span class="text-emerald-600">${creds[j].name}</span></div><span class="font-pixel text-[11px]">${formatMoney(pay, state.baseCurrency)}</span></div>`;
                 debts[i].bal += pay; creds[j].bal -= pay; if(Math.abs(debts[i].bal)<0.1) i++; if(Math.abs(creds[j].bal)<0.1) j++;
             }
-            if(list.innerHTML === '') list.innerHTML = '<p class="text-center text-xs text-slate-400">🎉 目前所有帳目完全平分相抵！</p>';
+            if(list.innerHTML === '') list.innerHTML = '<p class="text-center text-[14px] text-slate-400">🎉 目前所有帳目完全平分相抵！</p>';
         }
 
         // ==================== TAB 3: COMPANIONS ====================
         function renderCompanionsTab() {
             const container = document.getElementById('companions-list-container'); container.innerHTML = '';
-            state.companions.forEach(c => {
-                container.innerHTML += `<div class="flex justify-between items-center bg-white p-3 border-4 border-black shadow-[2px_2px_0_0_#000] font-bold text-sm"><span>${c}</span><button onclick="removeCompanion('${c}')"><i data-lucide="user-minus" class="w-4 h-4 text-black"></i></button></div>`;
+            state.companions.forEach((c, index) => {
+                const isFirst = index === 0, isLast = index === state.companions.length - 1;
+                container.innerHTML += `<div class="flex justify-between items-center bg-white p-3 border-4 border-black shadow-[2px_2px_0_0_#000] font-bold text-[16px]">
+                    <span class="truncate">${c}</span>
+                    <div class="flex items-center gap-1 shrink-0">
+                        <button onclick="moveCompanionUp(${index})" class="p-1" ${isFirst?'disabled style="opacity:0.2"':''}><i data-lucide="chevron-up" class="w-4 h-4 text-black"></i></button>
+                        <button onclick="moveCompanionDown(${index})" class="p-1" ${isLast?'disabled style="opacity:0.2"':''}><i data-lucide="chevron-down" class="w-4 h-4 text-black"></i></button>
+                        <button onclick="removeCompanion('${c}')" class="p-1"><i data-lucide="user-minus" class="w-4 h-4 text-black"></i></button>
+                    </div>
+                </div>`;
             });
             document.getElementById('base-currency-select').value = state.baseCurrency; lucide.createIcons();
         }
@@ -1185,6 +1264,16 @@
         window.removeCompanion = function(name) {
             if(state.companions.length<=1) return;
             customConfirm(`移出旅伴 ${name} 嗎？`, () => { state.companions = state.companions.filter(c=>c!==name); saveToLocalStorage(); renderCompanionsTab(); });
+        };
+        window.moveCompanionUp = function(index) {
+            if (index <= 0) return;
+            [state.companions[index - 1], state.companions[index]] = [state.companions[index], state.companions[index - 1]];
+            saveToLocalStorage(); renderCompanionsTab();
+        };
+        window.moveCompanionDown = function(index) {
+            if (index >= state.companions.length - 1) return;
+            [state.companions[index + 1], state.companions[index]] = [state.companions[index], state.companions[index + 1]];
+            saveToLocalStorage(); renderCompanionsTab();
         };
         window.changeBaseCurrency = function(val) { state.baseCurrency = val; saveToLocalStorage(); renderExpensesTab(); };
         window.confirmResetAllDataWithConfirm = function() { customConfirm("確定要清空全部數據並重置 kiduwe 嗎？", () => { localStorage.clear(); location.reload(); }); };
@@ -1202,7 +1291,7 @@
             for(let cat in groups) {
                 let itemsHtml = '';
                 groups[cat].forEach(i => {
-                    itemsHtml += `<div class="flex justify-between items-center text-sm font-bold"><label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" onchange="toggleChecklistItem('${i.id}')" ${i.done?'checked':''} class="w-5 h-5 border-4 border-black rounded-none"><span class="${i.done?'line-through text-slate-400':''}">${i.text}</span></label><button onclick="deleteChecklistItem('${i.id}')"><i data-lucide="trash-2" class="w-4 h-4 text-black"></i></button></div>`;
+                    itemsHtml += `<div class="flex justify-between items-center text-[16px] font-bold"><label class="flex items-center space-x-2 cursor-pointer"><input type="checkbox" onchange="toggleChecklistItem('${i.id}')" ${i.done?'checked':''} class="w-5 h-5 border-4 border-black rounded-none"><span class="${i.done?'line-through text-slate-400':''}">${i.text}</span></label><button onclick="deleteChecklistItem('${i.id}')"><i data-lucide="trash-2" class="w-4 h-4 text-black"></i></button></div>`;
                 });
                 container.innerHTML += `<div class="bg-white border-4 border-black p-4 shadow-[2px_2px_0_0_#000]"><h4 class="font-black border-b-2 border-dashed border-black pb-1 mb-2">${cat}</h4><div class="space-y-2">${itemsHtml}</div></div>`;
             }
@@ -1231,7 +1320,7 @@
             document.getElementById('sync-badge-dot').className = `w-2.5 h-2.5 border-2 border-black inline-block shadow ${active?'bg-green-400 pixel-blink-slow':'bg-slate-400'}`;
             document.getElementById('sync-badge-text').innerText = active ? state.syncRoomId : 'OFFLINE';
             document.getElementById('modal-sync-indicator').innerText = active ? 'ONLINE' : 'STANDBY';
-            document.getElementById('modal-sync-indicator').className = `font-pixel text-[8px] border border-black px-1.5 py-0.5 font-bold ${active?'bg-green-400 text-black':'bg-slate-200'}`;
+            document.getElementById('modal-sync-indicator').className = `font-pixel text-[10px] border border-black px-1.5 py-0.5 font-bold ${active?'bg-green-400 text-black':'bg-slate-200'}`;
             document.getElementById('sync-setup-panel').classList.toggle('hidden', active);
             document.getElementById('sync-active-panel').classList.toggle('hidden', !active);
             document.getElementById('sync-room-code-display').innerText = active ? state.syncRoomId : '------';
@@ -1339,6 +1428,7 @@
         window.handleCoverFileSelected = handleCoverFileSelected;
 
         window.onload = async function() {
+            populateTimeSelects();
             loadFromLocalStorage(); renderAll(); lucide.createIcons();
             await initFirebase();
             if (state.syncRoomId && state.isSyncEnabled) { startFirestoreSync(state.syncRoomId); updateCloudSyncUI(); }
