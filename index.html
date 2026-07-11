@@ -323,7 +323,10 @@
                             <select id="exp-payer" class="w-full text-[16px] border-4 border-black px-3 py-2 outline-none focus:bg-amber-50 font-bold"></select>
                         </div>
                         <div>
-                            <label class="block text-[14px] font-bold text-slate-600 mb-1">分攤隊員（可複選）</label>
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="block text-[14px] font-bold text-slate-600">分攤隊員（可複選）</label>
+                                <button type="button" onclick="toggleAllExpSharers()" class="text-[13px] font-bold text-blue-600 hover:underline">全選 / 取消全選</button>
+                            </div>
                             <div class="border-4 border-black p-3 max-h-36 overflow-y-auto space-y-2 bg-slate-50" id="exp-sharers-container"></div>
                         </div>
                         <div class="flex gap-2">
@@ -1090,7 +1093,8 @@
             }
             if(id) { const idx = day.itinerary.findIndex(i=>i.id===id); if(idx!==-1) day.itinerary[idx] = data; }
             else day.itinerary.push(data);
-            
+            day.itinerary.sort((a, b) => a.time.localeCompare(b.time));
+
             closeItineraryModal(); renderTimeline(); saveToLocalStorage(); showToast("⚡ 卡片已瞬間保存並同步！");
             
             if (data.address) {
@@ -1189,6 +1193,12 @@
             });
             lucide.createIcons();
         }
+
+        window.toggleAllExpSharers = function() {
+            const boxes = document.querySelectorAll('input[name="exp-sharer"]');
+            const allChecked = Array.from(boxes).every(cb => cb.checked);
+            boxes.forEach(cb => { cb.checked = !allChecked; });
+        };
 
         window.handleNewExpenseSubmit = function(e) {
             e.preventDefault();
